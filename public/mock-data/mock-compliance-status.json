@@ -1,72 +1,86 @@
 {
   "ok": true,
   "message": "Compliance items successfully retrieved",
-  "data": {
-    "reports": [
-      { "Annual Financial Report": false },
-      { "Quarterly Tax Report": true },
-      { "Environmental Compliance Report": false },
-      { "HR Incident Summary": true },
-      { "Safety Audit Report": false },
-      { "Supplier Risk Analysis": true },
-      { "Marketing Performance Review": false },
-      { "Board Meeting Minutes": true },
-      { "IT System Security Audit": false },
-      { "Product Launch Debrief": true }
-    ],
-    "documents": [
-      { "Invoice Supporting Doc 1": false },
-      { "Invoice Supporting Doc 2": true },
-      { "Employee Handbook Updates": false },
-      { "Business Insurance Certificate": true },
-      { "Updated Organizational Chart": false },
-      { "Proof of Compliance for Vendor A": true },
-      { "Training Attendance Records": false },
-      { "Equipment Maintenance Logs": true },
-      { "GDPR Compliance Records": false },
-      { "Latest Budget Allocation Sheet": true }
-    ],
-    "deadlines": [
-      {
-        "Complete Annual Tax Filing": false,
-        "dueDate": "2025-01-31"
-      },
-      {
-        "Apply for License Renewal": true,
-        "dueDate": "2025-02-15"
-      },
-      {
-        "Submit Vendor Onboarding Forms": false,
-        "dueDate": "2025-03-10"
-      },
-      {
-        "Complete Facility Safety Inspection": true,
-        "dueDate": "2025-04-01"
-      },
-      {
-        "Submit IT Security Assessment": false,
-        "dueDate": "2025-04-15"
-      },
-      {
-        "File Annual Shareholder Report": true,
-        "dueDate": "2025-05-01"
-      },
-      {
-        "Apply for Industry Compliance Audit": false,
-        "dueDate": "2025-05-20"
-      },
-      {
-        "Update Health & Safety Training Logs": true,
-        "dueDate": "2025-06-01"
-      },
-      {
-        "Submit Marketing Plan for Q3": false,
-        "dueDate": "2025-06-15"
-      },
-      {
-        "Complete Annual Data Privacy Review": true,
-        "dueDate": "2025-07-01"
-      }
-    ]
-  }
+  "data": [
+    { "category": "report", "key": "Annual Financial Report", "value": false },
+    { "category": "report", "key": "Quarterly Tax Report", "value": true },
+    { "category": "report", "key": "Environmental Compliance Report", "value": false },
+    { "category": "report", "key": "HR Incident Summary", "value": true },
+    { "category": "report", "key": "Safety Audit Report", "value": false },
+    { "category": "report", "key": "Supplier Risk Analysis", "value": true },
+    { "category": "report", "key": "Marketing Performance Review", "value": false },
+    { "category": "report", "key": "Board Meeting Minutes", "value": true },
+    { "category": "report", "key": "IT System Security Audit", "value": false },
+    { "category": "report", "key": "Product Launch Debrief", "value": true },
+    { "category": "document", "key": "Invoice Supporting Doc 1", "value": false },
+    { "category": "document", "key": "Invoice Supporting Doc 2", "value": true },
+    { "category": "document", "key": "Employee Handbook Updates", "value": false },
+    { "category": "document", "key": "Business Insurance Certificate", "value": true },
+    { "category": "document", "key": "Updated Organizational Chart", "value": false },
+    { "category": "document", "key": "Proof of Compliance for Vendor A", "value": true },
+    { "category": "document", "key": "Training Attendance Records", "value": false },
+    { "category": "document", "key": "Equipment Maintenance Logs", "value": true },
+    { "category": "document", "key": "GDPR Compliance Records", "value": false },
+    { "category": "document", "key": "Latest Budget Allocation Sheet", "value": true },
+    {
+      "category": "deadline",
+      "key": "Complete Annual Tax Filing",
+      "value": false,
+      "dueDate": "2025-01-31"
+    },
+    {
+      "category": "deadline",
+      "key": "Apply for License Renewal",
+      "value": true,
+      "dueDate": "2025-02-15"
+    },
+    {
+      "category": "deadline",
+      "key": "Submit Vendor Onboarding Forms",
+      "value": false,
+      "dueDate": "2025-03-10"
+    },
+    {
+      "category": "deadline",
+      "key": "Complete Facility Safety Inspection",
+      "value": true,
+      "dueDate": "2025-04-01"
+    },
+    {
+      "category": "deadline",
+      "key": "Submit IT Security Assessment",
+      "value": false,
+      "dueDate": "2025-04-15"
+    },
+    {
+      "category": "deadline",
+      "key": "File Annual Shareholder Report",
+      "value": true,
+      "dueDate": "2025-05-01"
+    },
+    {
+      "category": "deadline",
+      "key": "Apply for Industry Compliance Audit",
+      "value": false,
+      "dueDate": "2025-05-20"
+    },
+    {
+      "category": "deadline",
+      "key": "Update Health & Safety Training Logs",
+      "value": true,
+      "dueDate": "2025-06-01"
+    },
+    {
+      "category": "deadline",
+      "key": "Submit Marketing Plan for Q3",
+      "value": false,
+      "dueDate": "2025-06-15"
+    },
+    {
+      "category": "deadline",
+      "key": "Complete Annual Data Privacy Review",
+      "value": true,
+      "dueDate": "2025-07-01"
+    }
+  ]
 }

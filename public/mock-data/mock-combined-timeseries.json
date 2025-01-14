@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "message": "Data successfully retrieved",
+  "message": "Combined timelines successfully retrieved",
   "data": [
     { "date": "2021-12", "revenue": 12345.67, "issuedInvoices": 123, "activeUsers": 4567 },
     { "date": "2022-01", "revenue": 8765.43, "issuedInvoices": 98, "activeUsers": 3210 },

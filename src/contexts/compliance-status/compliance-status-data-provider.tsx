@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { CombinedTimelinesContextProvider } from "./combined-timelines-context-provider";
+import { ComplianceStatusContextProvider } from "./compliance-status-context-provider";
 import { FetchedDataContextType } from "../../types/global-types";
 import { ParentComponentMinimalProps } from "../../types/global-types";
-import { fetchCombinedTimeseries  } from "../../services/api/api-services";
+import { fetchComplianceStatus } from "../../services/api/api-services";
 
-const CombinedTimelinesDataProvider = ({ children }: ParentComponentMinimalProps) => {
+const ComplianceStatusDataProvider = ({ children }: ParentComponentMinimalProps) => {
   const [contextValue, setContextValue] = useState<FetchedDataContextType>({
     data: [],
     hasErrors: false,
@@ -12,10 +12,10 @@ const CombinedTimelinesDataProvider = ({ children }: ParentComponentMinimalProps
   });
 
   useEffect(() => {
-    const getCombinedTimeseries = async () => {
+    const getComplianceStatus = async () => {
       setContextValue({ ...contextValue, isLoading: true, hasErrors: false });
       try {
-        const fetchedData = await fetchCombinedTimeseries();
+        const fetchedData = await fetchComplianceStatus();
         setContextValue({ data: fetchedData, isLoading: false, hasErrors: false });
       } catch (error: unknown) {
         setContextValue({ data: [], isLoading: false, hasErrors: true });
@@ -29,14 +29,14 @@ const CombinedTimelinesDataProvider = ({ children }: ParentComponentMinimalProps
       }
     };
 
-    getCombinedTimeseries();
+    getComplianceStatus();
   }, []);
 
   return (
-    <CombinedTimelinesContextProvider value={contextValue}>
+    <ComplianceStatusContextProvider value={contextValue}>
       {children}
-    </CombinedTimelinesContextProvider>
+    </ComplianceStatusContextProvider>
   );
 };
 
-export default CombinedTimelinesDataProvider;
+export default ComplianceStatusDataProvider;

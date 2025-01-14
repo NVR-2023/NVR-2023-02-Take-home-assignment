@@ -6,7 +6,7 @@ import Dashboard from "./ui/pages/dashboard";
 import ComplianceTracker from "./ui/pages/compliance-tracker";
 import Invoicer from "./ui/pages/invoicer";
 
-import PrivateLayout from "./ui/layours/private-layout";
+import PrivateLayout from "./ui/layouts/private-layout";
 import { RouteGroupType } from "./types/global-types";
 
 function App() {
