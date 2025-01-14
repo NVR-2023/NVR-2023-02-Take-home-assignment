@@ -30,4 +30,4 @@ export type FetchedDataContextProviderProps = {
 
 export type ParentComponentMinimalProps = {
   children: ReactNode;
-}
+};

@@ -2,9 +2,10 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Homepage from "./ui/pages/homepage";
-import ComplianceTracker from "./ui/pages/compliance-tracker";
 import Dashboard from "./ui/pages/dashboard";
+import ComplianceTracker from "./ui/pages/compliance-tracker";
 import Invoicer from "./ui/pages/invoicer";
+
 import PrivateLayout from "./ui/layours/private-layout";
 import { RouteGroupType } from "./types/global-types";
 
