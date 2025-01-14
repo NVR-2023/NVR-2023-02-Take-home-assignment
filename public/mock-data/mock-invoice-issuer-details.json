@@ -3,7 +3,7 @@
   "message": "Issuer details successfully retrieved",
   "data": {
     "issuer": {
-      "name": "Soluções Tecnológicas",
+      "name": "TechBilling",
       "address": {
         "street": "Praça Duque de Saldanha",
         "buildingNumber": "20",

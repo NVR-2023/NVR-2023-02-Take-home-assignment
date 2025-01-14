@@ -12,3 +12,8 @@ export type RouteGroupType = {
   layout: ReactNode;
   routeGroup: RoutesGroupType;
 };
+
+export type FetchDataType = {
+  url: string;
+  mockLatency?: number;
+};

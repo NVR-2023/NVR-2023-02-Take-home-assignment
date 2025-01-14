@@ -1,0 +1,282 @@
+{
+  "ok": true,
+  "message": "Issuer details successfully retrieved",
+  "data": [
+    {
+      "name": "GlobalTech Solutions",
+      "address": {
+        "street": "5th Avenue",
+        "buildingNumber": "101",
+        "floor": "3rd Floor",
+        "city": "New York",
+        "postalCode": "10001",
+        "country": "USA"
+      },
+      "vatNumber": "US123456789"
+    },
+    {
+      "name": "DataScape Ltd.",
+      "address": {
+        "street": "Piccadilly Road",
+        "buildingNumber": "220",
+        "floor": "2nd Floor",
+        "city": "London",
+        "postalCode": "W1J 0BD",
+        "country": "UK"
+      },
+      "vatNumber": "GB987654321"
+    },
+    {
+      "name": "FinCon GmbH",
+      "address": {
+        "street": "Königsallee",
+        "buildingNumber": "34",
+        "floor": "2nd Floor",
+        "city": "Berlin",
+        "postalCode": "10115",
+        "country": "Germany"
+      },
+      "vatNumber": "DE876543210"
+    },
+    {
+      "name": "TechBridge Solutions",
+      "address": {
+        "street": "Avenida da Liberdade",
+        "buildingNumber": "54",
+        "floor": "1º Andar",
+        "city": "Lisboa",
+        "postalCode": "1250-152",
+        "country": "Portugal"
+      },
+      "vatNumber": "512345678"
+    },
+    {
+      "name": "SmartSolutions Ltd.",
+      "address": {
+        "street": "Rua do Alecrim",
+        "buildingNumber": "76",
+        "floor": "3º Andar",
+        "city": "Lisboa",
+        "postalCode": "1200-023",
+        "country": "Portugal"
+      },
+      "vatNumber": "523456789"
+    },
+    {
+      "name": "DataFusion Inc.",
+      "address": {
+        "street": "Main Street",
+        "buildingNumber": "42",
+        "floor": "4º Andar",
+        "city": "San Francisco",
+        "postalCode": "94105",
+        "country": "USA"
+      },
+      "vatNumber": "US543216789"
+    },
+    {
+      "name": "CloudNova",
+      "address": {
+        "street": "Calle de la Princesa",
+        "buildingNumber": "123",
+        "floor": "5º Andar",
+        "city": "Madrid",
+        "postalCode": "28008",
+        "country": "Spain"
+      },
+      "vatNumber": "123789456"
+    },
+    {
+      "name": "Innovative Insights",
+      "address": {
+        "street": "Avenida Paulista",
+        "buildingNumber": "200",
+        "floor": "3º Andar",
+        "city": "São Paulo",
+        "postalCode": "01310-000",
+        "country": "Brazil"
+      },
+      "vatNumber": "456321987"
+    },
+    {
+      "name": "NextGen Enterprises",
+      "address": {
+        "street": "Av. 9 de Julio",
+        "buildingNumber": "350",
+        "floor": "4º Andar",
+        "city": "Buenos Aires",
+        "postalCode": "C1073AAX",
+        "country": "Argentina"
+      },
+      "vatNumber": "123654789"
+    },
+    {
+      "name": "TecoCo",
+      "address": {
+        "street": "Rua das Janelas Verdes",
+        "buildingNumber": "40",
+        "floor": "2º Andar",
+        "city": "Lisboa",
+        "postalCode": "1200-543",
+        "country": "Portugal"
+      },
+      "vatNumber": "531234567"
+    },
+    {
+      "name": "Bright Future Ltd.",
+      "address": {
+        "street": "Rua do Conde Redondo",
+        "buildingNumber": "54",
+        "floor": "3º Andar",
+        "city": "Lisboa",
+        "postalCode": "1150-081",
+        "country": "Portugal"
+      },
+      "vatNumber": "523456123"
+    },
+    {
+      "name": "Innovation Partners",
+      "address": {
+        "street": "Avenida da República",
+        "buildingNumber": "70",
+        "floor": "1º Andar",
+        "city": "Lisboa",
+        "postalCode": "1050-179",
+        "country": "Portugal"
+      },
+      "vatNumber": "511234567"
+    },
+    {
+      "name": "FinTech Systems",
+      "address": {
+        "street": "Rua de São Bento",
+        "buildingNumber": "80",
+        "floor": "2º Andar",
+        "city": "Lisboa",
+        "postalCode": "1200-810",
+        "country": "Portugal"
+      },
+      "vatNumber": "513456789"
+    },
+    {
+      "name": "TechWorks Ltd.",
+      "address": {
+        "street": "Rua da Prata",
+        "buildingNumber": "100",
+        "floor": "4º Andar",
+        "city": "Lisboa",
+        "postalCode": "1100-415",
+        "country": "Portugal"
+      },
+      "vatNumber": "529876543"
+    },
+    {
+      "name": "Digital Horizon",
+      "address": {
+        "street": "Rua da Misericórdia",
+        "buildingNumber": "25",
+        "floor": "1º Andar",
+        "city": "Lisboa",
+        "postalCode": "1200-347",
+        "country": "Portugal"
+      },
+      "vatNumber": "512345987"
+    },
+    {
+      "name": "SustainTech",
+      "address": {
+        "street": "Rua de São José",
+        "buildingNumber": "12",
+        "floor": "3º Andar",
+        "city": "Lisboa",
+        "postalCode": "1150-162",
+        "country": "Portugal"
+      },
+      "vatNumber": "522345876"
+    },
+    {
+      "name": "WaveTech",
+      "address": {
+        "street": "Rua do Carmo",
+        "buildingNumber": "15",
+        "floor": "2º Andar",
+        "city": "Lisboa",
+        "postalCode": "1200-094",
+        "country": "Portugal"
+      },
+      "vatNumber": "534567890"
+    },
+    {
+      "name": "NextTech Solutions",
+      "address": {
+        "street": "Avenida João XXI",
+        "buildingNumber": "150",
+        "floor": "3º Andar",
+        "city": "Lisboa",
+        "postalCode": "1000-288",
+        "country": "Portugal"
+      },
+      "vatNumber": "535678912"
+    },
+    {
+      "name": "TechWave",
+      "address": {
+        "street": "Rua da Conceição",
+        "buildingNumber": "58",
+        "floor": "1º Andar",
+        "city": "Lisboa",
+        "postalCode": "1100-153",
+        "country": "Portugal"
+      },
+      "vatNumber": "515432109"
+    },
+    {
+      "name": "Vanguard Systems",
+      "address": {
+        "street": "Rua de Santa Marta",
+        "buildingNumber": "6",
+        "floor": "4º Andar",
+        "city": "Lisboa",
+        "postalCode": "1150-289",
+        "country": "Portugal"
+      },
+      "vatNumber": "527654321"
+    },
+    {
+      "name": "UrbanTech",
+      "address": {
+        "street": "Rua do Carmo",
+        "buildingNumber": "90",
+        "floor": "2º Andar",
+        "city": "Lisboa",
+        "postalCode": "1200-187",
+        "country": "Portugal"
+      },
+      "vatNumber": "539876543"
+    },
+    {
+      "name": "Global Enterprises",
+      "address": {
+        "street": "Rua dos Três Irmãos",
+        "buildingNumber": "100",
+        "floor": "3º Andar",
+        "city": "Lisboa",
+        "postalCode": "1000-209",
+        "country": "Portugal"
+      },
+      "vatNumber": "515678912"
+    },
+    {
+      "name": "CyberTech",
+      "address": {
+        "street": "Rua de São João",
+        "buildingNumber": "35",
+        "floor": "1º Andar",
+        "city": "Lisboa",
+        "postalCode": "1100-011",
+        "country": "Portugal"
+      },
+      "vatNumber": "512345432"
+    }
+  ]
+}
