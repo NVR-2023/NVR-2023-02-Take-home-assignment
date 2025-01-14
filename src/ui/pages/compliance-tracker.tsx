@@ -1,7 +1,7 @@
 import ComplianceStatusDataProvider from "../../contexts/compliance-status/compliance-status-data-provider";
 import { useComplianceStatusContext } from "../../custom-hooks/use-compliance-status";
-
-import UIContextChecker from "../components/common/ui-context-checker";
+import { ComplianceTrackerUIContextProvider } from "../../contexts/compliance-tracker-ui/compliance-tracker-ui-context-provider";
+import UIContextChecker2 from "../components/common/ui-context-checker-2";
 
 const ComplianceTracker = () => {
   const { data, isLoading, hasErrors } = useComplianceStatusContext();
@@ -13,14 +13,16 @@ const ComplianceTracker = () => {
       <h1>Compliance</h1>
       <p>Data:</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
-      <UIContextChecker />
+      <UIContextChecker2/>
     </div>
   );
 };
 
 const DashboardWithDataAndUIContext = () => (
   <ComplianceStatusDataProvider>
-    <ComplianceTracker />
+    <ComplianceTrackerUIContextProvider>
+      <ComplianceTracker />
+    </ComplianceTrackerUIContextProvider>
   </ComplianceStatusDataProvider>
 );
 
