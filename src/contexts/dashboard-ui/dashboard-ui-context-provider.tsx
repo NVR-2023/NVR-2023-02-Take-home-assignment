@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { DashboardUIContext } from "./dashboard-ui-contex";
-import { ComplianceStatusUIContextType } from "../../types/global-types";
+import { DashboardUIContextType } from "../../types/global-types";
 
 export const DashboardUIContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [dashboardUIContext, setDashboardUIContext] = useState<
-    ComplianceStatusUIContextType["ComplianceStatusUIContext"]
+    DashboardUIContextType["DashboardUIContext"]
   >({
     startDate: "",
     endDate: "",
@@ -17,7 +17,7 @@ export const DashboardUIContextProvider = ({ children }: { children: React.React
 
   return (
     <DashboardUIContext.Provider
-      value={{ ComplianceStatusUIContext: dashboardUIContext, setDashboardUIContext }}>
+      value={{ DashboardUIContext: dashboardUIContext, setDashboardUIContext }}>
       {children}
     </DashboardUIContext.Provider>
   );
