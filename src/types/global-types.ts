@@ -9,5 +9,6 @@ export type RoutesGroupType = RouteType[];
 
 export type RouteGroupType = {
   prefix: string;
+  layout: ReactNode;
   routeGroup: RoutesGroupType;
 };

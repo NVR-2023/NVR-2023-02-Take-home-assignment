@@ -2,28 +2,28 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Homepage from "./ui/pages/homepage";
-import Compliance from "./ui/pages/compliance";
+import ComplianceTracker from "./ui/pages/compliance-tracker";
 import Dashboard from "./ui/pages/dashboard";
-import Invoice from "./ui/pages/invoice";
+import Invoicer from "./ui/pages/invoicer";
 import PrivateLayout from "./ui/layours/private-layout";
 import { RouteGroupType } from "./types/global-types";
 
 function App() {
   const PRIVATE_ROUTE_GROUP: RouteGroupType = {
     prefix: "Private/",
+    layout: <PrivateLayout />,
     routeGroup: [
       {
-        path: "dashboard",
+        path: "admin/dashboard",
         page: <Dashboard />,
       },
       {
-        path: "compliance",
-        page: <Compliance />,
+        path: "features/compliance-tracker",
+        page: <ComplianceTracker />,
       },
-
       {
-        path: "invoice",
-        page: <Invoice />,
+        path: "features/invoicer",
+        page: <Invoicer />,
       },
     ],
   } as const;
@@ -32,15 +32,17 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<Homepage />} />
-        <Route element={<PrivateLayout />}>
-          {PRIVATE_ROUTE_GROUP.routeGroup.map((route, index) => (
-            <Route
-              path={`/${PRIVATE_ROUTE_GROUP.prefix}${route.path}`}
-              element={route.page}
-              key={index}
-            />
-          ))}
-        </Route>
+        {
+          <Route element={PRIVATE_ROUTE_GROUP.layout}>
+            {PRIVATE_ROUTE_GROUP.routeGroup.map((route, index) => (
+              <Route
+                path={`/${PRIVATE_ROUTE_GROUP.prefix}${route.path}`}
+                element={route.page}
+                key={index}
+              />
+            ))}
+          </Route>
+        }
       </Routes>
     </BrowserRouter>
   );
