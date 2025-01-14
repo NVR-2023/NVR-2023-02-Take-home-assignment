@@ -8,7 +8,7 @@
     { "date": "2022-03", "revenue": 5432.1, "issuedInvoices": 111, "activeUsers": 6789 },
     { "date": "2022-04", "revenue": 7654.32, "issuedInvoices": 189, "activeUsers": 5432 },
     { "date": "2022-05", "revenue": 6543.21, "issuedInvoices": 222, "activeUsers": 4321 },
-    { "date": "2022-06", "revenue": 4321.9, "issuedInvoices": 99, "activeUsers": 7654 },
+    { "date": "2022-06", "revenue": 4321.9, "issuedInvoices": 99, "activeUsers": 3654 },
     { "date": "2022-07", "revenue": 8765.43, "issuedInvoices": 134, "activeUsers": 3456 },
     { "date": "2022-08", "revenue": 5678.9, "issuedInvoices": 167, "activeUsers": 9876 },
     { "date": "2022-09", "revenue": 3456.78, "issuedInvoices": 200, "activeUsers": 2109 },
