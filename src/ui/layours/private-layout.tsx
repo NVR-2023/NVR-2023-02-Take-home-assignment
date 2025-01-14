@@ -9,6 +9,7 @@ const PrivateLayout = () => {
         <aside className="w-23 bg-red-400">
           <Sidebar />
         </aside>
+        <p>12333</p>
         <main className="flex-grow bg-purple-400">
           <Outlet />
         </main>
