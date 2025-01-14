@@ -4,6 +4,7 @@ import { fetchCombinedTimeseries } from "../../services/api/api-services";
 const Dashboard = () => {
   const [data, setData] = useState(null);
 
+
   useEffect(() => {
     const getCombinedTimeseries = async () => {
       try {

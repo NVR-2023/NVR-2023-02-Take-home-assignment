@@ -17,3 +17,17 @@ export type FetchDataType = {
   url: string;
   mockLatency?: number;
 };
+
+export type FetchedDataContextType = {
+  data: object[];
+  isLoading: boolean;
+  hasErrors: boolean;
+};
+export type FetchedDataContextProviderProps = {
+  value: FetchedDataContextType;
+  children: ReactNode;
+};
+
+export type ParentComponentMinimalProps = {
+  children: ReactNode;
+}
