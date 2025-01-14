@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "message": "Issuer details successfully retrieved",
+  "data": {
+    "issuer": {
+      "name": "Soluções Tecnológicas",
+      "address": {
+        "street": "Praça Duque de Saldanha",
+        "buildingNumber": "20",
+        "floor": "1º Esq.",
+        "city": "Lisboa",
+        "postalCode": "1050-094",
+        "country": "Portugal"
+      },
+      "vatNumber": "504123456"
+    }
+  }
+}
