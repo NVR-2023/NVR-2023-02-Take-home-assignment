@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CombinedTimelinesContext } from "../contextes/combined-timelines/combined-timelines-contetx";
+import { CombinedTimelinesContext } from "../contexts/combined-timelines/combined-timelines-contetx";
 
 export const useCombinedTimelinesContext = () => {
   const context = useContext(CombinedTimelinesContext);

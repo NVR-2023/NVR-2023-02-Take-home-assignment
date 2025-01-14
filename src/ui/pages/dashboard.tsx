@@ -1,4 +1,4 @@
-import CombinedTimelinesDataProvider from "../../contextes/combined-timelines/combined-timeliens-data-provider";
+import CombinedTimelinesDataProvider from "../../contexts/combined-timelines/combined-timeliens-data-provider";
 import { useCombinedTimelinesContext } from "../../custom-hooks/use-combined-timelines-context";
 
 const Dashboard = () => {
