@@ -1,5 +1,7 @@
 import CombinedTimelinesDataProvider from "../../contexts/combined-timelines/combined-timeliens-data-provider";
+import { DashboardUIContextProvider } from "../../contexts/dashboard-ui/dashboard-ui-context-provider";
 import { useCombinedTimelinesContext } from "../../custom-hooks/use-combined-timelines-context";
+import UIContextChecker from "../components/common/ui-context-checker";
 
 const Dashboard = () => {
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
@@ -11,14 +13,17 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <p>Data:</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
+      <UIContextChecker />
     </div>
   );
 };
 
-const DashboardWithDataContext = () => (
+const DashboardWithDataAndUIContext = () => (
   <CombinedTimelinesDataProvider>
-    <Dashboard />
+    <DashboardUIContextProvider>
+      <Dashboard />
+    </DashboardUIContextProvider>
   </CombinedTimelinesDataProvider>
 );
 
-export default DashboardWithDataContext;
+export default DashboardWithDataAndUIContext;

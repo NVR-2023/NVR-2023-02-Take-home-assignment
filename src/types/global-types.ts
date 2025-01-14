@@ -1,4 +1,4 @@
-import { ReactNode, ComponentType } from "react";
+import { ReactNode, ComponentType, Dispatch, SetStateAction } from "react";
 
 export type RouteType = {
   path: string;
@@ -34,6 +34,19 @@ export type ParentComponentMinimalProps = {
 
 export type WithDataAndUIContextsProps = {
   BaseComponent: ComponentType;
-  DataContext?: ComponentType<{ children?: ReactNode }>; 
-  UIContext?: ComponentType<{ children?: ReactNode }>; 
+  DataContext?: ComponentType<{ children?: ReactNode }>;
+  UIContext?: ComponentType<{ children?: ReactNode }>;
+};
+
+export type DashboardUIContextType = {
+  DashboardUIContext: {
+    startDate: string;
+    endDate: string;
+    isRevenueGraphVisible: boolean;
+    isInvoicesGraphVisible: boolean;
+    isUsersGraphVisible: boolean;
+    isDerivedCardVisible: boolean;
+    areGraphsCombined: boolean;
+  };
+  setDashboardUIContext: Dispatch<SetStateAction<DashboardUIContextType["DashboardUIContext"]>>;
 };
