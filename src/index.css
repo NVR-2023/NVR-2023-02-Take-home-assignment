@@ -18,27 +18,3 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
-/* @font-face {
-  font-family: "Urbanist";
-  src: url("./assets/fonts/Urbanist-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Urbanist";
-  src: url("./assets/fonts/Urbanist-Italic-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-}
-
-:root {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  font-family: "Urbanist", sans-serif;
-} */
