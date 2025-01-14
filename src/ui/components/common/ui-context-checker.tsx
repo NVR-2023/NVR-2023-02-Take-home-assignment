@@ -1,7 +1,8 @@
 import { useDashboardUIContext } from "../../../custom-hooks/use-dashboard-ui-context";
 
 const UIContextChecker = () => {
-  const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
+  const { ComplianceStatusUIContext: DashboardUIContext, setDashboardUIContext } =
+    useDashboardUIContext();
 
   const handleOnClick = () => {
     const updatedContext = {

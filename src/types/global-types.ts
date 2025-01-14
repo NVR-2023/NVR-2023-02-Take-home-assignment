@@ -50,3 +50,15 @@ export type DashboardUIContextType = {
   };
   setDashboardUIContext: Dispatch<SetStateAction<DashboardUIContextType["DashboardUIContext"]>>;
 };
+
+export type ComplianceStatusUIContextType = {
+  ComplianceStatusUIContext: {
+    areNodesVisible: boolean;
+    areLeafsVisible: boolean;
+    areCheckedVisible: boolean;
+    areUncheckedVisible: boolean;
+  };
+  setComplianceStatusUIContext: Dispatch<
+    SetStateAction<ComplianceStatusUIContextType["ComplianceStatusUIContext"]>
+  >;
+};
