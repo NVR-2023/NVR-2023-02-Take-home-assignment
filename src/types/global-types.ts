@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ComponentType } from "react";
 
 export type RouteType = {
   path: string;
@@ -29,5 +29,11 @@ export type FetchedDataContextProviderProps = {
 };
 
 export type ParentComponentMinimalProps = {
-  children: ReactNode;
+  children?: ReactNode;
+};
+
+export type WithDataAndUIContextsProps = {
+  BaseComponent: ComponentType;
+  DataContext?: ComponentType<{ children?: ReactNode }>; 
+  UIContext?: ComponentType<{ children?: ReactNode }>; 
 };

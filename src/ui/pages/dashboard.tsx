@@ -2,9 +2,7 @@ import CombinedTimelinesDataProvider from "../../contextes/combined-timelines/co
 import { useCombinedTimelinesContext } from "../../custom-hooks/use-combined-timelines-context";
 
 const Dashboard = () => {
-  // Use the custom hook here to access the context
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
-
   if (isLoading) return <p>123 Loading data...</p>;
   if (hasErrors) return <p>Error fetching data...</p>;
 
@@ -17,11 +15,10 @@ const Dashboard = () => {
   );
 };
 
-// Wrap Dashboard with CombinedTimelinesDataProvider in the parent component
-const DashboardWithData = () => (
+const DashboardWithDataContext = () => (
   <CombinedTimelinesDataProvider>
     <Dashboard />
   </CombinedTimelinesDataProvider>
 );
 
-export default DashboardWithData;
+export default DashboardWithDataContext;
