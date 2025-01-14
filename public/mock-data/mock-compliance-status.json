@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "message": "Compliance items successfully retrieved",
+  "data": {
+    "reports": [
+      { "Annual Financial Report": false },
+      { "Quarterly Tax Report": true },
+      { "Environmental Compliance Report": false },
+      { "HR Incident Summary": true },
+      { "Safety Audit Report": false },
+      { "Supplier Risk Analysis": true },
+      { "Marketing Performance Review": false },
+      { "Board Meeting Minutes": true },
+      { "IT System Security Audit": false },
+      { "Product Launch Debrief": true }
+    ],
+    "documents": [
+      { "Invoice Supporting Doc 1": false },
+      { "Invoice Supporting Doc 2": true },
+      { "Employee Handbook Updates": false },
+      { "Business Insurance Certificate": true },
+      { "Updated Organizational Chart": false },
+      { "Proof of Compliance for Vendor A": true },
+      { "Training Attendance Records": false },
+      { "Equipment Maintenance Logs": true },
+      { "GDPR Compliance Records": false },
+      { "Latest Budget Allocation Sheet": true }
+    ],
+    "deadlines": [
+      {
+        "Complete Annual Tax Filing": false,
+        "dueDate": "2025-01-31"
+      },
+      {
+        "Apply for License Renewal": true,
+        "dueDate": "2025-02-15"
+      },
+      {
+        "Submit Vendor Onboarding Forms": false,
+        "dueDate": "2025-03-10"
+      },
+      {
+        "Complete Facility Safety Inspection": true,
+        "dueDate": "2025-04-01"
+      },
+      {
+        "Submit IT Security Assessment": false,
+        "dueDate": "2025-04-15"
+      },
+      {
+        "File Annual Shareholder Report": true,
+        "dueDate": "2025-05-01"
+      },
+      {
+        "Apply for Industry Compliance Audit": false,
+        "dueDate": "2025-05-20"
+      },
+      {
+        "Update Health & Safety Training Logs": true,
+        "dueDate": "2025-06-01"
+      },
+      {
+        "Submit Marketing Plan for Q3": false,
+        "dueDate": "2025-06-15"
+      },
+      {
+        "Complete Annual Data Privacy Review": true,
+        "dueDate": "2025-07-01"
+      }
+    ]
+  }
+}
