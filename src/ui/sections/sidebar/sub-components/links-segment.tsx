@@ -8,12 +8,11 @@ const LinksSegment = () => {
   return (
     <div className="flex flex-col">
       <LinkWithHideableTag Icon={HomepageIcon} text="Homepage" url="/" />
+      <LinkWithHideableTag Icon={HomepageIcon} text="Dashboard" url="/dashboard" />
+      <LinkWithHideableTag Icon={HomepageIcon} text="Tracker" url="/" />
+      <LinkWithHideableTag Icon={InvoicerIcon} text="Invoicer" url="/invoicer" />
 
-      <HomepageIcon scale={0.75} color="#3f3f46" />
 
-      <DashboardIcon scale={0.75} color="#3f3f46" />
-      <ComplianceTrackerIcon scale={0.75} color="#3f3f46" />
-      <InvoicerIcon scale={0.75} color="#3f3f46" />
     </div>
   );
 };
