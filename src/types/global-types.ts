@@ -90,10 +90,12 @@ export type InvoiceFormContextType = {
     vatNumber: string;
   };
 
-  good: {
+  item: {
     name: string;
+    reference: string;
     quantity: number;
     unitaryPrice: number;
+    total: number;
   };
 
   invoice: {

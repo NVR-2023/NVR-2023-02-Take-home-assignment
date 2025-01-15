@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "message": "Products successfully fetched",
+  "data": [
+    {
+      "name": "Incredible Accessory",
+      "reference": "REF-3387",
+      "unitaryPrice": 76.86
+    },
+    {
+      "name": "Smart Device",
+      "reference": "REF-1143",
+      "unitaryPrice": 324.43
+    },
+    {
+      "name": "Durable Accessory",
+      "reference": "REF-2964",
+      "unitaryPrice": 113.23
+    },
+    {
+      "name": "Smart Gadget",
+      "reference": "REF-9891",
+      "unitaryPrice": 13.6
+    },
+    {
+      "name": "Smart Accessory",
+      "reference": "REF-8327",
+      "unitaryPrice": 21.64
+    },
+    {
+      "name": "Portable Accessory",
+      "reference": "REF-7947",
+      "unitaryPrice": 326.4
+    },
+    {
+      "name": "Amazing Accessory",
+      "reference": "REF-7759",
+      "unitaryPrice": 299.73
+    },
+    {
+      "name": "Smart Accessory",
+      "reference": "REF-9714",
+      "unitaryPrice": 439.41
+    },
+    {
+      "name": "Portable Gadget",
+      "reference": "REF-4895",
+      "unitaryPrice": 450.9
+    },
+    {
+      "name": "Smart Gadget",
+      "reference": "REF-8954",
+      "unitaryPrice": 72.28
+    }
+  ]
+}
