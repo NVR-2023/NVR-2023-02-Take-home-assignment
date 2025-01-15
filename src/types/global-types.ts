@@ -110,7 +110,7 @@ export type IconProps = {
 };
 
 export type LinkWithHideableTagProps = {
-  Icon: ElementType;
+  Icon: ComponentType<IconProps>;
   text: string;
   url: string;
 };
