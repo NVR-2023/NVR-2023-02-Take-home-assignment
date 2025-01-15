@@ -11,7 +11,7 @@ const Dashboard = () => {
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
 
   return (
-    <div className="bg-pink-400 rounded min-h-full h-full p-4 space-y-4">
+    <div className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2">
       <Toolbar />
       <ContentArea>
         <p>Data:</p>

@@ -103,3 +103,8 @@ export type InvoiceFormContextType = {
     reference: string;
   };
 };
+
+export type IconProps = {
+  scale?: number;
+  color?: string;
+};

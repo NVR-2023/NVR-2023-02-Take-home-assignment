@@ -6,7 +6,7 @@ import Footer from "../sections/footer/footer";
 const PrivateLayout = () => {
   return (
     <div className="private-layout overflow-x-hidden">
-      <div className="p-4 flex flex-col lg:flex-row gap-4 max-h-screen h-screen bg-yellow-400">
+      <div className="p-4 flex flex-col lg:flex-row gap-2 max-h-screen h-screen bg-zinc-100">
         <aside className="overflow-y-hidden hidden lg:block h-full" role="navigation">
           <Sidebar />
         </aside>
