@@ -1,10 +1,10 @@
-import LogoIcon from "../../components/icons/logo-icon";
+import TitleSegment from "./sub-components/title-segment";
 
 const Toolbar = () => {
   return (
-    <div className="w-full bg-zinc-300 rounded h-9 border-1 border-zinc-300">
+    <div className="w-full px-2 rounded h-9 bg-zinc-300 flex items-center justify-between">
       <span>
-        <LogoIcon scale={0.625} color={"#a1a1aa"} />
+        <TitleSegment title="Dashboard" />
       </span>
       <span>This is the toolbar</span>
     </div>
