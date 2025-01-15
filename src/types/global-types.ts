@@ -1,4 +1,4 @@
-import { ReactNode, ComponentType, Dispatch, SetStateAction, ElementType } from "react";
+import { ReactNode, ComponentType, Dispatch, SetStateAction } from "react";
 
 export type RouteType = {
   path: string;

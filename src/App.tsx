@@ -15,15 +15,15 @@ function App() {
     layout: <PrivateLayout />,
     routeGroup: [
       {
-        path: "admin/dashboard",
+        path: "dashboard",
         page: <Dashboard />,
       },
       {
-        path: "features/compliance-tracker",
+        path: "compliance-tracker",
         page: <ComplianceTracker />,
       },
       {
-        path: "features/invoicer",
+        path: "invoicer",
         page: <Invoicer />,
       },
     ],

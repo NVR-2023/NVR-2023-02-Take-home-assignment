@@ -4,9 +4,9 @@ const Homepage = () => {
   return (
     <div>
       Homepage
-      <Link to="/private/admin/dashboard">To Dashboard</Link>
-      <Link to="/private/features/compliance-tracker">To Compliance</Link>
-      <Link to="/private/features/invoicer">To Invoice</Link>
+      <Link to="/private/dashboard">To Dashboard</Link>
+      <Link to="/private/compliance-tracker">To Compliance</Link>
+      <Link to="/private/invoicer">To Invoice</Link>
      
       <p className="font-[100]"> Aa 123</p>
       <p className="font-[200]"> Aa 123</p>
