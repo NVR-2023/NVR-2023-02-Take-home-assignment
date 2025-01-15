@@ -7,12 +7,10 @@ const PrivateLayout = () => {
   return (
     <div className="private-layout overflow-x-hidden">
       <div className="p-4 flex flex-col lg:flex-row gap-4 max-h-screen h-screen bg-yellow-400">
-        <aside
-          className="border-4 border-blue-500 overflow-y-hidden hidden lg:block h-full"
-          role="navigation">
+        <aside className="overflow-y-hidden hidden lg:block h-full" role="navigation">
           <Sidebar />
         </aside>
-        <main className="border-4 border-blue-500 overflow-y-hidden flex-grow h-full" role="main">
+        <main className="overflow-y-hidden flex-grow h-full space-y-2" role="main">
           <div className="md:hidden" role="navigation">
             <MobileNavbar />
           </div>
