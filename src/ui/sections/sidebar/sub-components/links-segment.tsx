@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { useMemo, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import AccountIcon from "../../../components/icons/account-icon";
@@ -36,7 +38,10 @@ const LinksSegment = () => {
         return (
           <li key={index} className="relative flex items-center">
             {isActive && link.url !== "/" && (
-              <div className="absolute -left-1 top-0 h-full border-[1.5px] border-r-[#6868f6]" />
+              <motion.div
+                layoutId="currentPageIndicator"
+                className="absolute -left-1 top-0 h-full border-[1.5px] border-r-[#6868f6]"
+              />
             )}
             <LinkWithHideableTag Icon={link.Icon} text={link.text} url={link.url} />
           </li>
