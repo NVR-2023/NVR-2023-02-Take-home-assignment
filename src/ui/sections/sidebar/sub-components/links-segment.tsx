@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from "react";
-import AccountIcon from "../../../components/icons/account-icon";
 import { useLocation } from "react-router-dom";
+import AccountIcon from "../../../components/icons/account-icon";
 import HomepageIcon from "../../../components/icons/homepage-icon";
 import DashboardIcon from "../../../components/icons/dashboard-icon";
 import ComplianceTrackerIcon from "../../../components/icons/complaince-tarcker-icon";
