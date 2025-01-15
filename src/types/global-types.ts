@@ -62,3 +62,42 @@ export type ComplianceStatusUIContextType = {
     SetStateAction<ComplianceStatusUIContextType["ComplianceStatusUIContext"]>
   >;
 };
+
+export type InvoiceFormContextType = {
+  issuer: {
+    name: string;
+    address: {
+      street: string;
+      buildingNumber: string;
+      floor: string;
+      city: string;
+      postalCode: string;
+      country: string;
+    };
+    vatNumber: string;
+  };
+
+  client: {
+    name: string;
+    address: {
+      street: string;
+      buildingNumber: string;
+      floor: string;
+      city: string;
+      postalCode: string;
+      country: string;
+    };
+    vatNumber: string;
+  };
+
+  good: {
+    name: string;
+    quantity: number;
+    unitaryPrice: number;
+  };
+
+  invoice: {
+    date: string;
+    reference: string;
+  };
+};
