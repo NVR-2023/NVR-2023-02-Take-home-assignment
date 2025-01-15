@@ -4,16 +4,16 @@ import Footer from "../sections/footer/footer";
 
 const PrivateLayout = () => {
   return (
-    <div>
-      <div className="w-screen h-screen bg-zinc-400 flex">
-        <aside className="w-23 bg-red-400">
+    <div className="private-layout overflow-x-clip">
+      <div className="p-4 flex flex-col lg:flex-row gap-4 max-h-screen bg-yellow-400">
+        <aside className="overflow-y-hidden sm:hidden lg:block" role="navigation">
           <Sidebar />
         </aside>
-        <main className="flex-grow bg-purple-400">
+        <main className="overflow-y-hidden flex-grow" role="main">
           <Outlet />
         </main>
       </div>
-      <footer>
+      <footer className="w-screen" role="contentinfo">
         <Footer />
       </footer>
     </div>

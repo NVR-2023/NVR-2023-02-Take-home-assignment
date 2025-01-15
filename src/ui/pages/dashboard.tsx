@@ -9,7 +9,7 @@ const Dashboard = () => {
   if (hasErrors) return <p>Error fetching data...</p>;
 
   return (
-    <div>
+    <div className="bg-pink-400 rounded min-h-full h-full">
       <h1>Dashboard</h1>
       <p>Data:</p>
       <pre>{JSON.stringify(data, null, 2)}</pre>
