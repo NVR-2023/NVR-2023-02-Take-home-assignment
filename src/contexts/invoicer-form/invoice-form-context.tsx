@@ -30,7 +30,7 @@ export const InvoiceFormContext = createContext<{
       },
       vatNumber: "",
     },
-    item: {
+    product: {
       name: "",
       reference: "",
       quantity: 0,

@@ -28,7 +28,7 @@ export const InvoiceFormContextProvider = ({ children }: { children: React.React
       },
       vatNumber: "",
     },
-    item: {
+    product: {
       name: "",
       reference: "",
       quantity: 0,

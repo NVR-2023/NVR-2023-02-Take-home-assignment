@@ -3,7 +3,7 @@
   "message": "Products successfully fetched",
   "data": [
     {
-      "name": "Incredible Accessory",
+      "name": "Connector Accessory",
       "reference": "REF-3387",
       "unitaryPrice": 76.86
     },
@@ -13,7 +13,7 @@
       "unitaryPrice": 324.43
     },
     {
-      "name": "Durable Accessory",
+      "name": "Electrical Accessory",
       "reference": "REF-2964",
       "unitaryPrice": 113.23
     },
@@ -33,19 +33,19 @@
       "unitaryPrice": 326.4
     },
     {
-      "name": "Amazing Accessory",
+      "name": "Laptop",
       "reference": "REF-7759",
       "unitaryPrice": 299.73
     },
     {
-      "name": "Smart Accessory",
+      "name": "Power supply",
       "reference": "REF-9714",
       "unitaryPrice": 439.41
     },
     {
-      "name": "Portable Gadget",
+      "name": "USB hub",
       "reference": "REF-4895",
-      "unitaryPrice": 450.9
+      "unitaryPrice": 45.9
     },
     {
       "name": "Smart Gadget",

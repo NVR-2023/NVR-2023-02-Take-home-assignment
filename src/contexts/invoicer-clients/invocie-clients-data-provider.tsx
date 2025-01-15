@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { InvoiceClientsContextProvider } from "./invoice-clients-context-provider";
 import { FetchedDataContextType } from "../../types/global-types";
 import { ParentComponentMinimalProps } from "../../types/global-types";
-import { fetchClientsDetails } from "../../services/api/api-services";
+import { fetchProductsDetails } from "../../services/api/api-services";
 
 const InvoiceClientsDataProvider = ({ children }: ParentComponentMinimalProps) => {
   const [contextValue, setContextValue] = useState<FetchedDataContextType>({
@@ -15,7 +15,7 @@ const InvoiceClientsDataProvider = ({ children }: ParentComponentMinimalProps) =
     const getClientsDetails = async () => {
       setContextValue({ ...contextValue, isLoading: true, hasErrors: false });
       try {
-        const fetchedData = await fetchClientsDetails();
+        const fetchedData = await fetchProductsDetails();
         setContextValue({ data: fetchedData, isLoading: false, hasErrors: false });
       } catch (error: unknown) {
         setContextValue({ data: [], isLoading: false, hasErrors: true });

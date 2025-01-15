@@ -15,3 +15,7 @@ export const fetchIssuerDetails = async () => {
 export const fetchClientsDetails = async () => {
   return fetchData({ url: "/mock-data/mock-clients-details.json" });
 };
+
+export const fetchProductsDetails = async () => {
+  return fetchData({ url: "/mock-data/mock-products-details.json" });
+};
