@@ -4,9 +4,8 @@ const LogoIcon = ({ scale = 1, color = "currentColor" }: IconProps) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height={29 * scale}
-      viewBox="0 0 29 29"
       width={29 * scale}
-      fill="none">
+      viewBox="0 0 29 29">
       <path
         d="M29 14.5C29 22.5081 22.5081 29 14.5 29C6.49187 29 0 22.5081 0 14.5C0 6.49187 6.49187 0 14.5 0C22.5081 0 29 6.49187 29 14.5Z"
         fill={color}

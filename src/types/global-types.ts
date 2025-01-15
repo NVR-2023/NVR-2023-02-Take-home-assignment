@@ -1,4 +1,4 @@
-import { ReactNode, ComponentType, Dispatch, SetStateAction } from "react";
+import { ReactNode, ComponentType, Dispatch, SetStateAction, ElementType } from "react";
 
 export type RouteType = {
   path: string;
@@ -107,4 +107,10 @@ export type InvoiceFormContextType = {
 export type IconProps = {
   scale?: number;
   color?: string;
+};
+
+export type LinkWithHideableTagProps = {
+  Icon: ElementType;
+  text: string;
+  url: string;
 };
