@@ -4,11 +4,9 @@ import LogoIcon from "../../../components/icons/logo-icon";
 const TitleSegment = ({ title }: { title: string }) => {
   return (
     <div className="flex space-x-1">
-      <span>
+      <span className="hidden md:block transform translate-y-1">
         <Link to="/private/dashboard">
-          <span>
-            <LogoIcon scale={0.55} color={"#a1a1aa"} />
-          </span>
+          <LogoIcon scale={0.55} color={"#a1a1aa"} />
         </Link>
       </span>
       <span>
