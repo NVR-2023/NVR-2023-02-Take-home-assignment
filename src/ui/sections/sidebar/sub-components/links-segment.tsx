@@ -21,7 +21,7 @@ const LinksSegment = () => {
     []
   );
 
-  return <DesktopLinksSegment desktopLinks={links} splitAfter={4} />;
+  return <DesktopLinksSegment links={links} splitAfter={4} />;
 };
 
 export default LinksSegment;

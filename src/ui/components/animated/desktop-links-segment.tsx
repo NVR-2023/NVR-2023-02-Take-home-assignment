@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import LinkWithHideableTag from "../common/link-with-hideable-tag";
 import { LinksSegmentProps } from "../../../types/global-types";
 
-const DesktopLinksSegment = ({ desktopLinks, splitAfter }: LinksSegmentProps) => {
+const DesktopLinksSegment = ({ links: desktopLinks, splitAfter }: LinksSegmentProps) => {
   const location = useLocation();
   const currentUrl = location.pathname;
   const [activeLink, setActiveLink] = useState<string | null>(null);

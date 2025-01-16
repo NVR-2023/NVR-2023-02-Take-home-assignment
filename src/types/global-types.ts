@@ -122,6 +122,6 @@ export type LinkType = {
 };
 
 export type LinksSegmentProps = {
-  desktopLinks: LinkType[];
+  links: LinkType[];
   splitAfter?: number;
 };
