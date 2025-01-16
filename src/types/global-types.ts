@@ -114,3 +114,14 @@ export type LinkWithHideableTagProps = {
   text: string;
   url: string;
 };
+
+export type LinkType = {
+  Icon: ComponentType<IconProps>;
+  text?: string;
+  url: string;
+};
+
+export type LinksSegmentProps = {
+  desktopLinks: LinkType[];
+  splitAfter?: number;
+};
