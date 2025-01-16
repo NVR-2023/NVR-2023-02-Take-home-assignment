@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Homepage from "./ui/pages/homepage";
-import Dashboard from "./ui/pages/dashboard";
-import ComplianceTracker from "./ui/pages/compliance-tracker";
-import Invoicer from "./ui/pages/invoicer";
-import Settings from "./ui/pages/settings";
-import Account from "./ui/pages/account";
+import Homepage from "./ui/pages/homepage/homepage";
+import Dashboard from "./ui/pages/dashboard/dashboard"
+import ComplianceTracker from "./ui/pages/compliance-tracker/compliance-tracker"
+import Invoicer from "./ui/pages/invoicer/invoicer"
+import Settings from "./ui/pages/settings/settings";
+import Account from "./ui/pages/account/account";
 
 import PrivateLayout from "./ui/layouts/private-layout";
 import { RouteGroupType } from "./types/global-types";

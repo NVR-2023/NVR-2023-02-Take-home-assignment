@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import CombinedTimelinesDataProvider from "../../contexts/combined-timelines/combined-timeliens-data-provider";
-import { DashboardUIContextProvider } from "../../contexts/dashboard-ui/dashboard-ui-context-provider";
-import { useCombinedTimelinesContext } from "../../custom-hooks/use-combined-timelines-context";
-
-import { pageAnimation } from "../animations/page-animation";
-import Toolbar from "../sections/toolbar/toolbar";
-import ContentArea from "../sections/content-area/content-area";
-import UIContextChecker from "../components/common/ui-context-checker";
+import CombinedTimelinesDataProvider from "../../../contexts/combined-timelines/combined-timeliens-data-provider";
+import { DashboardUIContextProvider } from "../../../contexts/dashboard-ui/dashboard-ui-context-provider";
+import { useCombinedTimelinesContext } from "../../../custom-hooks/use-combined-timelines-context";
+import { pageAnimation } from "../../animations/page-animation";
+import Toolbar from "../../sections/toolbar/toolbar";
+import ContentArea from "../../sections/content-area/content-area";
+import UIContextChecker from "../../components/common/ui-context-checker";
 
 const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();

@@ -1,13 +1,11 @@
-import InvoiceIssuerDataProvider from "../../contexts/invoicer-issuer/invoice-issuer-data-provider";
-import InvoiceClientsDataProvider from "../../contexts/invoicer-clients/invocie-clients-data-provider";
-import InvoicerProductsDataProvider from "../../contexts/invoicer-products/invocier-products-data-provider";
-import { InvoiceFormContextProvider } from "../../contexts/invoicer-form/invoice-form-context-provider";
-
-import { useInvoiceIssuerContext } from "../../custom-hooks/use-invoice-issuer-context";
-import { useInvoiceClientsContext } from "../../custom-hooks/use-invoice-clients-context";
-import { useInvoiceProductsContext } from "../../custom-hooks/use-invoice-products-context";
-
-import UIContextChecker3 from "../components/common/ui-context-checker-3";
+import InvoiceIssuerDataProvider from "../../../contexts/invoicer-issuer/invoice-issuer-data-provider";
+import InvoiceClientsDataProvider from "../../../contexts/invoicer-clients/invocie-clients-data-provider";
+import InvoicerProductsDataProvider from "../../../contexts/invoicer-products/invocier-products-data-provider";
+import { InvoiceFormContextProvider } from "../../../contexts/invoicer-form/invoice-form-context-provider";
+import { useInvoiceIssuerContext } from "../../../custom-hooks/use-invoice-issuer-context";
+import { useInvoiceClientsContext } from "../../../custom-hooks/use-invoice-clients-context";
+import { useInvoiceProductsContext } from "../../../custom-hooks/use-invoice-products-context";
+import UIContextChecker3 from "../../components/common/ui-context-checker-3";
 
 const Invoicer = () => {
   const {
