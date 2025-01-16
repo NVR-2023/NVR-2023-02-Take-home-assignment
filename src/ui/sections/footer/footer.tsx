@@ -15,7 +15,7 @@ const Footer = ({ color }: FooterProps) => {
   const borderClass = borderMap.get(color ?? "");
   return (
     <div
-      className={`${colorClass} ${borderClass} tracking-widest px-3 py-2 h-30 border-2 text-[10px] text-zinc-300 font-[250]`}>
+      className={`${colorClass} ${borderClass} tracking-widest px-3 py-2 h-18 border-2 text-[9px] text-zinc-300 font-[250]`}>
       Take-home assignment submitted by Nuno Violante Rodrigues in January 2025 for Comudel{" "}
     </div>
   );
