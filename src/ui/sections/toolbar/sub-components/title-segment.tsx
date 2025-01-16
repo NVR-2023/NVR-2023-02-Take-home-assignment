@@ -6,7 +6,7 @@ const TitleSegment = ({ title }: { title: string }) => {
     <div className="flex space-x-1.5">
       <span className="hidden md:block transform translate-y-[0.25rem]">
         <Link to="/private/dashboard">
-          <LogoIcon scale={0.625} color={"#8282e3"} />
+          <LogoIcon scale={0.625} color={"#b0b0ed"} />
         </Link>
       </span>
       <span>
