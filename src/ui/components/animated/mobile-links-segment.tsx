@@ -4,6 +4,28 @@ import { useLocation } from "react-router-dom";
 import MobileLink from "../common/mobile-link";
 import { LinksSegmentProps } from "../../../types/global-types";
 
+const LinkGroup = ({
+  links,
+  activeLink,
+}: {
+  links: LinksSegmentProps["links"];
+  activeLink: string | null;
+}) => (
+  <div className="flex space-x-4">
+    {links.map((link, index) => (
+      <li key={`link-${index}`} className="relative flex items-center">
+        {activeLink === link.url && link.url !== "/" && (
+          <motion.div
+            layoutId="mobileCurrentPageIndicator"
+            className="absolute -bottom-1 w-full border-[1.5px] border-t-[#6868f6]"
+          />
+        )}
+        <MobileLink Icon={link.Icon} url={link.url} />
+      </li>
+    ))}
+  </div>
+);
+
 const MobileLinksSegment = ({ links, splitAfter }: LinksSegmentProps) => {
   const location = useLocation();
   const currentUrl = location.pathname;
@@ -21,32 +43,8 @@ const MobileLinksSegment = ({ links, splitAfter }: LinksSegmentProps) => {
 
   return (
     <ul className="flex flex-row w-full justify-between">
-      <div className="flex space-x-4">
-        {links.slice(0, splitAfter).map((link, index) => (
-          <li key={`first-${index}`} className="relative flex items-center">
-            {activeLink === link.url && link.url !== "/" && (
-              <motion.div
-                layoutId="mobileCurrentPageIndicator"
-                className="absolute -bottom-1 w-full border-[1.5px] border-t-[#6868f6]"
-              />
-            )}
-            <MobileLink Icon={link.Icon} url={link.url} />
-          </li>
-        ))}
-      </div>
-      <div className="flex space-x-4">
-        {links.slice(splitAfter).map((link, index) => (
-          <li key={`second-${index}`} className="relative flex items-center">
-            {activeLink === link.url && link.url !== "/" && (
-              <motion.div
-                layoutId="mobileCurrentPageIndicator"
-                className="absolute -bottom-1 w-full border-[1.5px] border-t-[#6868f6]"
-              />
-            )}
-            <MobileLink Icon={link.Icon} url={link.url} />
-          </li>
-        ))}
-      </div>
+      <LinkGroup links={links.slice(0, splitAfter)} activeLink={activeLink} />
+      <LinkGroup links={links.slice(splitAfter)} activeLink={activeLink} />
     </ul>
   );
 };
