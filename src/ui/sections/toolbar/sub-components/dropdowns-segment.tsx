@@ -12,22 +12,31 @@ const DropdownsSegment = () => {
     if (!isLoading && !hasErrors) {
       const dates: string[] = (data as { date: string }[]).map((entry) => entry.date);
       setStartDatesSet(dates);
+
       const firstDate = dates[0];
       const lastDate = dates[dates.length - 1];
-      setDashboardUIContext({ ...DashboardUIContext, startDate: firstDate, endDate: lastDate });
+      setDashboardUIContext((prevContext) => ({
+        ...prevContext,
+        startDate: firstDate,
+        endDate: lastDate,
+      }));
     }
-  }, [data, isLoading, hasErrors, DashboardUIContext, setDashboardUIContext]);
+  }, [data, isLoading, hasErrors, setDashboardUIContext]);
 
   useEffect(() => {
     const startDateIndex = startDatesSet.findIndex((date) => date === DashboardUIContext.startDate);
-    if (startDateIndex !== -1 && startDateIndex === startDatesSet.length - 1) {
-      setEndDatesSet([startDatesSet[startDateIndex]]);
-    } else if (startDateIndex !== -1) {
-      const filteredEndDatesSet = startDatesSet.slice(startDateIndex + 1);
-      setEndDatesSet(filteredEndDatesSet);
+    if (startDateIndex !== -1) {
+      if (startDateIndex === startDatesSet.length - 1) {
+        setEndDatesSet([startDatesSet[startDateIndex]]);
+      } else {
+        const filteredEndDatesSet = startDatesSet.slice(startDateIndex + 1);
+        setEndDatesSet(filteredEndDatesSet);
+      }
     }
   }, [DashboardUIContext.startDate, startDatesSet]);
 
+  console.log(startDatesSet.length);
+  console.log(endDatesSet.length);
   return <div className="flex items-center">Dropdowns</div>;
 };
 

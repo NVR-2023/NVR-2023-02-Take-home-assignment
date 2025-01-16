@@ -15,8 +15,8 @@ const LogoIcon = ({ scale = 1, color = "currentColor" }: IconProps) => {
         fill={color}
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M39 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H39C40.1046 21 41 20.1046 41 19V5C41 3.89543 40.1046 3 39 3ZM5 0C2.23858 0 0 2.23858 0 5V19C0 21.7614 2.23858 24 5 24H39C41.7614 24 44 21.7614 44 19V5C44 2.23858 41.7614 0 39 0H5Z"
         fill={color}
       />
