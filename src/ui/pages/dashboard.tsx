@@ -20,6 +20,9 @@ const Dashboard = () => {
           <pre>{JSON.stringify(data, null, 2)}</pre>
           <UIContextChecker />
         </div>
+        <div>
+          Another div
+        </div>
       </ContentArea>
     </motion.div>
   );
