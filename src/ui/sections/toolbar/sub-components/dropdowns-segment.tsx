@@ -3,7 +3,6 @@ import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui
 import { useState, useEffect } from "react";
 
 const DropdownsSegment = () => {
-
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const [startDatesSet, setStartDatesSet] = useState<string[]>([]);
@@ -34,9 +33,6 @@ const DropdownsSegment = () => {
       }
     }
   }, [DashboardUIContext.startDate, startDatesSet]);
-
-  console.log(startDatesSet.length);
-  console.log(endDatesSet.length);
   return <div className="flex items-center">Dropdowns</div>;
 };
 
