@@ -10,13 +10,13 @@ const DropdownsSegment = () => {
 
   useEffect(() => {
     if (!isLoading && !hasErrors) {
-      const dates: string[] = data.map((entry, key) => entry.date);
+      const dates: string[] = (data as { date: string }[]).map((entry) => entry.date);
       setStartDatesSet(dates);
       const firstDate = dates[0];
       const lastDate = dates[dates.length - 1];
       setDashboardUIContext({ ...DashboardUIContext, startDate: firstDate, endDate: lastDate });
     }
-  }, [data, isLoading, hasErrors]);
+  }, [data, isLoading, hasErrors, DashboardUIContext, setDashboardUIContext]);
 
   useEffect(() => {
     const startDateIndex = startDatesSet.findIndex((date) => date === DashboardUIContext.startDate);
