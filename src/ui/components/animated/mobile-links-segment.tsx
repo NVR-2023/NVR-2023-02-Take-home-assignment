@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+/* import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import LinkWithHideableTag from "../common/link-with-hideable-tag";
+import DesktopLinkWithTag from "../common/link-with-tag";
 import { LinksSegmentProps } from "../../../types/global-types";
 
-const MobileLinksSegment = ({ desktopLinks, splitAfter }: LinksSegmentProps) => {
+const MobileLinksSegment = ({ links: desktopLinks, splitAfter }: LinksSegmentProps) => {
   const location = useLocation();
   const currentUrl = location.pathname;
   const [activeLink, setActiveLink] = useState<string | null>(null);
@@ -20,8 +20,8 @@ const MobileLinksSegment = ({ desktopLinks, splitAfter }: LinksSegmentProps) => 
   }, [currentUrl, desktopLinks]);
 
   return (
-    <ul className="flex w-full justify-between">
-      <div className="space-x-5">
+    <ul className="flex flex-row w-full justify-between">
+      <div className="flex space-x-1">
         {desktopLinks.slice(0, splitAfter).map((link, index) => (
           <li key={`first-${index}`} className="relative flex items-center">
             {activeLink === link.url && link.url !== "/" && (
@@ -30,11 +30,11 @@ const MobileLinksSegment = ({ desktopLinks, splitAfter }: LinksSegmentProps) => 
                 className="absolute -bottom-1 w-full border-[1.5px] border-b-[#6868f6]"
               />
             )}
-            <LinkWithHideableTag Icon={link.Icon} text={link.text!} url={link.url} />
+            <DesktopLinkWithTag Icon={link.Icon} text={link.text!} url={link.url} />
           </li>
         ))}
       </div>
-      <div className="space-x-5">
+      <div className="flex space-x-1">
         {desktopLinks.slice(splitAfter).map((link, index) => (
           <li key={`second-${index}`} className="relative flex items-center">
             {activeLink === link.url && link.url !== "/" && (
@@ -43,7 +43,7 @@ const MobileLinksSegment = ({ desktopLinks, splitAfter }: LinksSegmentProps) => 
                 className="absolute -bottom-1 w-full border-[1.5px] border-b-[#6868f6]"
               />
             )}
-            <LinkWithHideableTag Icon={link.Icon} text={link.text!} url={link.url} />
+            <DesktopLinkWithTag Icon={link.Icon} text={link.text!} url={link.url} />
           </li>
         ))}
       </div>
@@ -52,3 +52,4 @@ const MobileLinksSegment = ({ desktopLinks, splitAfter }: LinksSegmentProps) => 
 };
 
 export default MobileLinksSegment;
+ */
