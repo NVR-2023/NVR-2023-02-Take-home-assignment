@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import LinkWithHideableTag from "../common/link-with-hideable-tag";
+import DesktopLinkWithTag from "../common/desktop-link-with-tag";
 import { LinksSegmentProps } from "../../../types/global-types";
 
 const DesktopLinksSegment = ({ links: desktopLinks, splitAfter }: LinksSegmentProps) => {
@@ -30,7 +30,7 @@ const DesktopLinksSegment = ({ links: desktopLinks, splitAfter }: LinksSegmentPr
                 className="absolute -left-1 top-0 h-full border-[1.5px] border-r-[#6868f6]"
               />
             )}
-            <LinkWithHideableTag Icon={link.Icon} text={link.text!} url={link.url} />
+            <DesktopLinkWithTag Icon={link.Icon} text={link.text!} url={link.url} />
           </li>
         ))}
       </div>
@@ -43,7 +43,7 @@ const DesktopLinksSegment = ({ links: desktopLinks, splitAfter }: LinksSegmentPr
                 className="absolute -left-1 top-0 h-full border-[1.5px] border-r-[#6868f6]"
               />
             )}
-            <LinkWithHideableTag Icon={link.Icon} text={link.text!} url={link.url} />
+            <DesktopLinkWithTag Icon={link.Icon} text={link.text!} url={link.url} />
           </li>
         ))}
       </div>

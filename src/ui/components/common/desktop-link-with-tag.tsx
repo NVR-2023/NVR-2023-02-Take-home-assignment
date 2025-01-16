@@ -1,7 +1,7 @@
-import { LinkWithHideableTagProps } from "../../../types/global-types";
+import { LinkProps } from "../../../types/global-types";
 import { Link } from "react-router-dom";
 
-const LinkWithHideableTag = ({ Icon, text, url }: LinkWithHideableTagProps) => {
+const DesktopLinkWithTag = ({ Icon, text, url }: LinkProps) => {
   return (
     <Link
       to={url}
@@ -16,4 +16,4 @@ const LinkWithHideableTag = ({ Icon, text, url }: LinkWithHideableTagProps) => {
   );
 };
 
-export default LinkWithHideableTag;
+export default DesktopLinkWithTag;

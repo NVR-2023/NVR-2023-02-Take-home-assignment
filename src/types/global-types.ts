@@ -109,9 +109,9 @@ export type IconProps = {
   color?: string;
 };
 
-export type LinkWithHideableTagProps = {
+export type LinkProps = {
   Icon: ComponentType<IconProps>;
-  text: string;
+  text?: string;
   url: string;
 };
 
