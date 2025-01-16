@@ -21,7 +21,11 @@ const LinksSegment = () => {
     []
   );
 
-  return <DesktopLinksSegment links={links} splitAfter={4} />;
+  return (
+    <div className="h-full">
+      <DesktopLinksSegment links={links} splitAfter={4} />
+    </div>
+  );
 };
 
 export default LinksSegment;

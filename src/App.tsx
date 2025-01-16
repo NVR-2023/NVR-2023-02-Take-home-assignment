@@ -36,8 +36,6 @@ function App() {
         path: "account",
         page: <Account />,
       },
-
-
     ],
   } as const;
 
