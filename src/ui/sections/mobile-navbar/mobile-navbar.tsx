@@ -1,5 +1,5 @@
 const MobileNavbar = () => {
-  return <div className="w-full h-12 bg-purple-500 rounded">This mobile Navbar</div>;
+  return <nav role="navigation" className="w-full h-9 bg-zinc-200 rounded">This mobile Navbar</nav>;
 };
 
 export default MobileNavbar;
