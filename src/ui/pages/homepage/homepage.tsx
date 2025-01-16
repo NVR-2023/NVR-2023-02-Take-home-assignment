@@ -19,7 +19,7 @@ const Homepage = () => {
         </div>
       </div>
       <footer>
-        <Footer className="bg-purple-950"/>
+        <Footer color="purple"/>
       </footer>
     </>
   );

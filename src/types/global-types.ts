@@ -125,3 +125,7 @@ export type LinksSegmentProps = {
   links: LinkType[];
   splitAfter?: number;
 };
+
+export type FooterProps = {
+  color: "purple" | "grey";
+};
