@@ -3,6 +3,7 @@ import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui
 import { useState, useEffect } from "react";
 
 const DropdownsSegment = () => {
+
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const [startDatesSet, setStartDatesSet] = useState<string[]>([]);
@@ -12,7 +13,6 @@ const DropdownsSegment = () => {
     if (!isLoading && !hasErrors) {
       const dates: string[] = (data as { date: string }[]).map((entry) => entry.date);
       setStartDatesSet(dates);
-
       const firstDate = dates[0];
       const lastDate = dates[dates.length - 1];
       setDashboardUIContext((prevContext) => ({
