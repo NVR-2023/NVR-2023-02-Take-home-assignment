@@ -19,7 +19,7 @@ const Homepage = () => {
         </div>
       </div>
       <footer>
-        <Footer color="purple"/>
+        <Footer color="homepage"/>
       </footer>
     </>
   );

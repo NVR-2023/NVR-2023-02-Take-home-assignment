@@ -127,5 +127,5 @@ export type LinksSegmentProps = {
 };
 
 export type FooterProps = {
-  color: "purple" | "grey";
+  color: "homepage" | "pages";
 };

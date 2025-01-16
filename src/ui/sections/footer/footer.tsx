@@ -2,14 +2,20 @@ import { FooterProps } from "../../../types/global-types";
 
 const Footer = ({ color }: FooterProps) => {
   const colorMap = new Map([
-    ["purple", "bg-purple-950"],
-    ["grey", "bg-violet-950"],
+    ["homepage", "bg-purple-950"],
+    ["pages", "bg-[#3939a3]"],
+  ]);
+
+  const borderMap = new Map([
+    ["homepage", "border-t-zinc-300"],
+    ["pages", "border-t-zinc-200"],
   ]);
 
   const colorClass = colorMap.get(color ?? "");
+  const borderClass = borderMap.get(color ?? "");
   return (
     <div
-      className={`${colorClass} tracking-widest px-3 py-2 h-30 border-2 text-[10px] text-zinc-300 font-[250] border-t-transparent-300`}>
+      className={`${colorClass} ${borderClass} tracking-widest px-3 py-2 h-30 border-2 text-[10px] text-zinc-300 font-[250]`}>
       Take-home assignment submitted by Nuno Violante Rodrigues in January 2025 for Comudel{" "}
     </div>
   );

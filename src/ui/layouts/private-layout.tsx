@@ -18,7 +18,7 @@ const PrivateLayout = () => {
         </main>
       </div>
       <footer className="w-screen" role="contentinfo">
-        <Footer color="grey" />
+        <Footer color="pages" />
       </footer>
     </div>
   );
