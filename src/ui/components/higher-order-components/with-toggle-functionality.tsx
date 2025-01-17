@@ -1,19 +1,12 @@
-import { ComponentType } from "react";
-import { IconProps } from "../../../types/global-types";
 import { motion } from "framer-motion";
 import { buttonTapVariants } from "../../animations/button-animations";
-
-type WithDataAndUIContextsProps = {
-  Icon: ComponentType<IconProps>;
-  isToggled: boolean;
-  toggleFunction: React.Dispatch<React.SetStateAction<boolean>>; // Only toggle isToggled
-};
+import { WithToggleFunctionalityProps } from "../../../types/global-types";
 
 const withToggleFunctionality = ({
   Icon,
   isToggled,
   toggleFunction,
-}: WithDataAndUIContextsProps) => {
+}: WithToggleFunctionalityProps) => {
   const backgroundColorMap = new Map([
     [true, "bg-[#bbbbc1]"],
     [false, "bg-zinc-50"],
@@ -27,7 +20,7 @@ const withToggleFunctionality = ({
   const iconColorClass = iconColorMap.get(isToggled) || "#a1a1aa";
 
   const handleOnClick = () => {
-    toggleFunction((prevState) => !prevState); 
+    toggleFunction((prevState) => !prevState);
   };
 
   return () => (

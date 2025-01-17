@@ -132,4 +132,8 @@ export type FooterProps = {
 
 export type ComponentArrayType = ComponentType<unknown>[];
 
-
+export type WithToggleFunctionalityProps = {
+  Icon: ComponentType<IconProps>;
+  isToggled: boolean;
+  toggleFunction: React.Dispatch<React.SetStateAction<boolean>>; // Only toggle isToggled
+};
