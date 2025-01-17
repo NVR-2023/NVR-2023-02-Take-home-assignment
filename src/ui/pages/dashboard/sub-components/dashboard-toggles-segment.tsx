@@ -92,7 +92,7 @@ const DashboardTogglesSegment = () => {
     ToggleCombineGraphsButton,
   ];
 
-  return <ToolStrip title="visibility" tools={toolsArray} />;
+  return <ToolStrip title="Visibility" tools={toolsArray} />;
 };
 
 export default DashboardTogglesSegment;

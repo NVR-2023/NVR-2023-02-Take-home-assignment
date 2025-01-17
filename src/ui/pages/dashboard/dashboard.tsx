@@ -15,7 +15,7 @@ const Dashboard = () => {
     <motion.div
       {...pageAnimation}
       className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2 overflow-x-clip">
-      <Toolbar title="Dashboard" Tools={<DashboardTogglesSegment />} />
+      <Toolbar title="Dashboard" toolsSegment={<DashboardTogglesSegment />} />
       <ContentArea>
         <p>Data:</p>
         <div>

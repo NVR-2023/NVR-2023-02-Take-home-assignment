@@ -136,3 +136,8 @@ export type ToolStripProps = {
   title: string;
   tools: ComponentType[];
 };
+
+export type ToolbarProps = {
+  title: string;
+  toolsSegment: ReactNode;
+};
