@@ -1,18 +1,27 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { buttonTapVariants } from "../../animations/button-animations";
 import { WithToggleFunctionalityProps } from "../../../types/global-types";
 
-const withToggleFunctionality = ({
+const WithToggleFunctionality = ({
   Icon,
   isToggled,
   toggleFunction,
 }: WithToggleFunctionalityProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleOnMouseEnter = () => {
+    setIsHovered(true);
+  };
+  const handleOnMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   const backgroundColorMap = new Map([
     [true, "bg-[#bbbbc1]"],
-    [false, "bg-[#ccccd1]"],
+    [false, "bg-[#d1d1d6]"],
   ]);
   const iconColorMap = new Map([
-    [true, "#222225"],
+    [true, "#2c2c30"],
     [false, "#ffffff"],
   ]);
 
@@ -27,7 +36,7 @@ const withToggleFunctionality = ({
     <motion.button
       {...buttonTapVariants}
       onClick={handleOnClick}
-      className={`${backgroundColorClass} h-4.5 w-7 rounded-[1.5px] flex justify-center items-center`}>
+      className={`${backgroundColorClass} hover:bg-zinc-400 h-4.5 w-7.5 rounded-[2px] flex justify-center items-center`}>
       <Icon scale={0.625} color={iconColorClass} />
     </motion.button>
   );
@@ -35,4 +44,4 @@ const withToggleFunctionality = ({
   return ToggleButton;
 };
 
-export default withToggleFunctionality;
+export default WithToggleFunctionality;
