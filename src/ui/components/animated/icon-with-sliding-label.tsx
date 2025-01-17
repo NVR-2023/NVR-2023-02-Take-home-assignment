@@ -21,21 +21,12 @@ const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
           className={`hidden md:flex text-sm font-[500] items-center overflow-hidden duration-300 transition-all ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}>
-          {label}
+          <span className="px-2 font-[500]">{label}</span>
         </div>
       </div>
-      <div
-        className="grid"
-        style={{
-          gridTemplateColumns: isHovered ? "0fr" : "1fr",
-          transition: "grid-template-columns 300ms",
-        }}>
-        <div className="overflow-hidden">
-          <div className="overflow-hidden">
-            <Icon />
-          </div>
-        </div>
-      </div>
+      <span>
+        <Icon />
+      </span>
     </button>
   );
 };

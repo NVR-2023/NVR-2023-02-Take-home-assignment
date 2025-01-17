@@ -23,12 +23,14 @@ const WithToggleFunctionality = ({
     toggleFunction((prevState) => !prevState);
   };
 
+  const CustomIcon = <Icon scale={0.625} color={iconColorClass} />;
+
   const ToggleButton = () => (
     <motion.button
       {...buttonTapVariants}
       onClick={handleOnClick}
-      className={`${backgroundColorClass} hover:bg-zinc-400 h-4.5 w-7.5 rounded-[2px] flex justify-center items-center`}>
-      <Icon scale={0.625} color={iconColorClass} />
+      className={`${backgroundColorClass} h-4.5 w-7 rounded-[2px] flex justify-center items-center`}>
+      {CustomIcon}
     </motion.button>
   );
 
