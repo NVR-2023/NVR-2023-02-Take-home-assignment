@@ -1,3 +1,4 @@
+import { ComponentType } from "react";
 import withToggleFunctionality from "../../../components/higher-order-components/with-toggle-functionality";
 import LineAndBarChartIcon from "../../../components/icons/line-and-bar-chart-icon";
 import BarChartWithAxisIcon from "../../../components/icons/bar-chart-with-axis.-icon";
@@ -6,6 +7,7 @@ import DerivedCardIcon from "../../../components/icons/derived-card-icon";
 import CombineChartsIcon from "../../../components/icons/combine-charts-icon";
 
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
+import ToolStrip from "../../../components/common/tool-strip";
 
 const DashboardTogglesSegment = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
@@ -82,15 +84,15 @@ const DashboardTogglesSegment = () => {
     toggleFunction: toggleCombineGraphsFunction,
   });
 
-  return (
-    <div className="flex items-center space-x-3">
-      <ToggleRevenueGraphButton />
-      <ToggleInvoicesGraphButton />
-      <ToggleUsersGraphButton />
-      <ToggleSummaryCardButton />
-      <ToggleCombineGraphsButton />
-    </div>
-  );
+  const toolsArray: ComponentType[] = [
+    ToggleRevenueGraphButton,
+    ToggleInvoicesGraphButton,
+    ToggleUsersGraphButton,
+    ToggleSummaryCardButton,
+    ToggleCombineGraphsButton,
+  ];
+
+  return <ToolStrip title="visibility" tools={toolsArray} />;
 };
 
 export default DashboardTogglesSegment;

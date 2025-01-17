@@ -1,15 +1,18 @@
-import { ComponentArrayType } from "../../../types/global-types";
+import { ToolStripProps } from "../../../types/global-types";
 
-const ToolStrip = ({ tools }: { tools: ComponentArrayType }) => {
+const ToolsStrip = ({ title, tools }: ToolStripProps) => {
   return (
-    <ul className="bg-zinc-700 flex rounded">
-      {tools.map((Toggle, index) => (
-        <li key={index}>
-          <Toggle />
-        </li>
-      ))}
-    </ul>
+    <div className="flex items-baseline rounded space-x-2">
+      <div>{title}</div>
+      <ul className="flex space-x-2">
+        {tools.map((Tool, index) => (
+          <li key={index}>
+            <Tool />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default ToolStrip;
+export default ToolsStrip;

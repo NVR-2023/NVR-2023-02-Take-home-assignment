@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { buttonTapVariants } from "../../animations/button-animations";
 import { WithToggleFunctionalityProps } from "../../../types/global-types";
+import React from "react";
 
 const withToggleFunctionality = ({
   Icon,
@@ -23,14 +24,16 @@ const withToggleFunctionality = ({
     toggleFunction((prevState) => !prevState);
   };
 
-  return () => (
+  const ToggleButton: React.FC = () => (
     <motion.button
       {...buttonTapVariants}
       onClick={handleOnClick}
-      className={`${backgroundColorClass} transition-colors duration-100 hover:bg-zinc-200 w-5 aspect-square rounded-[1.5px] flex justify-center items-center`}>
+      className={`${backgroundColorClass} transition-colors duration-100 hover:bg-zinc-200 w-4.5 aspect-square rounded-[1.5px] flex justify-center items-center`}>
       <Icon scale={0.625} color={iconColorClass} />
     </motion.button>
   );
+
+  return ToggleButton; 
 };
 
 export default withToggleFunctionality;

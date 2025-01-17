@@ -124,7 +124,7 @@ export type FooterProps = {
   color: "homepage" | "pages";
 };
 
-export type ComponentArrayType = ComponentType<unknown>[];
+export type ComponentArrayType = ComponentType[];
 
 export type WithToggleFunctionalityProps = {
   Icon: ComponentType<IconProps>;
@@ -132,7 +132,7 @@ export type WithToggleFunctionalityProps = {
   toggleFunction: React.Dispatch<React.SetStateAction<boolean>>; // Only toggle isToggled
 };
 
-export type StripProps = {
+export type ToolStripProps = {
   title: string;
-  ToolsSegment: ReactNode;
+  tools: ComponentType[];
 };
