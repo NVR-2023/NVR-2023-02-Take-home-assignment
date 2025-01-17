@@ -11,7 +11,7 @@ const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
 
   return (
-    <motion.div {...pageAnimation} className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2">
+    <motion.div {...pageAnimation} className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2 overflow-x-clip">
       <Toolbar />
       <ContentArea>
         <p>Data:</p>
