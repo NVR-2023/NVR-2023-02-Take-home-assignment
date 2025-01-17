@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { buttonTapVariants } from "../../animations/button-animations";
 import { WithToggleFunctionalityProps } from "../../../types/global-types";
@@ -8,17 +7,9 @@ const WithToggleFunctionality = ({
   isToggled,
   toggleFunction,
 }: WithToggleFunctionalityProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const handleOnMouseEnter = () => {
-    setIsHovered(true);
-  };
-  const handleOnMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   const backgroundColorMap = new Map([
     [true, "bg-[#bbbbc1]"],
-    [false, "bg-[#d1d1d6]"],
+    [false, "bg-[#ccccd1]"],
   ]);
   const iconColorMap = new Map([
     [true, "#2c2c30"],
