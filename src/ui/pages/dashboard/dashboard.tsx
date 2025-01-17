@@ -8,6 +8,9 @@ import ContentArea from "../../sections/content-area/content-area";
 import UIContextChecker from "../../components/common/ui-context-checker";
 import DashboardTogglesSegment from "./sub-components/dashboard-toggles-segment";
 
+import IconWIthSLidingLabel from "../../components/animated/icon-with-sliding-label";
+import LineChartWithCanvasIcon from "../../components/icons/line-chart-with-canvas-icon";
+
 const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
 
@@ -23,6 +26,8 @@ const Dashboard = () => {
           <UIContextChecker />
         </div>
         <div>Another div</div>
+
+        <IconWIthSLidingLabel label="label" Icon={LineChartWithCanvasIcon} />
       </ContentArea>
     </motion.div>
   );
