@@ -7,11 +7,17 @@ const Toggle = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { isRevenueGraphVisible } = DashboardUIContext;
 
+  const toggleFunction = () => {
+    setDashboardUIContext((previousContext) => ({
+      ...previousContext,
+      isRevenueGraphVisible: !isRevenueGraphVisible, // Corrected to match the variable name
+    }));
+  };
+
   const backgroundColorMap = new Map([
     [true, "bg-[#bbbbc1]"],
     [false, "bg-zinc-50"],
   ]);
-
   const iconColorMap = new Map([
     [true, "#3f3f46"],
     [false, "#a1a1aa"],
@@ -21,10 +27,7 @@ const Toggle = () => {
   const iconColorClass = iconColorMap.get(isRevenueGraphVisible);
 
   const handleOnClick = () => {
-    setDashboardUIContext((previousContext) => ({
-      ...previousContext,
-      isRevenueGraphVisible: !isRevenueGraphVisible,
-    }));
+    toggleFunction(); 
   };
 
   return (

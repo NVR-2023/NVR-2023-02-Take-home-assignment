@@ -1,10 +1,10 @@
 import DropdownsSegment from "./dropdowns-segment";
-import TogglesSegment from "./toggles-segment";
+import DashboardTogglesSegment from "./dashboard-toggles-segment";
 const ToolsSegment = () => {
   return (
     <div className="flex space-x-2">
       <DropdownsSegment />
-      <TogglesSegment />
+      <DashboardTogglesSegment />
     </div>
   );
 };

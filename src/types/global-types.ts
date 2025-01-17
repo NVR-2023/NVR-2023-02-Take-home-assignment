@@ -132,7 +132,4 @@ export type FooterProps = {
 
 export type ComponentArrayType = ComponentType<unknown>[];
 
-export type ToggleFunctionalityProps = {
-  isToggled: boolean;
-  setToggled: Dispatch<SetStateAction<boolean>>;
-};
+
