@@ -1,12 +1,7 @@
 import { useState } from "react";
+import { ComponentWithLabel } from "../../../types/global-types";
 
-import { ComponentType } from "react";
-
-type IconWIthSLidingLabelProps = {
-  label: string;
-  Icon: ComponentType;
-};
-const IconWIthSLidingLabel = ({ label, Icon }: IconWIthSLidingLabelProps) => {
+const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleOnMouseEnter = () => {
     setIsHovered(true);
@@ -15,18 +10,15 @@ const IconWIthSLidingLabel = ({ label, Icon }: IconWIthSLidingLabelProps) => {
     setIsHovered(false);
   };
   return (
-    <button
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-      className="mt-[3px] flex">
+    <button onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} className="flex">
       <div
         className="grid"
         style={{
           gridTemplateColumns: isHovered ? "1fr" : "0fr",
-          transition: "grid-template-columns 180ms",
+          transition: "grid-template-columns 300ms",
         }}>
         <div
-          className={`flex overflow-hidden duration-300 transition-all ${
+          className={`hidden md:flex text-sm font-[500] items-center overflow-hidden duration-300 transition-all ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}>
           {label}
@@ -36,7 +28,7 @@ const IconWIthSLidingLabel = ({ label, Icon }: IconWIthSLidingLabelProps) => {
         className="grid"
         style={{
           gridTemplateColumns: isHovered ? "0fr" : "1fr",
-          transition: "grid-template-columns 180ms",
+          transition: "grid-template-columns 300ms",
         }}>
         <div className="overflow-hidden">
           <div className="overflow-hidden">

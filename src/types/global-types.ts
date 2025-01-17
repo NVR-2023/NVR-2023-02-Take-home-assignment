@@ -141,3 +141,8 @@ export type ToolbarProps = {
   title: string;
   toolsSegment: ReactNode;
 };
+
+export type ComponentWithLabel = {
+  label: string;
+  Icon: ComponentType;
+};

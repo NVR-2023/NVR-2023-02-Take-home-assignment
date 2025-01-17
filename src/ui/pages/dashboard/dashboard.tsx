@@ -27,7 +27,10 @@ const Dashboard = () => {
         </div>
         <div>Another div</div>
 
-        <IconWIthSLidingLabel label="label" Icon={LineChartWithCanvasIcon} />
+        <div className="flex">
+          <IconWIthSLidingLabel label="label1" Icon={LineChartWithCanvasIcon} />
+          <IconWIthSLidingLabel label="label2" Icon={LineChartWithCanvasIcon} />
+        </div>
       </ContentArea>
     </motion.div>
   );
