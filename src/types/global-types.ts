@@ -32,12 +32,6 @@ export type ParentComponentMinimalProps = {
   children?: ReactNode;
 };
 
-export type WithDataAndUIContextsProps = {
-  BaseComponent: ComponentType;
-  DataContext?: ComponentType<{ children?: ReactNode }>;
-  UIContext?: ComponentType<{ children?: ReactNode }>;
-};
-
 export type DashboardUIContextType = {
   DashboardUIContext: {
     startDate: string;
