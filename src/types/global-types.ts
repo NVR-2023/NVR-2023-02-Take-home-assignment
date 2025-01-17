@@ -129,3 +129,5 @@ export type LinksSegmentProps = {
 export type FooterProps = {
   color: "homepage" | "pages";
 };
+
+export type ComponentArrayType = ComponentType<unknown>[];
