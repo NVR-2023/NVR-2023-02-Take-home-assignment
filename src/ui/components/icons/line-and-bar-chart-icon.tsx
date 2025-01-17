@@ -8,7 +8,7 @@ const LineAndBarChartIcon = ({ scale = 1, color = "currentColor" }: IconProps) =
       width={24 * scale}
       viewBox="0 -960 960 960"
       fill={color}
-      className="transition-colors duration-300">
+      className="transition-colors duration-150">
       <path d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
     </svg>
   );

@@ -31,7 +31,7 @@ const Toggle = () => {
     <motion.button
       {...buttonTapVariants}
       onClick={handleOnClick}
-      className={`${backgroundColorClass} transition-colors duration-200 hover:bg-zinc-400  w-5 aspect-square rounded-[1.5px] flex justify-center items-center`}>
+      className={`${backgroundColorClass} transition-colors duration-100 hover:bg-zinc-200  w-5 aspect-square rounded-[1.5px] flex justify-center items-center`}>
       <LineAndBarChartIcon scale={0.625} color={iconColorClass} />
     </motion.button>
   );
