@@ -7,10 +7,8 @@ const EmptyIcon = ({ scale = 1, color = "currentColor" }: IconProps) => {
       height={24 * scale}
       width={24 * scale}
       viewBox="0 -960 960 960"
-      fill={color}>
-
-
-    </svg>
+      className="transition-colors duration-150"
+      fill={color}></svg>
   );
 };
 

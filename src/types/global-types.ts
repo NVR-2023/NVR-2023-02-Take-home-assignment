@@ -132,7 +132,7 @@ export type WithToggleFunctionalityProps = {
   toggleFunction: React.Dispatch<React.SetStateAction<boolean>>; // Only toggle isToggled
 };
 
-export  type ToolBarProps= {
+export type StripProps = {
   title: string;
   ToolsSegment: ReactNode;
-}
+};

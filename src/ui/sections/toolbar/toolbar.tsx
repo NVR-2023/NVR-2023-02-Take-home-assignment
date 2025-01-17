@@ -1,7 +1,7 @@
 import TitleSegment from "./sub-components/title-segment";
-import { ToolBarProps } from "../../../types/global-types";
+import { StripProps } from "../../../types/global-types";
 
-const Toolbar = ({ title, ToolsSegment }: ToolBarProps) => {
+const Toolbar = ({ title, ToolsSegment }: StripProps) => {
   return (
     <div className="w-full px-2 rounded h-9 bg-zinc-300 flex items-center justify-between">
       <span>
