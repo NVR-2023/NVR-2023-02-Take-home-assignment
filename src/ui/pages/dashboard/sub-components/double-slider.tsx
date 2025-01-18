@@ -74,7 +74,7 @@ const DoubleSlider = () => {
   }
 
   return (
-    <div className="flex px-1 rounded -[2px] bg-[#b9b9c0]">
+    <div className="flex px-1 rounded-[2px] bg-[#b9b9c0]">
       <Slider
         className="relative flex items-center select-none bg-[#b9b9c0] touch-none w-36 h-4.5"
         value={doubleSliderValues}
@@ -86,11 +86,11 @@ const DoubleSlider = () => {
           <SliderRange className="absolute bg-zinc-500 rounded-full h-full" />
         </SliderTrack>
         <SliderThumb
-          className="w-3 h-1.5 bg-zinc-100 border-[1px] border-zinc-700  rounded  focus:outline-none   focus:ring-1 focus:ring-zinc-200 focus:ring-opacity-50"
+          className="block w-1 h-1 bg-zinc-100 border-2 border-zinc-700  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
           aria-label="Start"
         />
         <SliderThumb
-          className="w-0.5 h-1.5 bg-zinc-100 border-[1px] border-zinc-700  rounded focus:outline-none focus:ring-1 focus:ring-zinc-200 focus:ring-opacity-50"
+          className="block w-1 h-1 bg-zinc-100 border-2 border-zinc-700  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
           aria-label="End"
         />
       </Slider>
