@@ -9,11 +9,11 @@ const WithToggleFunctionality = ({
 }: WithToggleFunctionalityProps) => {
   const backgroundColorMap = new Map([
     [true, "bg-[#b9b9c0]"],
-    [false, "bg-[#c9c9cf]"],
+    [false, "bg-zinc-200"],
   ]);
   const iconColorMap = new Map([
     [true, "#2c2c30"],
-    [false, "#ffffff"],
+    [false, "#f4f4f5"],
   ]);
 
   const backgroundColorClass = backgroundColorMap.get(isToggled) || "bg-zinc-50";

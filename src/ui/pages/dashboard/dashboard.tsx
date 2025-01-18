@@ -6,16 +6,24 @@ import { pageAnimation } from "../../animations/page-animation";
 import Toolbar from "../../sections/toolbar/toolbar";
 import ContentArea from "../../sections/content-area/content-area";
 import UIContextChecker from "../../components/common/ui-context-checker";
+import DashboardSliderSegment from "./sub-components/dashboard-slider-segment";
 import DashboardTogglesSegment from "./sub-components/dashboard-toggles-segment";
 
 const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
-
+  const ToolsSegment = () => {
+    return (
+      <div className="flex space-x-6">
+        <DashboardSliderSegment />
+        <DashboardTogglesSegment />
+      </div>
+    );
+  };
   return (
     <motion.div
       {...pageAnimation}
       className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2 overflow-x-clip">
-      <Toolbar title="Dashboard" toolsSegment={<DashboardTogglesSegment />} />
+      <Toolbar title="Dashboard" toolsSegment={<ToolsSegment />} />
       <ContentArea>
         <p>Data:</p>
         <div>
@@ -23,8 +31,6 @@ const Dashboard = () => {
           <UIContextChecker />
         </div>
         <div>Another div</div>
-
-       
       </ContentArea>
     </motion.div>
   );
