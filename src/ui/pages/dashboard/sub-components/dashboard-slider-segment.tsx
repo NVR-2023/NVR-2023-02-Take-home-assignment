@@ -3,7 +3,7 @@ import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
 import ToolStripLabel from "../../../components/common/tool-strip-label";
 import TimeRange from "./time-range";
-
+import DoubleSlider from "./double-slider";
 const DashboardSliderSegment = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
@@ -22,13 +22,15 @@ const DashboardSliderSegment = () => {
   }, [data, isLoading, hasErrors]);
 
   return (
-    <div className="flex space-x-2 items-center">
-      <span className="hidden md:flex">
-        <ToolStripLabel label="time range" />
-      </span>
-      <div>slider</div>
-      <TimeRange />
-    </div>
+    <>
+      <div className="flex space-x-2 items-center">
+        <span className="hidden md:flex">
+          <ToolStripLabel label="time range" />
+        </span>
+        <TimeRange />
+      </div>
+      <DoubleSlider />
+    </>
   );
 };
 
