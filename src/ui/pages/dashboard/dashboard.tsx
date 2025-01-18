@@ -13,10 +13,16 @@ const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
   const ToolsSegment = () => {
     return (
-      <div className="flex items-center space-x-5">
-        <DashboardSliderSegment />
-        <DashboardTogglesSegment />
-      </div>
+      <>
+        <div className="hidden md:flex items-center space-x-4">
+          <DashboardSliderSegment />
+          <DashboardTogglesSegment />
+        </div>
+        <div className="md:hidden flex-col space-y-2">
+          <DashboardSliderSegment />
+          <DashboardTogglesSegment />
+        </div>
+      </>
     );
   };
   return (

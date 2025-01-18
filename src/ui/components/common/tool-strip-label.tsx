@@ -5,7 +5,7 @@ const ToolStripLabel = ({ label }: { label: string }) => {
 
   return (
     <div
-      className="h-4.5 px-2 flex items-center justify-center text-sm md:text-[9px] font-[700] rounded-[2px] tracking-wide"
+      className="h-4.5 whitespace-nowrap  px-2 flex items-center justify-center text-sm md:text-[9px] font-[700] rounded-[2px] tracking-wide"
       style={{
         backgroundColor: backgroundColor,
         color: textColor,

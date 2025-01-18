@@ -12,7 +12,7 @@ const PrivateLayout = () => {
           role="navigation">
           <Sidebar />
         </aside>
-        <main className="overflow-y-auto w-full md:w-auto flex-grow h-full" role="main">
+        <main className="overflow-y-auto space-y-2 w-full md:w-auto flex-grow h-full" role="main">
           <div className="md:hidden" role="navigation">
             <MobileNavbar />
           </div>
