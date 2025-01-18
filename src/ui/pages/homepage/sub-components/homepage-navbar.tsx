@@ -13,12 +13,12 @@ const HomepageNavbar = () => {
       <div className="grid grid-cols-2 gap-1.5 font-[350] tracking-wide text-zinc-300">
         <Link
           to="/private/dashboard"
-          className="w-18 flex justify-center rounded border-transparent border-[1.5px] hover:border-zinc-300 p-[0.125rem] transition-all duration-500">
+          className="sm:w-12 md:w-18 flex justify-center rounded border-transparent border-[1.5px] hover:border-zinc-300 p-[0.125rem] transition-all duration-500">
           Register
         </Link>
         <Link
           to="/private/dashboard"
-          className="w-18 flex justify-center rounded border-transparent border-[1.5px] hover:border-zinc-300 p-[0.125rem] transition-all duration-500">
+          className="sm:w-12 md:w-18 flex justify-center rounded border-transparent border-[1.5px] hover:border-zinc-300 p-[0.125rem] transition-all duration-500">
           Sign in
         </Link>
       </div>
