@@ -13,7 +13,7 @@ const WithToggleFunctionality = ({
   ]);
   const iconColorMap = new Map([
     [true, "#2c2c30"],
-    [false, "#f4f4f5"],
+    [false, "#a1a1aa"],
   ]);
 
   const backgroundColorClass = backgroundColorMap.get(isToggled) || "bg-zinc-50";
