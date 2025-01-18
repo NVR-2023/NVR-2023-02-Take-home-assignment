@@ -11,25 +11,13 @@ import DashboardTogglesSegment from "./sub-components/dashboard-toggles-segment"
 
 const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
-  const ToolsSegment = () => {
-    return (
-      <>
-        <div className="hidden md:flex items-center space-x-4">
-          <DashboardSliderSegment />
-          <DashboardTogglesSegment />
-        </div>
-        <div className="md:hidden flex-col space-y-2">
-          <DashboardSliderSegment />
-          <DashboardTogglesSegment />
-        </div>
-      </>
-    );
-  };
+  const ToolsArray = [DashboardSliderSegment, DashboardTogglesSegment];
+
   return (
     <motion.div
       {...pageAnimation}
       className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2 overflow-x-clip">
-      <Toolbar title="Dashboard" toolsSegment={<ToolsSegment />} />
+      <Toolbar title="Dashboard" toolsArray={ToolsArray} />
       <ContentArea>
         <p>Data:</p>
         <div>

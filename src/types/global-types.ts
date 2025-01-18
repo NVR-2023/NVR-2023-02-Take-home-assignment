@@ -140,7 +140,7 @@ export type ToolStripProps = {
 
 export type ToolbarProps = {
   title: string;
-  toolsSegment: ReactNode;
+  toolsArray: ComponentType[];
 };
 
 export type ComponentWithLabel = {

@@ -24,13 +24,12 @@ const DashboardSliderSegment = () => {
   }, [data, isLoading, hasErrors]);
 
   return (
-    
-      <div className="flex w-90min-w-90 space-x-2 items-center">
-        <span className="hidden md:flex">
-          <ToolStripLabel label="time range" />
-        </span>
+    <div className="flex w-90min-w-90 space-x-2 items-center">
+      <span className="hidden md:flex">
+        <ToolStripLabel label="time range" />
+      </span>
       <IconWIthSLidingLabel label="adjust" Icon={DoubleSlider} />
-    <TimeRangeLabel/>
+      <TimeRangeLabel />
     </div>
   );
 };

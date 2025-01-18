@@ -95,7 +95,7 @@ const DashboardTogglesSegment = () => {
 
   const labels = ["Revenue", "Invoices", "Users", "Overview", "Combine"];
   return (
-    <div className="w-72 min-w-72 flex justify-end">
+    <div className="md:w-72 md:min-w-72 flex md:justify-end justify-start">
       <ToolStrip title="Visibility" tools={toolsArray} labels={labels} />
     </div>
   );
