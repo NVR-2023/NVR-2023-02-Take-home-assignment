@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { getNameAndAbbreviationOfMonth } from "../../../../utils/get-name-and-abbreviation-of-month";
 
-const TimeRange = () => {
+const TimeRangeLabel = () => {
   const { DashboardUIContext } = useDashboardUIContext();
   const { startDate, endDate } = DashboardUIContext;
 
@@ -38,4 +38,4 @@ const TimeRange = () => {
   return <Wrapper>{timeSpanString}</Wrapper>;
 };
 
-export default TimeRange;
+export default TimeRangeLabel;

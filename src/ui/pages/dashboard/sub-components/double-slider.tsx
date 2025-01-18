@@ -74,23 +74,23 @@ const DoubleSlider = () => {
   }
 
   return (
-    <div>
+    <div className="flex px-1 rounded -[2px] bg-[#b9b9c0]">
       <Slider
-        className="relative flex items-center select-none bg-[#b9b9c0] rounded-[2px] touch-none w-27 h-4.5"
+        className="relative flex items-center select-none bg-[#b9b9c0] touch-none w-36 h-4.5"
         value={doubleSliderValues}
         onValueChange={handleOnValueChange}
         min={doubleSliderParameters.min}
         max={doubleSliderParameters.max}
         step={doubleSliderParameters.step}>
-        <SliderTrack className="bg-gray-200 relative grow rounded-full h-[2px]">
+        <SliderTrack className="bg-gray-200 relative grow h-[1px]">
           <SliderRange className="absolute bg-zinc-500 rounded-full h-full" />
         </SliderTrack>
         <SliderThumb
-          className="block w-1 h-1 bg-white border-2 border-zinc-500 shadow rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-3 h-1.5 bg-zinc-100 border-[1px] border-zinc-700  rounded  focus:outline-none   focus:ring-1 focus:ring-zinc-200 focus:ring-opacity-50"
           aria-label="Start"
         />
         <SliderThumb
-          className="block w-1 h-1 bg-white border-2 border-zinc-500 shadow rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+          className="w-0.5 h-1.5 bg-zinc-100 border-[1px] border-zinc-700  rounded focus:outline-none focus:ring-1 focus:ring-zinc-200 focus:ring-opacity-50"
           aria-label="End"
         />
       </Slider>
