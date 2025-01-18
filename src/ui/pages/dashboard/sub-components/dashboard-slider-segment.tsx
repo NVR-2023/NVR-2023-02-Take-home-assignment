@@ -26,6 +26,7 @@ const DashboardSliderSegment = () => {
       <span className="hidden md:flex">
         <ToolStripLabel label="time range" />
       </span>
+      <div>slider</div>
       <TimeRange />
     </div>
   );
