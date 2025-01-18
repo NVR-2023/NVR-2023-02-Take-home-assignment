@@ -3,7 +3,7 @@ import { FooterProps } from "../../../types/global-types";
 const Footer = ({ color }: FooterProps) => {
   const colorMap = new Map([
     ["homepage", "bg-purple-950"],
-    ["pages", "bg-[#3939a3]"],
+    ["pages", "bg-zinc-700"],
   ]);
 
   const borderMap = new Map([
