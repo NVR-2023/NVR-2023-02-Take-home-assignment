@@ -22,7 +22,7 @@ const CTAButton = () => {
         <motion.button
           {...buttonTapVariants}
           className="flex justify-center tracking-wide px-3 w-27 py-2 h-9 overflow-clip font-[450] text-zinc-300 text-sm border-zinc-300 border-2 rounded-[7px] ">
-          <span>VISIT</span>
+          <span>Visit</span>
           <span className="ml-1 scale-90 transform translate-y-0.5">➜</span>
         </motion.button>
       </div>
