@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CTAButton = () => {
   return (
     <Link to="/private/dashboard" viewTransition>
-      <button className="group bg-yellow-300 overflow-hidden text-zinc-300 flex font-[450] px-3 py-2 border-2 rounded-[7px] border-zinc-300 text-[14px]">
+      <button className="group bg-yellow-300 overflow-hidden text-zinc-300 flex font-[450] px-3 py-2 border-2 rounded-[7px] border-zinc-300 text-sm">
         <div className="w-full flex items-center transition-transform duration-300">
           <div className="flex-grow bg-red-500 flex items-center transition-transform duration-300 group-hover:translate-x-[-100%]">
             <span>By Nuno Rodrigues, for comudel</span>
