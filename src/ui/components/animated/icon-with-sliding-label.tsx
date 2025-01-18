@@ -10,7 +10,10 @@ const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
     setIsHovered(false);
   };
   return (
-    <button onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} className="flex  items-center">
+    <div
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+      className="flex  items-center">
       <div
         className="grid"
         style={{
@@ -29,7 +32,7 @@ const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
       <span>
         <Icon />
       </span>
-    </button>
+    </div>
   );
 };
 

@@ -5,7 +5,9 @@ import ToolStripLabel from "./tool-strip-label";
 const ToolsStrip = ({ title, tools, labels }: ToolStripProps) => {
   return (
     <div className="flex items-center space-x-2">
-      <ToolStripLabel label={title} />
+      <span className="hidden md:flex">
+        <ToolStripLabel label={title} />
+      </span>
 
       <ul className="space-x-3 md:space-x-[2.5px] flex ">
         {tools.map((Tool, index) => (
