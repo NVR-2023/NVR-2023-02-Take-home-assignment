@@ -5,19 +5,21 @@ import Footer from "../sections/footer/footer";
 
 const PrivateLayout = () => {
   return (
-    <div className="private-layout overflow-x-clip">
-      <div className="p-4 flex flex-row lg:flex-row gap-2 max-h-screen h-screen bg-zinc-100">
-        <aside className="overflow-clip hidden md:block h-full" role="navigation">
+    <div className="private-layout overflow-x-hidden">
+      <div className="p-4 flex flex-col md:flex-row gap-2 max-h-screen h-screen bg-zinc-100">
+        <aside
+          className="overflow-clip hidden md:flex md:flex-col h-full max-h-full"
+          role="navigation">
           <Sidebar />
         </aside>
-        <main className="overflow-y-clip flex-grow h-full space-y-2" role="main">
+        <main className="overflow-y-auto w-full md:w-auto flex-grow h-full" role="main">
           <div className="md:hidden" role="navigation">
             <MobileNavbar />
           </div>
           <Outlet />
         </main>
       </div>
-      <footer className="w-screen" role="contentinfo">
+      <footer className="w-full" role="contentinfo">
         <Footer color="pages" />
       </footer>
     </div>

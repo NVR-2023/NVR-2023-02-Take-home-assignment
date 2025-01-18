@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
 import ToolStripLabel from "../../../components/common/tool-strip-label";
@@ -7,7 +7,7 @@ import DoubleSlider from "./double-slider";
 import IconWIthSLidingLabel from "../../../components/animated/icon-with-sliding-label";
 
 const DashboardSliderSegment = () => {
-  const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
+  const { setDashboardUIContext } = useDashboardUIContext();
   const { data, isLoading, hasErrors } = useCombinedTimelinesContext();
 
   useEffect(() => {
@@ -24,12 +24,13 @@ const DashboardSliderSegment = () => {
   }, [data, isLoading, hasErrors]);
 
   return (
-    <div className="flex space-x-2 items-center">
-      <span className="hidden md:flex">
-        <ToolStripLabel label="time range" />
-      </span>
+    
+      <div className="flex w-90min-w-90 space-x-2 items-center">
+        <span className="hidden md:flex">
+          <ToolStripLabel label="time range" />
+        </span>
       <IconWIthSLidingLabel label="adjust" Icon={DoubleSlider} />
-      <TimeRangeLabel />
+    <TimeRangeLabel/>
     </div>
   );
 };

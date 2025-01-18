@@ -13,7 +13,7 @@ const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
   const ToolsSegment = () => {
     return (
-      <div className="flex space-x-6">
+      <div className="flex items-center space-x-5">
         <DashboardSliderSegment />
         <DashboardTogglesSegment />
       </div>
