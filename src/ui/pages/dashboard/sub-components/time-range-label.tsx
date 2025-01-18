@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { getNameAndAbbreviationOfMonth } from "../../../../utils/get-name-and-abbreviation-of-month";
+import LoadingIndicator from "../../../components/animated/loading-indicator";
 
 const TimeRangeLabel = () => {
   const { DashboardUIContext } = useDashboardUIContext();
@@ -17,7 +18,7 @@ const TimeRangeLabel = () => {
   if (!startDate || !endDate) {
     return (
       <Wrapper>
-        <span className="transform skew-x-[-10deg] text-zinc-400">LOADING</span>
+        <LoadingIndicator />
       </Wrapper>
     );
   }

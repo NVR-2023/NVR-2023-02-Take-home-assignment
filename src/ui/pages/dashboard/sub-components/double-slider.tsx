@@ -3,6 +3,7 @@ import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combin
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { Slider, SliderTrack, SliderRange, SliderThumb } from "@radix-ui/react-slider";
 import { DoubleSliderParametersType, CombinedDataTypeArray } from "../../../../types/global-types";
+import LoadingIndicator from "../../../components/animated/loading-indicator";
 
 const DoubleSlider = () => {
   const [doubleSliderParameters, setDoubleSliderParameters] = useState<DoubleSliderParametersType>({
@@ -66,15 +67,19 @@ const DoubleSlider = () => {
   };
 
   const Wrapper = ({ children }: { children: ReactNode }) => {
-    return <div>{children}</div>;
+    return <div className="flex px-1 rounded-[2px] bg-[#b9b9c0] w-36 h-4">{children}</div>;
   };
 
-  if (isLoading || hasErrors) {
-    return <Wrapper>{isLoading ? "Loading" : "Error"}</Wrapper>;
+  if (isLoading) {
+    return (
+      <Wrapper>
+        <LoadingIndicator />
+      </Wrapper>
+    );
   }
 
   return (
-    <div className="flex px-1 rounded-[2px] bg-[#b9b9c0]">
+    <div className="flex px-1 rounded-[2px] bg-[#b9b9c0] ">
       <Slider
         className="relative flex items-center select-none bg-[#b9b9c0] touch-none w-36 h-4.5"
         value={doubleSliderValues}
@@ -85,12 +90,13 @@ const DoubleSlider = () => {
         <SliderTrack className="bg-gray-200 relative grow h-[1px]">
           <SliderRange className="absolute bg-zinc-500 rounded-full h-full" />
         </SliderTrack>
+
         <SliderThumb
-          className="block w-1 h-1 bg-zinc-100 border-2 border-zinc-700  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
+          className="block w-1 h-1 bg-zinc-100 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
           aria-label="Start"
         />
         <SliderThumb
-          className="block w-1 h-1 bg-zinc-100 border-2 border-zinc-700  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
+          className="block w-1 h-1 bg-zinc-100 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
           aria-label="End"
         />
       </Slider>
