@@ -3,7 +3,7 @@ import TransparentLogoIcon from "../../../components/icons/transparent-logo-icon
 
 const HomepageNavbar = () => {
   return (
-    <div className="w-full flex justify-between text-sm px-7 pt-9 text-zinc-700">
+    <div className="w-full flex justify-between items-center text-base md:text-sm px-7 pt-9 text-zinc-700">
       <div className="flex space-x-1">
         <span className="">
           <TransparentLogoIcon scale={0.75} />

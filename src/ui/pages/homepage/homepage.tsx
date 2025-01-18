@@ -22,7 +22,7 @@ const Homepage = () => {
           <HomepageNavbar />
         </div>
         <motion.div className="absolute bottom-30 right-7 -space-y-3.5" {...textLogoAnimation}>
-          <div className="text-zinc-300 -tracking-tight text-[3.5rem]">TechBilling Portal</div>
+          <div className="text-zinc-300 text-right md:text-left justify-end md:justify-start -tracking-tight text-[3.5rem]">TechBilling Portal</div>
         </motion.div>
         <motion.div className="absolute right-8 bottom-20" {...buttonAnimation}>
           <CTAButton />
