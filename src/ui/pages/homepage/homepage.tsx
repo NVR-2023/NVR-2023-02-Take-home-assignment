@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Footer from "../../sections/footer/footer";
 import HomepageNavbar from "./sub-components/homepage-navbar";
-import SigninButton from "./sub-components/signin-button";
+import CTAButton from "./sub-components/cta-button";
 
 import {
   textLogoAnimation,
@@ -12,7 +12,7 @@ import {
 const Homepage = () => {
   return (
     <div>
-      <motion.div className="relative h-screen" {...backgroundAnimation}>
+      <motion.div className="relative h-screen overflow-x-clip" {...backgroundAnimation}>
         <img
           src="/images/homepage-wallpaper.webp"
           className="w-full h-full object-cover"
@@ -25,7 +25,7 @@ const Homepage = () => {
           <div className="text-zinc-300 -tracking-tight text-[3.5rem]">TechBilling Portal</div>
         </motion.div>
         <motion.div className="absolute right-8 bottom-20" {...buttonAnimation}>
-          <SigninButton />
+          <CTAButton />
         </motion.div>
       </motion.div>
       <footer>
