@@ -92,11 +92,11 @@ const DoubleSlider = () => {
         </SliderTrack>
 
         <SliderThumb
-          className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
+          className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
           aria-label="Start"
         />
         <SliderThumb
-          className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-2 focus:ring-zinc-200 focus:ring-opacity-50"
+          className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
           aria-label="End"
         />
       </Slider>
