@@ -24,15 +24,17 @@ const WithToggleFunctionality = ({
   };
 
   const CustomIcon = <Icon scale={0.625} color={iconColorClass} />;
+  const MobileCustomIcon = <Icon scale={1} color={iconColorClass} />;
 
-  const ToggleButton = () => (
-    <motion.button
-      {...buttonTapVariants}
-      onClick={handleOnClick}
-      className={`${backgroundColorClass} h-4.5 w-7 rounded-[2px] flex justify-center items-center`}>
-      {CustomIcon}
-    </motion.button>
-  );
+const ToggleButton = () => (
+  <motion.button
+    {...buttonTapVariants}
+    onClick={handleOnClick}
+    className={`${backgroundColorClass} h-6 w-6 sm:h-8 sm:w-8 md:h-4.5 md:w-7 rounded-[2px] flex justify-center items-center`}>
+    <span className="hidden md:flex">{CustomIcon}</span>
+    <span className="flex md:hidden">{MobileCustomIcon}</span>
+  </motion.button>
+);
 
   return ToggleButton;
 };

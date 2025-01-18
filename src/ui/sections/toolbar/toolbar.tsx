@@ -7,7 +7,7 @@ const Toolbar = ({ title, toolsArray }: ToolbarProps) => {
       <div>
         <TitleSegment title={title} />
       </div>
-      <ul className="mt-2 md:mt-0 md:flex space-y-5 md:space-y-0 md:space-x-4">
+      <ul className="mt-5 md:mt-0 md:flex space-y-5 md:space-y-0 md:space-x-4">
         {toolsArray.map((Tool, index) => (
           <li key={index}>
             <Tool />
