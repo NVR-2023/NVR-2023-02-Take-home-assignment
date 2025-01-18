@@ -67,7 +67,7 @@ const DoubleSlider = () => {
   };
 
   const Wrapper = ({ children }: { children: ReactNode }) => {
-    return <div className="flex px-1 rounded-[2px] bg-[#b9b9c0] w-36 h-4">{children}</div>;
+    return <div className="flex px-1 rounded-[2px] bg-zinc-200 w-36 h-4">{children}</div>;
   };
 
   if (isLoading) {
@@ -87,7 +87,7 @@ const DoubleSlider = () => {
         min={doubleSliderParameters.min}
         max={doubleSliderParameters.max}
         step={doubleSliderParameters.step}>
-        <SliderTrack className="bg-zinc-50 relative grow h-[3px] md:h-[1.5px]">
+        <SliderTrack className="bg-zinc-50 relative grow h-[3px] md:h-[1px]">
           <SliderRange className="absolute bg-zinc-500 rounded-full h-full" />
         </SliderTrack>
 
