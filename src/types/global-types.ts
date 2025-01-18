@@ -147,3 +147,19 @@ export type ComponentWithLabel = {
   label: string;
   Icon: ComponentType;
 };
+
+export type DoubleSliderParametersType = {
+  min: number;
+  max: number;
+  step: number;
+  defaultValue: [number, number];
+};
+
+export type CombinedDataType = {
+  date: string;
+  revenue: number;
+  issuedInvoices: number;
+  activeUsers: number;
+};
+
+export type CombinedDataTypeArray = CombinedDataType[];
