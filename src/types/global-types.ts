@@ -129,12 +129,13 @@ export type ComponentArrayType = ComponentType[];
 export type WithToggleFunctionalityProps = {
   Icon: ComponentType<IconProps>;
   isToggled: boolean;
-  toggleFunction: React.Dispatch<React.SetStateAction<boolean>>; // Only toggle isToggled
+  toggleFunction: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type ToolStripProps = {
   title: string;
   tools: ComponentType[];
+  labels: string[];
 };
 
 export type ToolbarProps = {

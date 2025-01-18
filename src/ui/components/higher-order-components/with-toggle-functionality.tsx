@@ -8,8 +8,8 @@ const WithToggleFunctionality = ({
   toggleFunction,
 }: WithToggleFunctionalityProps) => {
   const backgroundColorMap = new Map([
-    [true, "bg-[#bbbbc1]"],
-    [false, "bg-[#ccccd1]"],
+    [true, "bg-[#b9b9c0]"],
+    [false, "bg-[#c9c9cf]"],
   ]);
   const iconColorMap = new Map([
     [true, "#2c2c30"],

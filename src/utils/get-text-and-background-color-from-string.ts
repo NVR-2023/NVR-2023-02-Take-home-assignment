@@ -1,12 +1,12 @@
 const getTextAndBackgroundColorFromString = (
   text: string
 ): { backgroundColor: string; textColor: string } => {
-  const MAX_HUE = 360;
+  const MAX_HUE = 500;
   const MIN_SATURATION = 80;
   const MAX_SATURATION_VARIATION = 20;
   const MIN_LIGHTNESS = 90;
   const MAX_LIGHTNESS_VARIATION = 5;
-  const TEXT_LIGHTNESS_REDUCTION = 60;
+  const TEXT_LIGHTNESS_REDUCTION = 70;
   const MIN_ALPHA = 0.9;
   const TEXT_ALPHA = 1;
 

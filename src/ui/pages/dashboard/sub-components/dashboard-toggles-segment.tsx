@@ -2,7 +2,8 @@ import { ComponentType } from "react";
 import withToggleFunctionality from "../../../components/higher-order-components/with-toggle-functionality";
 import LineAndBarChartIcon from "../../../components/icons/line-and-bar-chart-icon";
 import BarChartWithAxisIcon from "../../../components/icons/bar-chart-with-axis.-icon";
-import BarChartIcon from "../../../components/icons/bar-chart-icon";
+
+import LineChartWithCanvasIcon from "../../../components/icons/line-chart-with-canvas-icon";
 import DerivedCardIcon from "../../../components/icons/derived-card-icon";
 import CombineChartsIcon from "../../../components/icons/combine-charts-icon";
 
@@ -67,7 +68,7 @@ const DashboardTogglesSegment = () => {
   });
 
   const ToggleUsersGraphButton = withToggleFunctionality({
-    Icon: BarChartIcon,
+    Icon: LineChartWithCanvasIcon,
     isToggled: isUsersGraphVisible,
     toggleFunction: toggleUsersGraphFunction,
   });
@@ -92,7 +93,8 @@ const DashboardTogglesSegment = () => {
     ToggleCombineGraphsButton,
   ];
 
-  return <ToolStrip title="Visibility" tools={toolsArray} />;
+  const labels = ["Revenue", "Invoices", "Users", "Overview", "Combine"];
+  return <ToolStrip title="Visibility" tools={toolsArray} labels={labels} />;
 };
 
 export default DashboardTogglesSegment;

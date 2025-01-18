@@ -10,7 +10,7 @@ const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
     setIsHovered(false);
   };
   return (
-    <button onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} className="flex">
+    <button onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} className="flex  items-center">
       <div
         className="grid"
         style={{
@@ -21,7 +21,9 @@ const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
           className={`hidden md:flex text-sm font-[500] items-center overflow-hidden duration-300 transition-all ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}>
-          <span className="px-2 font-[500]">{label}</span>
+          <span className="ps-2 pe-1 tracking-wide hidden text-zinc-700 md:flex text-[9px] font-[750]">
+            {label.toUpperCase()}
+          </span>
         </div>
       </div>
       <span>

@@ -1,17 +1,16 @@
 import { ToolStripProps } from "../../../types/global-types";
 import IconWIthSLidingLabel from "../animated/icon-with-sliding-label";
+import ToolStripLabel from "./tool-strip-label";
 
-const ToolsStrip = ({ title, tools }: ToolStripProps) => {
+const ToolsStrip = ({ title, tools, labels }: ToolStripProps) => {
   return (
     <div className="flex items-center space-x-2">
-      <div className="font-[500] h-4.5 bg-red-400 flex items-baseline text-zinc-700 tracking-wide text-sm">
-        {title}
-      </div>
+      <ToolStripLabel label={title} />
 
       <ul className="space-x-3 md:space-x-[2.5px] flex ">
         {tools.map((Tool, index) => (
           <li key={index} className="">
-            <IconWIthSLidingLabel label="label1" Icon={Tool} />
+            <IconWIthSLidingLabel label={labels[index]} Icon={Tool} />
           </li>
         ))}
       </ul>
