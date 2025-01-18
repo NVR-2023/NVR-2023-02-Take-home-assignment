@@ -79,9 +79,9 @@ const DoubleSlider = () => {
   }
 
   return (
-    <div className="flex px-1 rounded-[2px] bg-[#b9b9c0] ">
+    <div className="flex px-1 rounded-[2px] bg-zinc-200 ">
       <Slider
-        className="relative flex items-center select-none bg-[#b9b9c0] touch-none w-36 h-4.5"
+        className="relative flex items-center select-none bg-zinc-200 touch-none w-36 h-4.5"
         value={doubleSliderValues}
         onValueChange={handleOnValueChange}
         min={doubleSliderParameters.min}
