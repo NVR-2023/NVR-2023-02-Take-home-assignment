@@ -24,7 +24,7 @@ const Homepage = () => {
         <motion.div className="absolute bottom-30 right-7 -space-y-3.5" {...textLogoAnimation}>
           <div className="text-zinc-300 -tracking-tight text-[3.5rem]">TechBilling Portal</div>
         </motion.div>
-        <motion.div className="absolute right-8 bottom-19" {...buttonAnimation}>
+        <motion.div className="absolute right-8 bottom-20" {...buttonAnimation}>
           <SigninButton />
         </motion.div>
       </motion.div>
