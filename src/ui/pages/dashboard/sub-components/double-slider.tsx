@@ -87,7 +87,7 @@ const DoubleSlider = () => {
         min={doubleSliderParameters.min}
         max={doubleSliderParameters.max}
         step={doubleSliderParameters.step}>
-        <SliderTrack className="bg-gray-200 relative grow h-[1px]">
+        <SliderTrack className="bg-zinc-50 relative grow h-[1px]">
           <SliderRange className="absolute bg-zinc-500 rounded-full h-full" />
         </SliderTrack>
 
