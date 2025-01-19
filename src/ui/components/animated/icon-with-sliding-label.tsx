@@ -20,8 +20,7 @@ const IconWIthSlidingLabel = ({ label, Icon }: ComponentWithLabel) => {
           gridTemplateColumns: isHovered ? "1fr" : "0fr",
           transition: "grid-template-columns 300ms",
         }}>
-
-
+          
         <div
           className={`hidden md:flex text-sm font-[500] items-center overflow-hidden duration-300 transition-all ${
             isHovered ? "opacity-100" : "opacity-0"
@@ -30,8 +29,9 @@ const IconWIthSlidingLabel = ({ label, Icon }: ComponentWithLabel) => {
             {label.toUpperCase()}
           </span>
         </div>
-        
+      
       </div>
+      
       <span>
         <Icon />
       </span>
