@@ -10,7 +10,7 @@ const TimeRangeLabel = () => {
 
   const Wrapper = ({ children }: { children: ReactNode }) => {
     return (
-      <span className="flex md:h-4.5 sm:h-6 md:w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[15px] md:text-[9px] font-[650]">
+      <span className="flex md:h-4.5 sm:h-6 w-28 md:w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[15px] md:text-[9px] font-[650]">
         {children}
       </span>
     );
@@ -35,8 +35,15 @@ const TimeRangeLabel = () => {
     getNameAndAbbreviationOfMonth(Number(endDateYearAndMonth[1]))?.abbreviation || "Unknown"
   } ${endDateYearAndMonth[0]}`;
 
-  const timeSpanString = `${startDateString} - ${endDateString}`.toUpperCase();
-  const shortenedStringForMobile = shortenDateStringForMobile(startDate, endDate);
+  const timeSpanString =
+    startDateString !== endDateString
+      ? `${startDateString} - ${endDateString}`.toUpperCase()
+      : startDateString.toUpperCase();
+
+  const shortenedStringForMobile =
+    startDateString !== endDateString
+      ? shortenDateStringForMobile(startDate, endDate)
+      : shortenDateStringForMobile(startDate);
   return (
     <div>
       <span className="hidden md:flex">

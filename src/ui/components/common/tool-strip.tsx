@@ -1,5 +1,5 @@
 import { ToolStripProps } from "../../../types/global-types";
-import IconWIthSLidingLabel from "../animated/icon-with-sliding-label";
+import IconWIthSlidingLabel from "../animated/icon-with-sliding-label";
 import ToolStripLabel from "./tool-strip-label";
 
 const ToolsStrip = ({ title, tools, labels }: ToolStripProps) => {
@@ -12,7 +12,7 @@ const ToolsStrip = ({ title, tools, labels }: ToolStripProps) => {
       <ul className="space-x-3 md:space-x-[2.5px] flex ">
         {tools.map((Tool, index) => (
           <li key={index} className="">
-            <IconWIthSLidingLabel label={labels[index]} Icon={Tool} />
+            <IconWIthSlidingLabel label={labels[index]} Icon={Tool} />
           </li>
         ))}
       </ul>

@@ -9,6 +9,8 @@ import UIContextChecker from "../../components/common/ui-context-checker";
 import DashboardSliderSegment from "./sub-components/dashboard-slider-segment";
 import DashboardTogglesSegment from "./sub-components/dashboard-toggles-segment";
 
+import Filtered from "../../components/common/filtered";
+
 const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
   const ToolsArray = [DashboardSliderSegment, DashboardTogglesSegment];
@@ -24,7 +26,8 @@ const Dashboard = () => {
           <pre>{JSON.stringify(data, null, 2)}</pre>
           <UIContextChecker />
         </div>
-        <div>Another div</div>
+        <p>Filtered</p>
+        <Filtered />
       </ContentArea>
     </motion.div>
   );

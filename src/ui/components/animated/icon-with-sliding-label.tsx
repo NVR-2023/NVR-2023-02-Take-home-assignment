@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ComponentWithLabel } from "../../../types/global-types";
 
-const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
+const IconWIthSlidingLabel = ({ label, Icon }: ComponentWithLabel) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleOnMouseEnter = () => {
     setIsHovered(true);
@@ -36,4 +36,4 @@ const IconWIthSLidingLabel = ({ label, Icon }: ComponentWithLabel) => {
   );
 };
 
-export default IconWIthSLidingLabel;
+export default IconWIthSlidingLabel;

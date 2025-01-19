@@ -4,7 +4,7 @@ import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combin
 import ToolStripLabel from "../../../components/common/tool-strip-label";
 import TimeRangeLabel from "./time-range-label";
 import DoubleSlider from "./double-slider";
-import IconWIthSLidingLabel from "../../../components/animated/icon-with-sliding-label";
+import IconWIthSlidingLabel from "../../../components/animated/icon-with-sliding-label";
 
 const DashboardSliderSegment = () => {
   const { setDashboardUIContext } = useDashboardUIContext();
@@ -28,7 +28,7 @@ const DashboardSliderSegment = () => {
       <span className="hidden md:flex">
         <ToolStripLabel label="time range" />
       </span>
-      <IconWIthSLidingLabel label="adjust" Icon={DoubleSlider} />
+      <IconWIthSlidingLabel label="adjust" Icon={DoubleSlider} />
       <TimeRangeLabel />
     </div>
   );
