@@ -8,26 +8,45 @@ import ContentArea from "../../sections/content-area/content-area";
 import UIContextChecker from "../../components/common/ui-context-checker";
 import DashboardSliderSegment from "./sub-components/dashboard-slider-segment";
 import DashboardTogglesSegment from "./sub-components/dashboard-toggles-segment";
+import { useDashboardUIContext } from "../../../custom-hooks/use-dashboard-ui-context";
 
+import OverviewCard from "../../components/charts/overview-card";
 import Filtered from "../../components/common/filtered";
 
 const Dashboard = () => {
   const { data } = useCombinedTimelinesContext();
   const ToolsArray = [DashboardSliderSegment, DashboardTogglesSegment];
 
+  
   return (
     <motion.div
       {...pageAnimation}
-      className="bg-zinc-200 rounded min-h-full h-full p-4 space-y-2 overflow-x-clip">
+      className="bg-yellow-200 rounded h-auto md:min-h-screen md:h-screen p-4 space-y-2 md:overflow-x-clip">
       <Toolbar title="Dashboard" toolsArray={ToolsArray} />
       <ContentArea>
-        <p>Data:</p>
-        <div>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-          <UIContextChecker />
+        <div className="w-full h-full grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
+          <div className="bg-green-500 p-4 rounded flex items-stretch">
+            <div className="w-full h-full">
+              <OverviewCard />
+            </div>
+          </div>
+          <div className="bg-red-500 p-4 rounded flex items-stretch">
+            <div className="w-full h-full">
+              <OverviewCard />
+            </div>
+          </div>
+          <div className="bg-yellow-500 p-4  rounded flex items-stretch">
+            <div className="w-full h-full">
+              <OverviewCard />
+            </div>
+          </div>
+          <div className="bg-blue-500 p-4 rounded flex items-stretch sm:col-span-3 lg:col-span-1">
+            <div className="w-full h-full">
+              <OverviewCard />
+            </div>
+          </div>
+          {/* Add more items as needed */}
         </div>
-        <p>Filtered</p>
-        <Filtered />
       </ContentArea>
     </motion.div>
   );
