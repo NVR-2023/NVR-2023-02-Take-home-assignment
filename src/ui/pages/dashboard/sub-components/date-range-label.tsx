@@ -4,7 +4,7 @@ import { getNameAndAbbreviationOfMonth } from "../../../../utils/get-name-and-ab
 import LoadingIndicator from "../../../components/animated/loading-indicator";
 import { shortenDateStringForMobile } from "../../../../utils/shotened-date-string-for-mobile";
 
-const TimeRangeLabel = () => {
+const DateRangeLabel = () => {
   const { DashboardUIContext } = useDashboardUIContext();
   const { startDate, endDate } = DashboardUIContext;
 
@@ -49,9 +49,11 @@ const TimeRangeLabel = () => {
       <span className="hidden md:flex h-4.5 w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[9px] font-[650]">
         {timeSpanString}
       </span>
-      <span className="md:hidden flex items-center justify-center text-[15px] font-[550] h-6 w-30 rounded-[2px]  bg-zinc-200">{shortenedStringForMobile}</span>
+      <span className="md:hidden flex items-center justify-center text-[15px] font-[550] h-6 w-30 rounded-[2px]  bg-zinc-200">
+        {shortenedStringForMobile}
+      </span>
     </div>
   );
 };
 
-export default TimeRangeLabel;
+export default DateRangeLabel;

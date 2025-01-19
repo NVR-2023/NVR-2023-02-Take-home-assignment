@@ -1,6 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import OverviewCard from "../../../components/animated/overview-card";
+import RegularCard from "../../../components/animated/regular-card";
+
 const DesktopLayout = () => {
   const { DashboardUIContext } = useDashboardUIContext();
   const {
@@ -11,12 +13,12 @@ const DesktopLayout = () => {
   } = DashboardUIContext;
 
   const columns = [
+    { isVisible: isUsersGraphVisible, card: <RegularCard /> },
+    { isVisible: isInvoicesGraphVisible, card: <RegularCard /> },
+    { isVisible: isRevenueGraphVisible, card: <RegularCard /> },
     { isVisible: isDerivedCardVisible, card: <OverviewCard /> },
-    { isVisible: isInvoicesGraphVisible, card: <OverviewCard /> },
-    { isVisible: isRevenueGraphVisible, card: <OverviewCard /> },
-    { isVisible: isUsersGraphVisible, card: <OverviewCard /> },
   ];
-
+;
   const visibleColumns = columns.filter((col) => col.isVisible);
   const columnWidth = visibleColumns.length > 0 ? `${100 / visibleColumns.length}%` : "0%";
 
@@ -26,7 +28,7 @@ const DesktopLayout = () => {
         <AnimatePresence key={index}>
           {column.isVisible && (
             <motion.div
-              className="overflow-hidden"
+              className="overflow-hidden flex justify-center items-center"
               initial={{ width: columnWidth }}
               animate={{ width: columnWidth }}
               exit={{ width: 0 }}
