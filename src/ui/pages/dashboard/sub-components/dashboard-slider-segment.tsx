@@ -24,7 +24,7 @@ const DashboardSliderSegment = () => {
   }, [data, isLoading, hasErrors]);
 
   return (
-    <div className="flex w-90min-w-90 space-x-2 items-center">
+    <div className="flex w-90 min-w-90 space-x-2 items-center">
       <span className="hidden md:flex">
         <ToolStripLabel label="time range" />
       </span>

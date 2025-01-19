@@ -8,9 +8,9 @@ const TimeRangeLabel = () => {
   const { DashboardUIContext } = useDashboardUIContext();
   const { startDate, endDate } = DashboardUIContext;
 
-  const Wrapper = ({ children }: { children: ReactNode }) => {
+  const DesktopWrapper = ({ children }: { children: ReactNode }) => {
     return (
-      <span className="flex md:h-4.5 sm:h-6 w-25 md:w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[15px] md:text-[9px] font-[650]">
+      <span className="flex h-4.5 w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[9px] font-[650]">
         {children}
       </span>
     );
@@ -18,9 +18,9 @@ const TimeRangeLabel = () => {
 
   if (!startDate || !endDate) {
     return (
-      <Wrapper>
+      <DesktopWrapper>
         <LoadingIndicator />
-      </Wrapper>
+      </DesktopWrapper>
     );
   }
 
@@ -46,12 +46,10 @@ const TimeRangeLabel = () => {
       : shortenDateStringForMobile(startDate);
   return (
     <div>
-      <span className="hidden md:flex">
-        <Wrapper>{timeSpanString}</Wrapper>
+      <span className="hidden md:flex h-4.5 w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[9px] font-[650]">
+        {timeSpanString}
       </span>
-      <span className="md:hidden flex">
-        <Wrapper>{shortenedStringForMobile}</Wrapper>
-      </span>
+      <span className="md:hidden flex items-center justify-center text-[15px] font-[550] h-6 w-30 rounded-[2px]  bg-zinc-200">{shortenedStringForMobile}</span>
     </div>
   );
 };
