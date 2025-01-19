@@ -33,13 +33,13 @@ const OverviewCard = () => {
           }}>
           <CardShell>
             <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
-
             <div className="flex flex-grow w-full h-full bg-yellow-400">
               <div className="grid grid-rows-[repeat(3,1fr)] grid-cols-[repeat(3,1fr)] gap-2 w-full h-full">
                 <div className="col-span-2 row-span-2 bg-gray-200">1</div>
                 <div className="bg-gray-300">2</div>
                 <div className="bg-gray-400">3</div>
-                <div className="bg-gray-500 col-span-3">4</div>
+                <div className="bg-gray-500 col-span-3">4</div>{" "}
+                {/* This should fit in one row unless content overflows */}
               </div>
             </div>
           </CardShell>
