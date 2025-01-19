@@ -5,6 +5,7 @@ import CardHeaderSegment from "./card/card-header-segment";
 import CardShell from "./card/card-shell";
 import { cardAnimation } from "../../animations/card-animation";
 import { getOverviewStatsFromData } from "../../../utils/get-overview-stats-from-data";
+import StatsMiniCard from "./stats-minicard";
 
 const OverviewCard = () => {
   const data = useFilteredDashboardData();
@@ -33,13 +34,13 @@ const OverviewCard = () => {
           }}>
           <CardShell>
             <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
-            <div className="flex flex-grow w-full h-full bg-yellow-400">
-              <div className="grid grid-rows-[repeat(3,1fr)] grid-cols-[repeat(3,1fr)] gap-2 w-full h-full">
+
+            <div className="w-full h-full bg-yellow-400">
+              <div className="grid grid-rows-[1fr_1fr_2fr] grid-cols-[repeat(3, 1fr)] gap-2 w-full h-full">
                 <div className="col-span-2 row-span-2 bg-gray-200">1</div>
                 <div className="bg-gray-300">2</div>
                 <div className="bg-gray-400">3</div>
-                <div className="bg-gray-500 col-span-3">4</div>{" "}
-                {/* This should fit in one row unless content overflows */}
+                <div className="bg-gray-500 col-span-3 overflow-hidden">4</div>
               </div>
             </div>
           </CardShell>
