@@ -16,7 +16,7 @@ const CloseCardButton = ({
       <motion.button
         {...buttonTapVariants}
         onClick={handleOnClick}
-        className="rounded-[1px] bg-zinc-200 transition-all duration-300 hover:bg-zinc-300 text-zinc-500">
+        className="rounded-[1.5px] bg-[#b4b9c1] transition-all duration-300 hover:bg-[#a2a8b1] text-zinc-500">
         <CloseIcon scale={0.5} />
       </motion.button>
     </span>
