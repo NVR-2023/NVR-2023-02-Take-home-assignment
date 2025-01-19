@@ -18,10 +18,9 @@ const OverviewCard = () => {
   };
 
   return (
-    <div className="flex-grow w-full min-h-81 h-81  rounded-[2px] bg-zinc-100 justify-center items-center">
+    <div className="flex-grow w-full min-h-81 h-81  rounded-[2px] bg-[#ccccd0] justify-center items-center">
       <div className="space-y-4 p-3">
         <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
-
         <div>Content</div>
       </div>
     </div>
