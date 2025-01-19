@@ -22,7 +22,7 @@ const DesktopLayout = () => {
   const columnWidth = visibleColumns.length > 0 ? `${100 / visibleColumns.length}%` : "0%";
 
   return (
-    <div className="flex w-full h-full gap-3">
+    <div className="flex w-full h-full gap-5">
       {columns.map((column, index) => (
         <AnimatePresence key={index}>
           {column.isVisible && (

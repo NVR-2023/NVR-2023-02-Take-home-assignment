@@ -6,8 +6,8 @@ import CardShell from "./stats-card/card-shell";
 import { cardAnimation } from "../../animations/card-animation";
 import { getOverviewStatsFromData } from "../../../utils/get-overview-stats-from-data";
 import StatsMiniCard from "./stats-card/stats-minicard";
-import InvoicesMiniCard from "./stats-card/invoices-minicard";
-
+import InvoicesMinicard from "./stats-card/invoices-minicard";
+import RevenueMinicard from "./stats-card/revenue-minicard";
 
 const OverviewCard = () => {
   const data = useFilteredDashboardData();
@@ -27,31 +27,31 @@ const OverviewCard = () => {
     <AnimatePresence>
       {isDerivedCardVisible && (
         <motion.div
-          className="flex items-center justify-center w-full h-full"
+          className="flex flex-col space-y-2 bg-[#ccccd0] rounded p-2 w-full h-full"
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!isDerivedCardVisible) {
               handleOnCloseCard();
             }
           }}>
-          <CardShell>
-            <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
+          <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
 
-            <div className="w-full h-full bg-yellow-400">
-              <div className="grid grid-rows-[1fr_1fr_2fr] grid-cols-[repeat(3, 1fr)] gap-2 w-full h-full">
-                <div className="col-span-2 row-span-2 bg-gray-200">1</div>
-                <div>
-                  <StatsMiniCard />
-                </div>
-                <div>
-                  <StatsMiniCard />
-                </div>
-                <div className="col-span-3">
-                  <InvoicesMiniCard />
-                </div>
+          <div className="flex flex-grow min-w-full w-full h-[calc(100%-1rem)] rounded justify-center items-center bg-yellow-400">
+            <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(4, 1fr)] gap-2">
+              <div className="col-span-2 row-span-2 bg-gray-200">
+                <RevenueMinicard />
+              </div>
+              <div className="col-span-2 row-span-1">
+                <StatsMiniCard />
+              </div>
+              <div className="col-span-2 row-span-1">
+                <StatsMiniCard />
+              </div>
+              <div className="row-span-2 col-span-4">
+                <InvoicesMinicard />
               </div>
             </div>
-          </CardShell>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
