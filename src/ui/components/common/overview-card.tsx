@@ -27,27 +27,36 @@ const OverviewCard = () => {
     <AnimatePresence>
       {isDerivedCardVisible && (
         <motion.div
-          className="flex flex-col space-y-2 bg-[#ccccd0] rounded p-2 w-full h-full"
+          className="flex flex-col space-y-5 bg-[#ccccd0] rounded p-2 w-full h-full"
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!isDerivedCardVisible) {
               handleOnCloseCard();
             }
           }}>
-          <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
+          <CardHeaderSegment
+            title="overview"
+            closeFunction={handleOnCloseCard}
+            textColor="#765cf7"
+          />
 
-          <div className="flex flex-grow min-w-full w-full h-[calc(100%-1rem)] rounded justify-center items-center bg-yellow-400">
-            <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(4, 1fr)] gap-2">
-              <div className="col-span-2 row-span-2 bg-gray-200">
-                <RevenueMinicard />
+          <div className="flex flex-grow min-w-full w-full h-full rounded justify-center items-center">
+            <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(2, 1fr)] gap-2">
+              <div className="col-span-1 row-span-2">
+                <RevenueMinicard
+                  totalRevenue={overviewStats.totalRevenue}
+                  averageMonthlyRevenue={overviewStats.averageMonthlyRevenue}
+                  maxMonthlyRevenue={overviewStats.maxMonthlyRevenue}
+                  minMonthlyRevenue={overviewStats.minMonthlyRevenue}
+                />
               </div>
-              <div className="col-span-2 row-span-1">
+              <div className="col-span-1 row-span-1">
                 <StatsMiniCard />
               </div>
-              <div className="col-span-2 row-span-1">
+              <div className="col-span-1 row-span-1">
                 <StatsMiniCard />
               </div>
-              <div className="row-span-2 col-span-4">
+              <div className="col-span-2 row-span-2 ">
                 <InvoicesMinicard />
               </div>
             </div>
