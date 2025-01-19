@@ -29,33 +29,31 @@ const Dashboard = () => {
   return (
     <motion.div
       {...pageAnimation}
-      className="bg-zinc-200 rounded h-auto md:min-h-screen md:h-screen p-4 space-y-2 md:overflow-x-clip">
+      className="bg-zinc-200 rounded h-auto md:min-h-screen md:h-screen p-4 space-y-2 overflow-x-clip">
       <Toolbar title="Dashboard" toolsArray={ToolsArray} />
+      
       <ContentArea>
-        <div className="w-full h-full grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
-          <div className="bg-green-500 p-4 rounded flex items-stretch">
-            <div className="w-full h-full">
-              <OverviewCard />
-            </div>
+
+
+
+
+        <div className=" w-full h-full grid grid-cols-1 gap-4 sm:grid-cols-3 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
+          <div className="bg-green-500 p-4 rounded flex ">
+            <OverviewCard />
           </div>
-          <div className="bg-red-500 p-4 rounded flex items-stretch">
-            <div className="w-full h-full">
-              <OverviewCard />
-            </div>
+          <div className="bg-red-500 p-4 rounded flex ">
+            <OverviewCard />
           </div>
           <div className="bg-yellow-500 p-4  rounded flex items-stretch">
-            <div className="w-full h-full">
-              <OverviewCard />
-            </div>
+            <OverviewCard />
           </div>
           <div className="bg-blue-500 p-4 rounded flex items-stretch sm:col-span-3 lg:col-span-1">
-            <div className="w-full h-full justify-center">
-              <OverviewCard />
-            </div>
+            <OverviewCard />
           </div>
-          {/* Add more items as needed */}
         </div>
-      </ContentArea>
+
+
+      </ContentArea>   
     </motion.div>
   );
 };
