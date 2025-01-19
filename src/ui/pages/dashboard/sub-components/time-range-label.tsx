@@ -10,7 +10,7 @@ const TimeRangeLabel = () => {
 
   const Wrapper = ({ children }: { children: ReactNode }) => {
     return (
-      <span className="flex md:h-4.5 sm:h-6 w-28 md:w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[15px] md:text-[9px] font-[650]">
+      <span className="flex md:h-4.5 sm:h-6 w-25 md:w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[15px] md:text-[9px] font-[650]">
         {children}
       </span>
     );

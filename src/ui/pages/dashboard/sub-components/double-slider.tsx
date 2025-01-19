@@ -67,7 +67,7 @@ const DoubleSlider = () => {
   };
 
   const Wrapper = ({ children }: { children: ReactNode }) => {
-    return <div className="flex px-1 rounded-[2px] bg-zinc-200 w-36 h-4">{children}</div>;
+    return <div className="flex px-1 rounded-[2px] bg-zinc-200 w-25 h-4">{children}</div>;
   };
 
   if (isLoading) {
@@ -81,7 +81,7 @@ const DoubleSlider = () => {
   return (
     <div className="flex px-1 rounded-[2px] bg-zinc-200 ">
       <Slider
-        className="relative flex items-center select-none bg-zinc-200 touch-none w-27 md:w-36 h-5 md:h-4.5"
+        className="relative flex items-center select-none bg-zinc-200 touch-none w-25 md:w-36 h-5 md:h-4.5"
         value={doubleSliderValues}
         onValueChange={handleOnValueChange}
         min={doubleSliderParameters.min}
