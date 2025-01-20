@@ -36,10 +36,7 @@ const RevenueChartCard = () => {
               className="flex flex-grow min-w-full w-full h-full justify-center items-center"
               style={{ backgroundColor: "#ccccd0", padding: 0, margin: 0 }}>
               <ResponsiveContainer width="100%" height="100%" className="pt-0 pe-0">
-                <BarChart
-                  data={data}
-                  margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-                  className="w-full h-full">
+                <BarChart data={data} className="w-full h-full">
                   <defs>
                     <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
                       <stop offset="0%" stopColor="#b0b0ee" />
@@ -48,7 +45,7 @@ const RevenueChartCard = () => {
                   </defs>
                   <XAxis
                     dataKey="date"
-                    tick={{ fill: "#4b5563", fontSize: 9, fontWeight: 500 }}
+                    tick={{ fill: "#3f3f46", fontSize: 9, fontWeight: 600 }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(value) => shortenDateString(value)}
@@ -56,9 +53,9 @@ const RevenueChartCard = () => {
                   />
                   <YAxis
                     tick={{
-                      fill: "#4b5563",
+                      fill: "#3f3f46",
                       fontSize: 9,
-                      fontWeight: 500,
+                      fontWeight: 600,
                     }}
                     axisLine={false}
                     tickLine={false}
@@ -70,12 +67,18 @@ const RevenueChartCard = () => {
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "#f9fafb",
-                      border: "1px solid #e5e7eb",
-                      borderRadius: "4px",
-                      fontSize: "12px",
+                      backgroundColor: "rgba(204, 204, 208, 0.7)",
+                      borderRadius: "2px",
+                      fontSize: "9px",
+                      fontWeight: 600,
+                      width: "90px",
+                      height: "30px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                     }}
                     labelStyle={{ color: "#1f2937" }}
+                    formatter={(value) => [value, null]}
                   />
                   <Bar dataKey="revenue" fill="url(#revenueGradient)" radius={[1, 1, 0, 0]} />
                 </BarChart>
