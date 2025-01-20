@@ -18,16 +18,19 @@ const SummaryCard = () => {
       isDerivedCardVisible: false,
     }));
   };
+  const baseColor = "#9c9ca5";
+
   return (
     <CardShell
       title="Overview"
-      textColor="#4338ca"
+      textColor={baseColor}
       isCardVisible={isDerivedCardVisible}
       closeFunction={closeCardFunction}>
       <div className="flex flex-grow min-w-full w-full h-full rounded justify-center items-center">
         <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(2, 1fr)] gap-2">
           <div className="col-span-1 row-span-2">
             <RevenueMinicard
+              color={baseColor}
               totalRevenue={overviewStats.totalRevenue}
               averageMonthlyRevenue={overviewStats.averageMonthlyRevenue}
               maxMonthlyRevenue={overviewStats.maxMonthlyRevenue}
