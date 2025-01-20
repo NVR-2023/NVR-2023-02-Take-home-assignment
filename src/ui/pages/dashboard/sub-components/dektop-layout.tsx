@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
-import OverviewCard from "../../../components/common/overview-card";
 import RegularCard from "../../../components/animated/regular-card";
+
+import RevenueChartCard from "./revenue-chart-card";
 import SummaryCard from "./summary-card";
 const DesktopLayout = () => {
   const { DashboardUIContext } = useDashboardUIContext();
@@ -13,9 +14,9 @@ const DesktopLayout = () => {
   } = DashboardUIContext;
 
   const columns = [
+    { isVisible: isRevenueGraphVisible, card: <RevenueChartCard /> },
     { isVisible: isUsersGraphVisible, card: <RegularCard /> },
     { isVisible: isInvoicesGraphVisible, card: <RegularCard /> },
-    { isVisible: isRevenueGraphVisible, card: <RegularCard /> },
     { isVisible: isDerivedCardVisible, card: <SummaryCard /> },
   ];
   const visibleColumns = columns.filter((col) => col.isVisible);
