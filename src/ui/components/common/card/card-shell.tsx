@@ -24,7 +24,7 @@ const CardShell = ({
     <AnimatePresence>
       {isCardVisible && (
         <motion.div
-          className="flex flex-col space-y-5 bg-[#ccccd0] rounded p-2 w-full h-full"
+          className="flex flex-col space-y-3 bg-[#ccccd0] rounded p-2 w-full h-full"
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!isCardVisible) {
