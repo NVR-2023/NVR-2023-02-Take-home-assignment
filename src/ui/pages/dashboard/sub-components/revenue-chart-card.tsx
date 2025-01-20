@@ -2,6 +2,8 @@ import CardShell from "../../../components/common/card/card-shell";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { getDateStringFromShortenedForm } from "../../../../utils/get-date-fstring-from-shortened-form";
+
 
 const RevenueChartCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
@@ -26,28 +28,30 @@ const RevenueChartCard = () => {
       <div
         className="flex flex-grow min-w-full w-full h-full justify-center items-center"
         style={{ backgroundColor: baseColor, padding: 0, margin: 0 }}>
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height="100%" className="pt-3 pe-3">
           <BarChart
             data={data}
             margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
             className="w-full h-full">
             <XAxis
               dataKey="date"
-              tick={{ fill: "#4b5563", fontSize: 9, fontWeight: 550 }}
+              tick={{ fill: "#4b5563", fontSize: 9, fontWeight: 600 }}
               axisLine={false}
               tickLine={false}
+              tickFormatter={(value) => getDateStringFromShortenedForm(value)} // Use the function here
             />
 
             <YAxis
               tick={{
                 fill: "#4b5563",
                 fontSize: 9,
+                fontWeight: 600,
               }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(value) => {
-                if (value >= 1000) return `${value / 1000}k`; 
-                return value.toString(); 
+                if (value >= 1000) return `${value / 1000}k`;
+                return value.toString();
               }}
             />
 
@@ -60,7 +64,7 @@ const RevenueChartCard = () => {
               }}
               labelStyle={{ color: "#1f2937" }}
             />
-            <Bar dataKey="revenue" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="revenue" fill="#4B4BD8" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

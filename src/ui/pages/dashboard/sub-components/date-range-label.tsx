@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { getNameAndAbbreviationOfMonth } from "../../../../utils/get-name-and-abbreviation-of-month";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
-import { shortenDateStringForMobile } from "../../../../utils/shotened-date-string-for-mobile";
+import { shortenDateString } from "../../../../utils/shoten-date-string";
 
 const DateRangeLabel = () => {
   const { DashboardUIContext } = useDashboardUIContext();
@@ -42,8 +42,8 @@ const DateRangeLabel = () => {
 
   const shortenedStringForMobile =
     startDateString !== endDateString
-      ? shortenDateStringForMobile(startDate, endDate)
-      : shortenDateStringForMobile(startDate);
+      ? shortenDateString(startDate, endDate)
+      : shortenDateString(startDate);
   return (
     <div>
       <span className="hidden md:flex h-4.5 w-32 items-center justify-center px-2 rounded-[2px] bg-zinc-200 tracking-wide text-[9px] font-[650]">
