@@ -1,5 +1,5 @@
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
-import InputField from "./inpu-fieldt";
+import InputField from "./input-field";
 import {
   clientNameSchema,
   streetSchema,
@@ -13,8 +13,7 @@ import {
   productReferenceSchema,
   productQuantitySchema,
   productUnitaryPriceSchema,
-  productTotalSchema,
-} from "./input-validaiton/input-validaiton"; 
+} from "./input-validation/input-validation"; 
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
@@ -63,15 +62,13 @@ const Form = () => {
   };
 
   return (
-    <form className="w-full h-full p-6 bg-green-100 rounded-lg grid grid-cols-1 gap-3 sm:grid-cols-2">
-      {/* Client Information */}
+    <form className="w-full h-full p-6 bg-green-100 roundedg grid grid-cols-1 gap-x-3 gap-y-1 sm:grid-cols-2">
       <InputField
-        label="Client Name"
+        label="Name"
         stateValue={invoiceFormContext.client.name}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleClientNameChange(event.target.value)
         }
-        placeholder="Enter client's name"
         schema={clientNameSchema}
       />
 
@@ -81,17 +78,15 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("street", event.target.value)
         }
-        placeholder="Enter street"
         schema={streetSchema}
       />
 
       <InputField
-        label="Building Number"
+        label="Building"
         stateValue={invoiceFormContext.client.address.buildingNumber}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("buildingNumber", event.target.value)
         }
-        placeholder="Enter building number"
         schema={buildingNumberSchema}
       />
 
@@ -101,7 +96,6 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("floor", event.target.value)
         }
-        placeholder="Enter floor"
         schema={floorSchema}
       />
 
@@ -111,7 +105,6 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("city", event.target.value)
         }
-        placeholder="Enter city"
         schema={citySchema}
       />
 
@@ -121,7 +114,6 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("postalCode", event.target.value)
         }
-        placeholder="Enter postal code"
         schema={postalCodeSchema}
       />
 
@@ -131,38 +123,34 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("country", event.target.value)
         }
-        placeholder="Enter country"
         schema={countrySchema}
       />
 
       <InputField
-        label="VAT Number"
+        label="VAT"
         stateValue={invoiceFormContext.client.vatNumber}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleVatNumberChange(event.target.value)
         }
-        placeholder="Enter VAT number"
         schema={vatNumberSchema}
       />
 
       {/* Product Information */}
       <InputField
-        label="Product Name"
+        label="Product"
         stateValue={invoiceFormContext.product.name}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleProductChange("name", event.target.value)
         }
-        placeholder="Enter product name"
         schema={productNameSchema}
       />
 
       <InputField
-        label="Product Reference"
+        label="Reference"
         stateValue={invoiceFormContext.product.reference}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleProductChange("reference", event.target.value)
         }
-        placeholder="Enter product reference"
         schema={productReferenceSchema}
       />
 
@@ -172,7 +160,6 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleProductChange("quantity", event.target.value)
         }
-        placeholder="Enter quantity"
         schema={productQuantitySchema}
       />
 
@@ -182,19 +169,10 @@ const Form = () => {
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleProductChange("unitaryPrice", event.target.value)
         }
-        placeholder="Enter unitary price"
         schema={productUnitaryPriceSchema}
       />
 
-      <InputField
-        label="Total"
-        stateValue={invoiceFormContext.product.total.toString()}
-        setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
-          handleProductChange("total", event.target.value)
-        }
-        placeholder="Enter total"
-        schema={productTotalSchema}
-      />
+  
     </form>
   );
 };
