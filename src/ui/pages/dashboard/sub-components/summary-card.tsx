@@ -42,10 +42,19 @@ const SummaryCard = () => {
             textColor={baseColor}
           />
           {isLoading ? (
+
+
+
+
+
+
+
             <div className="flex justify-center items-center h-full">
               <LoadingIndicator />
             </div>
           ) : (
+
+
             <div className="flex flex-grow min-w-full w-full h-full rounded justify-center items-center">
               <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(2, 1fr)] gap-2">
                 <div className="col-span-1 row-span-2">
@@ -74,7 +83,40 @@ const SummaryCard = () => {
                 </div>
               </div>
             </div>
-          )}
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        )
+          
+          
+          }
+
+
+
+
+
+
+
         </motion.div>
       )}
     </AnimatePresence>

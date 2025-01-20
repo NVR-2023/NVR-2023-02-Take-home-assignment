@@ -2,7 +2,7 @@ import CardHeaderSegment from "../../../components/common/card/card-header-segme
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { AnimatePresence, motion } from "framer-motion";
 import { cardAnimation } from "../../../animations/card-animation";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { shortenDateString } from "../../../../utils/shoten-date-string";
 import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
@@ -49,12 +49,20 @@ const CombinedChartCard = () => {
                 <ResponsiveContainer
                   width="100%"
                   height="100%"
-                  className=" transform scale-105 -translate-x-5">
-                  <BarChart data={data} className="">
+                  className="transform scale-105 -translate-x-5">
+                  <LineChart data={data} className="">
                     <defs>
                       <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
                         <stop offset="0%" stopColor="#b0b0ee" />
                         <stop offset="100%" stopColor="#4B4BD8" />
+                      </linearGradient>
+                      <linearGradient id="invoicesGradient" x1="0" y1="1" x2="0" y2="0">
+                        <stop offset="0%" stopColor="#FF7F50" />
+                        <stop offset="100%" stopColor="#FF4500" />
+                      </linearGradient>
+                      <linearGradient id="usersGradient" x1="0" y1="1" x2="0" y2="0">
+                        <stop offset="0%" stopColor="#90EE90" />
+                        <stop offset="100%" stopColor="#00FF00" />
                       </linearGradient>
                     </defs>
                     <XAxis
@@ -64,7 +72,6 @@ const CombinedChartCard = () => {
                       tickLine={false}
                       tickFormatter={(value) => shortenDateString(value)}
                     />
-
                     <YAxis
                       tick={{
                         fill: "#3f3f46",
@@ -91,11 +98,34 @@ const CombinedChartCard = () => {
                         alignItems: "center",
                         justifyContent: "space-between",
                       }}
-                      labelStyle={{ color: "#1f2937" }}
                       formatter={(value) => [value, null]}
                     />
-                    <Bar dataKey="revenue" fill="url(#revenueGradient)" radius={[1, 1, 0, 0]} />
-                  </BarChart>
+                    <Legend />
+                    <Line
+                      type="monotone"
+                      dataKey="revenue"
+                      stroke="url(#revenueGradient)"
+                      strokeWidth={2}
+                      dot={false}
+                      name="Revenue"
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="issuedInvoices"
+                      stroke="url(#invoicesGradient)"
+                      strokeWidth={2}
+                      dot={false}
+                      name="Invoices"
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="activeUsers"
+                      stroke="url(#usersGradient)"
+                      strokeWidth={2}
+                      dot={false}
+                      name="Users"
+                    />
+                  </LineChart>
                 </ResponsiveContainer>
               </div>
             </div>
