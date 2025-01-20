@@ -47,3 +47,43 @@ export const vatNumberSchema = z
   .regex(/^[A-Za-z]{2}[0-9A-Za-z]+$/, {
     message: "VAT number must start with the country code followed by alphanumeric characters",
   });
+
+
+
+  
+// Schema for Product Name
+export const productNameSchema = z
+  .string()
+  .min(3, "Product name should be at least 3 characters.");
+
+// Schema for Product Reference
+export const productReferenceSchema = z
+  .string()
+  .min(3, "Product reference should be at least 3 characters.");
+
+// Schema for Product Quantity
+export const productQuantitySchema = z
+  .string()
+  .regex(/^\d+$/, "Quantity should be a valid number.")
+  .min(1, "Quantity must be at least 1.")
+  .transform((val) => parseInt(val, 10));  // Transformation happens after validation
+
+// Schema for Product Unitary Price
+export const productUnitaryPriceSchema = z
+  .string()
+  .regex(/^\d+(\.\d{1,2})?$/, "Unitary price should be a valid number with up to two decimal places.")
+  .min(1, "Unitary price must be greater than or equal to 1.")
+  .transform((val) => parseFloat(val));  // Transformation happens after validation
+
+// Schema for Product Total
+export const productTotalSchema = z
+  .string()
+  .regex(/^\d+(\.\d{1,2})?$/, "Total should be a valid number with up to two decimal places.")
+  .min(0, "Total must be greater than or equal to 0.")
+  .transform((val) => parseFloat(val));  // Transformation happens after validation
+
+// Schema for Product Description
+export const productDescriptionSchema = z
+  .string()
+  .min(5, "Description should be at least 5 characters.")
+  .max(500, "Description should not exceed 500 characters.");

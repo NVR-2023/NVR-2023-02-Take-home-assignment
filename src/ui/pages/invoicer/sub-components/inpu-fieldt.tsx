@@ -37,14 +37,14 @@ const InputField: React.FC<InputFieldProps> = ({
   return (
     <div>
       <input
-        className={`w-full py-1 px-2 mt-1 border-b border-gray-300 focus:border-b-2 focus:border-blue-500 ${
+        className={`w-full py-1 px-2 mt-1 border-b border-zinc-500 focus:border-b-2 focus:border-blue-500 ${
           error ? "border-red-500" : ""
         }`}
         value={stateValue}
         onChange={handleChange}
         placeholder={label} // Label appears as a placeholder
       />
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1 text-xs text-blue-500">{error}</p>}
     </div>
   );
 };
