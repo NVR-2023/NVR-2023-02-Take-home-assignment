@@ -48,9 +48,34 @@
       "unitaryPrice": 45.9
     },
     {
-      "name": "Smart Gadget",
+      "name": "Microscope",
+      "reference": "REF-814",
+      "unitaryPrice": 728
+    },
+    {
+      "name": "Motherboard",
+      "reference": "REF-444",
+      "unitaryPrice": 200.78
+    },
+    {
+      "name": "Vacuum packer",
       "reference": "REF-8954",
-      "unitaryPrice": 72.28
+      "unitaryPrice": 1000.2
+    },
+    {
+      "name": "LCD",
+      "reference": "REF-7754",
+      "unitaryPrice": 320.28
+    },
+    {
+      "name": "OLED",
+      "reference": "REF-1954",
+      "unitaryPrice": 2000.6
+    },
+    {
+      "name": "Driller",
+      "reference": "REF-4454",
+      "unitaryPrice": 132.78
     }
   ]
 }

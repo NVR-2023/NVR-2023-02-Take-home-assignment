@@ -1,50 +1,26 @@
+import { motion } from "framer-motion";
+import { pageAnimation } from "../../animations/page-animation";
 import InvoiceIssuerDataProvider from "../../../contexts/invoicer-issuer/invoice-issuer-data-provider";
 import InvoiceClientsDataProvider from "../../../contexts/invoicer-clients/invocie-clients-data-provider";
 import InvoicerProductsDataProvider from "../../../contexts/invoicer-products/invocier-products-data-provider";
 import { InvoiceFormContextProvider } from "../../../contexts/invoicer-form/invoice-form-context-provider";
-import { useInvoiceIssuerContext } from "../../../custom-hooks/use-invoice-issuer-context";
-import { useInvoiceClientsContext } from "../../../custom-hooks/use-invoice-clients-context";
-import { useInvoiceProductsContext } from "../../../custom-hooks/use-invoice-products-context";
-import UIContextChecker3 from "../../components/common/ui-context-checker-3";
+import ClientSDropdown from "./sub-components/clienrs-seatchbar";
+import ProductSearchbar from "./sub-components/product-searchbar";
+import Toolbar from "../../sections/toolbar/toolbar";
+import ContentArea from "../../sections/content-area/content-area";
+import DesktopLayout from "./sub-components/desktop-layout";
 
 const Invoicer = () => {
-  const {
-    data: issuerData,
-    isLoading: isIssuerLoading,
-    hasErrors: issuerHasErrors,
-  } = useInvoiceIssuerContext();
-
-  const {
-    data: clientsData,
-    isLoading: isClientsLoading,
-    hasErrors: clientsHasErrors,
-  } = useInvoiceClientsContext();
-
-  const {
-    data: productsData,
-    isLoading: isProductsLoading,
-    hasErrors: productsHasErrors,
-  } = useInvoiceProductsContext();
-
-  if (isIssuerLoading || isClientsLoading || isProductsLoading) {
-    return <p>Loading data...</p>;
-  }
-
-  if (issuerHasErrors || clientsHasErrors || productsHasErrors) {
-    return <p>Error fetching data...</p>;
-  }
-
+  const ToolsArray = [ProductSearchbar, ClientSDropdown];
   return (
-    <div>
-      <h1>Invoicer</h1>
-      <p>Issuer Data:</p>
-      <pre>{JSON.stringify(issuerData, null, 2)}</pre>
-      <p>Clients Data:</p>
-      <pre>{JSON.stringify(clientsData, null, 2)}</pre>
-      <p>Products Data:</p>
-      <pre>{JSON.stringify(productsData, null, 2)}</pre>
-      <UIContextChecker3 />
-    </div>
+    <motion.div
+      {...pageAnimation}
+      className="bg-zinc-200 rounded h-auto md:min-h-screen md:h-screen p-4 space-y-2 overflow-x-clip">
+      <Toolbar title="Invoicer" toolsArray={ToolsArray} />
+      <ContentArea>
+        <DesktopLayout />
+      </ContentArea>
+    </motion.div>
   );
 };
 
