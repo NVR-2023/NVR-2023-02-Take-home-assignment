@@ -35,8 +35,8 @@ const RevenueChartCard = () => {
             <div
               className="flex flex-grow min-w-full w-full h-full justify-center items-center"
               style={{ backgroundColor: "#ccccd0", padding: 0, margin: 0 }}>
-              <ResponsiveContainer width="100%" height="100%" className="pt-0 pe-0">
-                <BarChart data={data} className="w-full h-full">
+              <ResponsiveContainer width="100%" height="100%" className="n-0 pt-3">
+                <BarChart data={data} className="w-[200%] ">
                   <defs>
                     <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
                       <stop offset="0%" stopColor="#b0b0ee" />
@@ -45,12 +45,12 @@ const RevenueChartCard = () => {
                   </defs>
                   <XAxis
                     dataKey="date"
-                    tick={{ fill: "#3f3f46", fontSize: 9, fontWeight: 600 }}
+                    tick={{ fill: "#3f3f46", fontSize: 9, fontWeight: 600, textAnchor: "start" }} 
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(value) => shortenDateString(value)}
-                    padding={{ left: 0 }}
                   />
+
                   <YAxis
                     tick={{
                       fill: "#3f3f46",
