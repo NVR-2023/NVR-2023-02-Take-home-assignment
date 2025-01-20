@@ -1,15 +1,16 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useDashboardUIContext } from "../../../custom-hooks/use-dashboard-ui-context";
 import useFilteredDashboardData from "../../../custom-hooks/use-filtered-data";
-import CardHeaderSegment from "./stats-card/card-header-segment";
-import CardShell from "./stats-card/card-shell";
+import CardHeaderSegment from "./card/card-header-segment";
 import { cardAnimation } from "../../animations/card-animation";
 import { getOverviewStatsFromData } from "../../../utils/get-overview-stats-from-data";
-import StatsMiniCard from "./stats-card/stats-minicard";
-import InvoicesMinicard from "./stats-card/invoices-minicard";
-import RevenueMinicard from "./stats-card/revenue-minicard";
+import StatsMiniCard from "./card/stats-minicard";
+import InvoicesMinicard from "./card/invoices-minicard";
+import RevenueMinicard from "./card/revenue-minicard";
+import { useCombinedTimelinesContext } from "../../../custom-hooks/use-combined-timelines-context";
 
 const OverviewCard = () => {
+  const { isLoading }= useCombinedTimelinesContext();
   const data = useFilteredDashboardData();
   const overviewStats = getOverviewStatsFromData({ data });
 
@@ -34,6 +35,8 @@ const OverviewCard = () => {
               handleOnCloseCard();
             }
           }}>
+
+            
           <CardHeaderSegment
             title="overview"
             closeFunction={handleOnCloseCard}

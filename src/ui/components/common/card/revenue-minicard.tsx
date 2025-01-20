@@ -1,6 +1,7 @@
 import getTextAndBackgroundColorFromString from "../../../../utils/get-text-and-background-color-from-string";
 import { formatRevenueString } from "../../../../utils/format-revenue-string";
 
+
 const RevenueMinicard = ({
   totalRevenue,
   averageMonthlyRevenue,
