@@ -1,7 +1,7 @@
 import CardShell from "../../../components/common/card/card-shell";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
-import RevenueMinicard from "../../../components/common/card/revenue-minicard";
-import InvoicesMinicard from "../../../components/common/card/invoices-minicard";
+import RevenueMinicard from "./revenue-minicard";
+
 import StatsMiniCard from "../../../components/common/card/stats-minicard";
 import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data";
 import { getOverviewStatsFromData } from "../../../../utils/get-overview-stats-from-data";

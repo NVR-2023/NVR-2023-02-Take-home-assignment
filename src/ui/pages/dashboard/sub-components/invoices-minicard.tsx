@@ -1,9 +1,9 @@
 import { formatRevenueString } from "../../../../utils/format-revenue-string";
-import GeneralLabel from "../general-label";
+import GeneralLabel from "../../../components/common/general-label";
 import { addEuroCharacter } from "../../../../utils/add-euro-character";
-import MinicardShell from "./minicard-shell";
+import MinicardShell from "../../../components/common/card/minicard-shell";
 
-const RevenueMinicard = ({
+const InvoicesMinicard = ({
   color,
   totalRevenue,
   averageMonthlyRevenue,
@@ -34,7 +34,7 @@ const RevenueMinicard = ({
   };
 
   return (
-    <MinicardShell title="revenue" color={color}>
+    <MinicardShell title="invoices" color={color}>
       <div className="absolute tabular-nums text-zinc-600 top-6">
         <div className="grid grid-cols-2 gap-x-10 gap-y-1">
           <div className="font-[650] text-xl text-right" style={{ width: "100px" }}>
@@ -67,4 +67,4 @@ const RevenueMinicard = ({
   );
 };
 
-export default RevenueMinicard;
+export default InvoicesMinicard;
