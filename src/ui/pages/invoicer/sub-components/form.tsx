@@ -48,7 +48,7 @@ const Form = () => {
   };
 
   return (
-    <form className="w-full h-full p-6 space-y-4 bg-green-100 rounded-lg">
+    <form className="w-full h-full p-6 bg-green-100 rounded-lg grid grid-cols-1 gap-6 sm:grid-cols-2">
       <InputField
         label="Client Name"
         stateValue={invoiceFormContext.client.name}
