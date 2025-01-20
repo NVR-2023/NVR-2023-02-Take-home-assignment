@@ -1,9 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
-import RegularCard from "../../../components/animated/regular-card";
 
 import RevenueChartCard from "./revenue-chart-card";
-import SummaryCard from "./summary-card";
+import InvoicesChartCard from "./invoices-chart-card";
+import UsersChartCard from "./users-chart-card";
+import DerivedCard from "./derived-card";
+
 const DesktopLayout = () => {
   const { DashboardUIContext } = useDashboardUIContext();
   const {
@@ -15,9 +17,9 @@ const DesktopLayout = () => {
 
   const columns = [
     { isVisible: isRevenueGraphVisible, card: <RevenueChartCard /> },
-    { isVisible: isUsersGraphVisible, card: <RegularCard /> },
-    { isVisible: isInvoicesGraphVisible, card: <RegularCard /> },
-    { isVisible: isDerivedCardVisible, card: <SummaryCard /> },
+    { isVisible: isUsersGraphVisible, card: <UsersChartCard /> },
+    { isVisible: isInvoicesGraphVisible, card: <InvoicesChartCard /> },
+    { isVisible: isDerivedCardVisible, card: <DerivedCard /> },
   ];
   const visibleColumns = columns.filter((col) => col.isVisible);
   const columnWidth = visibleColumns.length > 0 ? `${100 / visibleColumns.length}%` : "0%";

@@ -6,7 +6,7 @@ import { cardAnimation } from "../../animations/card-animation";
 import { getOverviewStatsFromData } from "../../../utils/get-overview-stats-from-data";
 import StatsMiniCard from "./card/stats-minicard";
 import InvoicesMinicard from "./card/invoices-minicard";
-import RevenueMinicard from "./card/revenue-minicard";
+import RevenueMinicard from "../../pages/dashboard/sub-components/revenue-minicard";
 import { useCombinedTimelinesContext } from "../../../custom-hooks/use-combined-timelines-context";
 
 const OverviewCard = () => {

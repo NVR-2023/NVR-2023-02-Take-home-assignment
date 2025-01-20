@@ -31,6 +31,10 @@ const CardShell = ({
               closeCardFunction();
             }
           }}>
+
+
+
+            
           <CardHeaderSegment
             title={title}
             closeFunction={closeCardFunction}
@@ -41,8 +45,52 @@ const CardShell = ({
               <LoadingIndicator />
             </div>
           ) : (
+
+
+
+
+
+
+
+
             children
-          )}
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         )}
         </motion.div>
       )}
     </AnimatePresence>
