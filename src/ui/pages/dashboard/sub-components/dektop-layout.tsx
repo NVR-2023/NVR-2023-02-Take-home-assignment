@@ -15,8 +15,8 @@ const DesktopLayout = () => {
   const columns = [
     { isVisible: isUsersGraphVisible, card: <RegularCard /> },
     { isVisible: isInvoicesGraphVisible, card: <RegularCard /> },
+    { isVisible: isRevenueGraphVisible, card: <RegularCard /> },
     { isVisible: isDerivedCardVisible, card: <SummaryCard /> },
-    { isVisible: isDerivedCardVisible, card: <OverviewCard /> },
   ];
   const visibleColumns = columns.filter((col) => col.isVisible);
   const columnWidth = visibleColumns.length > 0 ? `${100 / visibleColumns.length}%` : "0%";

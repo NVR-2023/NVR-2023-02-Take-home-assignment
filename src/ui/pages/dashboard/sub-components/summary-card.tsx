@@ -18,8 +18,8 @@ const SummaryCard = () => {
       isDerivedCardVisible: false,
     }));
   };
-  const baseColor = "#9c9ca5";
 
+  const baseColor = "#d4d4d8";
   return (
     <CardShell
       title="Overview"
@@ -44,7 +44,13 @@ const SummaryCard = () => {
             <StatsMiniCard />
           </div>
           <div className="col-span-2 row-span-2 ">
-            <InvoicesMinicard />
+            <RevenueMinicard
+              color={baseColor}
+              totalRevenue={overviewStats.totalRevenue}
+              averageMonthlyRevenue={overviewStats.averageMonthlyRevenue}
+              maxMonthlyRevenue={overviewStats.maxMonthlyRevenue}
+              minMonthlyRevenue={overviewStats.minMonthlyRevenue}
+            />
           </div>
         </div>
       </div>

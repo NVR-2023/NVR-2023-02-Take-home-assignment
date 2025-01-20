@@ -1,6 +1,6 @@
-import getTextAndBackgroundColorFromString from "../../../../utils/get-text-and-background-color-from-string";
 import { formatRevenueString } from "../../../../utils/format-revenue-string";
-
+import GeneralLabel from "../general-label";
+import { addEuroCharacter } from "../../../../utils/add-euro-character";
 const RevenueMinicard = ({
   color,
   totalRevenue,
@@ -11,22 +11,45 @@ const RevenueMinicard = ({
   color: string;
   totalRevenue: number;
   averageMonthlyRevenue: number;
-  maxMonthlyRevenue: object;
-  minMonthlyRevenue: object;
+  maxMonthlyRevenue: Record<string, string | number>;
+  minMonthlyRevenue: Record<string, string | number>;
 }) => {
-  const formattedTotalRevenue = formatRevenueString(totalRevenue);
+  const formattedTotalRevenue = addEuroCharacter(formatRevenueString(totalRevenue));
+  const formattedAverageMonthlyRevenue = addEuroCharacter(Math.floor(averageMonthlyRevenue).toString());
 
   return (
     <div
-      className="relative text-[#ccccd0] rounded h-full max-w-full max-h-full"
+      className="relative rounded h-full max-w-full max-h-full"
       style={{
         backgroundColor: color,
       }}>
-      <div className="absolute space-x-0.5 left-1 top-5 flex items-baseline ">
-        <span className="text-base font-[750]">€</span>
-        <span className="font-[750] text-[21px] w-full flex justify-start">
-          {formattedTotalRevenue}
-        </span>
+      <div className="absolute tabular-nums text-zinc-700 top-3">
+        <div className="grid grid-cols-2 gap-x-10 gap-y-1">
+          <div className="font-[650] text-xl text-right" style={{ width: "100px" }}>
+            {formattedTotalRevenue}
+          </div>
+          <div className="transform translate-y-1 text-left" style={{ width: "70px" }}>
+            <GeneralLabel label="Revenue" />
+          </div>
+          <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
+            {formattedAverageMonthlyRevenue}
+          </div>
+          <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
+            <GeneralLabel label="Average" />
+          </div>
+          <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
+            {maxMonthlyRevenue.value}
+          </div>
+          <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
+            <GeneralLabel label="Max" />
+          </div>
+          <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
+            {minMonthlyRevenue.value}
+          </div>
+          <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
+            <GeneralLabel label="Min" />
+          </div>
+        </div>
       </div>
     </div>
   );
