@@ -2,13 +2,12 @@ import CardShell from "../../../components/common/card/card-shell";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { getDateStringFromShortenedForm } from "../../../../utils/get-date-fstring-from-shortened-form";
-
+import { shortenDateString } from "../../../../utils/shoten-date-string";
 
 const RevenueChartCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { isDerivedCardVisible } = DashboardUIContext;
-  const data = useFilteredDashboardData(); // Assume this fetches your sample data
+  const data = useFilteredDashboardData(); 
 
   const closeCardFunction = () => {
     setDashboardUIContext((previousContext) => ({
@@ -28,24 +27,24 @@ const RevenueChartCard = () => {
       <div
         className="flex flex-grow min-w-full w-full h-full justify-center items-center"
         style={{ backgroundColor: baseColor, padding: 0, margin: 0 }}>
-        <ResponsiveContainer width="100%" height="100%" className="pt-3 pe-3">
+        <ResponsiveContainer width="100%" height="100%" className="pt-3 pe-1">
           <BarChart
             data={data}
             margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
             className="w-full h-full">
             <XAxis
               dataKey="date"
-              tick={{ fill: "#4b5563", fontSize: 9, fontWeight: 600 }}
+              tick={{ fill: "#4b5563", fontSize: 9, fontWeight: 500 }}
               axisLine={false}
               tickLine={false}
-              tickFormatter={(value) => getDateStringFromShortenedForm(value)} // Use the function here
+              tickFormatter={(value) => shortenDateString(value)} 
             />
 
             <YAxis
               tick={{
                 fill: "#4b5563",
                 fontSize: 9,
-                fontWeight: 600,
+                fontWeight: 500,
               }}
               axisLine={false}
               tickLine={false}

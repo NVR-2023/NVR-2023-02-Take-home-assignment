@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { getNameAndAbbreviationOfMonth } from "../../../../utils/get-name-and-abbreviation-of-month";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
-import { shortenDateString } from "../../../../utils/shoten-date-string";
+import { shortenDateString } from "../../../../utils/shoten-date-string.ts";
 
 const DateRangeLabel = () => {
   const { DashboardUIContext } = useDashboardUIContext();
