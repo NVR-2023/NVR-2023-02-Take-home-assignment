@@ -1,6 +1,7 @@
 import { formatRevenueString } from "../../../../utils/format-revenue-string";
 import GeneralLabel from "../general-label";
 import { addEuroCharacter } from "../../../../utils/add-euro-character";
+import MinicardShell from "./minicard-shell";
 const RevenueMinicard = ({
   color,
   totalRevenue,
@@ -15,21 +16,19 @@ const RevenueMinicard = ({
   minMonthlyRevenue: Record<string, string | number>;
 }) => {
   const formattedTotalRevenue = addEuroCharacter(formatRevenueString(totalRevenue));
-  const formattedAverageMonthlyRevenue = addEuroCharacter(Math.floor(averageMonthlyRevenue).toString());
+  const formattedAverageMonthlyRevenue = addEuroCharacter(
+    Math.floor(averageMonthlyRevenue).toString()
+  );
 
   return (
-    <div
-      className="relative rounded h-full max-w-full max-h-full"
-      style={{
-        backgroundColor: color,
-      }}>
-      <div className="absolute tabular-nums text-zinc-700 top-3">
+    <MinicardShell title="revenue" color={color}>
+      <div className="absolute tabular-nums text-zinc-600 top-7">
         <div className="grid grid-cols-2 gap-x-10 gap-y-1">
           <div className="font-[650] text-xl text-right" style={{ width: "100px" }}>
             {formattedTotalRevenue}
           </div>
           <div className="transform translate-y-1 text-left" style={{ width: "70px" }}>
-            <GeneralLabel label="Revenue" />
+            <GeneralLabel label="Total" />
           </div>
           <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
             {formattedAverageMonthlyRevenue}
@@ -51,7 +50,7 @@ const RevenueMinicard = ({
           </div>
         </div>
       </div>
-    </div>
+    </MinicardShell>
   );
 };
 
