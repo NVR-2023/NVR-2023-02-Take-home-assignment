@@ -21,7 +21,7 @@ const DerivedCard = () => {
   const handleOnCloseDerivedCard = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
-      isRevenueGraphVisible: false,
+      isDerivedCardVisible: false,
     }));
   };
   const baseColor = "#d4d4d8";
