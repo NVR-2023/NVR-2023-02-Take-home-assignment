@@ -6,14 +6,13 @@ type InputFieldProps = {
   stateValue: string;
   setValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
-  schema?: z.ZodSchema; 
+  schema?: z.ZodSchema;
 };
 
 const InputField: React.FC<InputFieldProps> = ({
   label,
   stateValue,
   setValue,
-  placeholder,
   schema,
 }) => {
   const [error, setError] = React.useState<string | null>(null);
@@ -37,12 +36,13 @@ const InputField: React.FC<InputFieldProps> = ({
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700">{label}</label>
       <input
-        className="w-full p-2 mt-1 border border-gray-300 rounded"
+        className={`w-full py-1 px-2 mt-1 border-b border-gray-300 focus:border-b-2 focus:border-blue-500 ${
+          error ? "border-red-500" : ""
+        }`}
         value={stateValue}
         onChange={handleChange}
-        placeholder={placeholder}
+        placeholder={label} // Label appears as a placeholder
       />
       {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
     </div>

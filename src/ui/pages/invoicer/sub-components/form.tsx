@@ -52,7 +52,7 @@ const Form = () => {
       <InputField
         label="Client Name"
         stateValue={invoiceFormContext.client.name}
-        setValue={(e) => handleClientNameChange(e.target.value)}
+        setValue={(event) => handleClientNameChange(event.target.value)}
         placeholder="Enter client's name"
         schema={clientNameSchema}
       />
@@ -60,7 +60,7 @@ const Form = () => {
       <InputField
         label="Street"
         stateValue={invoiceFormContext.client.address.street}
-        setValue={(e) => handleInputChange("street", e.target.value)}
+        setValue={(event) => handleInputChange("street", event.target.value)}
         placeholder="Enter street"
         schema={streetSchema}
       />
@@ -68,7 +68,7 @@ const Form = () => {
       <InputField
         label="Building Number"
         stateValue={invoiceFormContext.client.address.buildingNumber}
-        setValue={(e) => handleInputChange("buildingNumber", e.target.value)}
+        setValue={(event) => handleInputChange("buildingNumber", event.target.value)}
         placeholder="Enter building number"
         schema={buildingNumberSchema}
       />
@@ -76,7 +76,7 @@ const Form = () => {
       <InputField
         label="Floor"
         stateValue={invoiceFormContext.client.address.floor}
-        setValue={(e) => handleInputChange("floor", e.target.value)}
+        setValue={(event) => handleInputChange("floor", event.target.value)}
         placeholder="Enter floor"
         schema={floorSchema}
       />
@@ -84,7 +84,7 @@ const Form = () => {
       <InputField
         label="City"
         stateValue={invoiceFormContext.client.address.city}
-        setValue={(e) => handleInputChange("city", e.target.value)}
+        setValue={(event) => handleInputChange("city", event.target.value)}
         placeholder="Enter city"
         schema={citySchema}
       />
@@ -92,7 +92,7 @@ const Form = () => {
       <InputField
         label="Postal Code"
         stateValue={invoiceFormContext.client.address.postalCode}
-        setValue={(e) => handleInputChange("postalCode", e.target.value)}
+        setValue={(event) => handleInputChange("postalCode", event.target.value)}
         placeholder="Enter postal code"
         schema={postalCodeSchema}
       />
@@ -100,7 +100,7 @@ const Form = () => {
       <InputField
         label="Country"
         stateValue={invoiceFormContext.client.address.country}
-        setValue={(e) => handleInputChange("country", e.target.value)}
+        setValue={(event) => handleInputChange("country", event.target.value)}
         placeholder="Enter country"
         schema={countrySchema}
       />
@@ -108,7 +108,7 @@ const Form = () => {
       <InputField
         label="VAT Number"
         stateValue={invoiceFormContext.client.vatNumber}
-        setValue={(e) => handleVatNumberChange(e.target.value)}
+        setValue={(event) => handleVatNumberChange(event.target.value)}
         placeholder="Enter VAT number"
         schema={vatNumberSchema}
       />
