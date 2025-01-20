@@ -17,8 +17,8 @@ const DesktopLayout = () => {
 
   const columns = [
     { isVisible: isRevenueGraphVisible, card: <RevenueChartCard /> },
-    { isVisible: isUsersGraphVisible, card: <UsersChartCard /> },
     { isVisible: isInvoicesGraphVisible, card: <InvoicesChartCard /> },
+    { isVisible: isUsersGraphVisible, card: <UsersChartCard /> },
     { isVisible: isDerivedCardVisible, card: <DerivedCard /> },
   ];
   const visibleColumns = columns.filter((col) => col.isVisible);
