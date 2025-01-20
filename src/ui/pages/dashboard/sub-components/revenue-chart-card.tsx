@@ -14,7 +14,7 @@ const RevenueChartCard = () => {
   const data = useFilteredDashboardData();
   const { isLoading } = useCombinedTimelinesContext();
 
-  const handleOnCloseDerivedCard = () => {
+  const handleOnCloseRevenueCard = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
       isRevenueGraphVisible: false,
@@ -29,7 +29,7 @@ const RevenueChartCard = () => {
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!isRevenueGraphVisible) {
-              handleOnCloseDerivedCard();
+              handleOnCloseRevenueCard();
             }
           }}>
           {isLoading ? (
@@ -38,7 +38,7 @@ const RevenueChartCard = () => {
             </div>
           ) : (
             <div className="rounded bg-[#ccccd0] flex flex-col w-full h-full p-2">
-              <CardHeaderSegment title="Revenue" closeFunction={handleOnCloseDerivedCard} />
+              <CardHeaderSegment title="Revenue" closeFunction={handleOnCloseRevenueCard} />
 
               <div
                 className="flex flex-grow h-full justify-center items-center"

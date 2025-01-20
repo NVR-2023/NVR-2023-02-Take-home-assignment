@@ -14,7 +14,7 @@ const UsersChartCard = () => {
   const data = useFilteredDashboardData();
   const { isLoading } = useCombinedTimelinesContext();
 
-  const handleOnCloseDerivedCard = () => {
+  const handleOnCloseUsersCard = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
       isUsersGraphVisible: false,
@@ -29,7 +29,7 @@ const UsersChartCard = () => {
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!isUsersGraphVisible) {
-              handleOnCloseDerivedCard();
+              handleOnCloseUsersCard();
             }
           }}>
           {isLoading ? (
@@ -38,7 +38,7 @@ const UsersChartCard = () => {
             </div>
           ) : (
             <div className="rounded bg-[#ccccd0] flex flex-col w-full h-full p-2">
-              <CardHeaderSegment title="Users" closeFunction={handleOnCloseDerivedCard} />
+              <CardHeaderSegment title="Users" closeFunction={handleOnCloseUsersCard} />
 
               <div
                 className="flex flex-grow h-full justify-center items-center"

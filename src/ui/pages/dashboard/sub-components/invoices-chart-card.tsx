@@ -14,7 +14,7 @@ const InvoicesChartCard = () => {
   const data = useFilteredDashboardData();
   const { isLoading } = useCombinedTimelinesContext();
 
-  const handleOnCloseDerivedCard = () => {
+  const handleOnCloseInvoicesCard = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
       isInvoicesGraphVisible: false,
@@ -29,7 +29,7 @@ const InvoicesChartCard = () => {
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!isInvoicesGraphVisible) {
-              handleOnCloseDerivedCard();
+              handleOnCloseInvoicesCard();
             }
           }}>
           {isLoading ? (
@@ -38,7 +38,7 @@ const InvoicesChartCard = () => {
             </div>
           ) : (
             <div className="rounded bg-[#ccccd0] flex flex-col w-full h-full p-2">
-              <CardHeaderSegment title="Invoices" closeFunction={handleOnCloseDerivedCard} />
+              <CardHeaderSegment title="Invoices" closeFunction={handleOnCloseInvoicesCard} />
 
               <div
                 className="flex flex-grow h-full justify-center items-center"
