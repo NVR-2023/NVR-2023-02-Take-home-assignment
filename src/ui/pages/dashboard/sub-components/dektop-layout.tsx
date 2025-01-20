@@ -5,6 +5,7 @@ import RevenueChartCard from "./revenue-chart-card";
 import InvoicesChartCard from "./invoices-chart-card";
 import UsersChartCard from "./users-chart-card";
 import DerivedCard from "./derived-card";
+import CombinedCard from "./comnined-card";
 
 const DesktopLayout = () => {
   const { DashboardUIContext } = useDashboardUIContext();
@@ -13,6 +14,7 @@ const DesktopLayout = () => {
     isInvoicesGraphVisible,
     isRevenueGraphVisible,
     isUsersGraphVisible,
+    areGraphsCombined,
   } = DashboardUIContext;
 
   const columns = [
@@ -28,7 +30,7 @@ const DesktopLayout = () => {
     <div className="flex w-full h-full gap-5">
       {columns.map((column, index) => (
         <AnimatePresence key={index}>
-          {column.isVisible && (
+          {column.isVisible && !areGraphsCombined && (
             <motion.div
               className="overflow-hidden flex justify-center items-center"
               initial={{ width: columnWidth }}
@@ -40,6 +42,7 @@ const DesktopLayout = () => {
           )}
         </AnimatePresence>
       ))}
+      {areGraphsCombined && <CombinedCard />}
     </div>
   );
 };

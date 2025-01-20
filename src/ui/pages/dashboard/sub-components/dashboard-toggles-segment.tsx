@@ -49,10 +49,23 @@ const DashboardTogglesSegment = () => {
   };
 
   const toggleCombineGraphsFunction = () => {
-    setDashboardUIContext((previousContext) => ({
-      ...previousContext,
-      areGraphsCombined: !areGraphsCombined,
-    }));
+    if (areGraphsCombined) {
+      setDashboardUIContext((previousContext) => ({
+        ...previousContext,
+        isRevenueGraphVisible: true,
+        isInvoicesGraphVisible: true,
+        isUsersGraphVisible: true,
+        areGraphsCombined: false,
+      }));
+    } else if (!areGraphsCombined) {
+      setDashboardUIContext((previousContext) => ({
+        ...previousContext,
+        isRevenueGraphVisible: false,
+        isInvoicesGraphVisible: false,
+        isUsersGraphVisible: false,
+        areGraphsCombined: true,
+      }));
+    }
   };
 
   const ToggleRevenueGraphButton = withToggleFunctionality({
