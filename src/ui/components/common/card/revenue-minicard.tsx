@@ -2,6 +2,7 @@ import { formatRevenueString } from "../../../../utils/format-revenue-string";
 import GeneralLabel from "../general-label";
 import { addEuroCharacter } from "../../../../utils/add-euro-character";
 import MinicardShell from "./minicard-shell";
+
 const RevenueMinicard = ({
   color,
   totalRevenue,
@@ -19,7 +20,19 @@ const RevenueMinicard = ({
   const formattedAverageMonthlyRevenue = addEuroCharacter(
     Math.floor(averageMonthlyRevenue).toString()
   );
-  
+
+  const finalizedMaxMonthlyRevenue = {
+    ...maxMonthlyRevenue,
+    value: addEuroCharacter(Math.round(Number(maxMonthlyRevenue.value)).toString()),
+    date: maxMonthlyRevenue.date ? maxMonthlyRevenue.date : "",
+  };
+
+  const finalizedMinMonthlyRevenue = {
+    ...minMonthlyRevenue,
+    value: addEuroCharacter(Math.round(Number(minMonthlyRevenue.value)).toString()),
+    date: minMonthlyRevenue.date ? minMonthlyRevenue.date : "",
+  };
+
   return (
     <MinicardShell title="revenue" color={color}>
       <div className="absolute tabular-nums text-zinc-600 top-6">
@@ -37,13 +50,13 @@ const RevenueMinicard = ({
             <GeneralLabel label="Average" />
           </div>
           <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
-            {maxMonthlyRevenue.value}
+            {finalizedMaxMonthlyRevenue.value}
           </div>
           <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
             <GeneralLabel label="Max" />
           </div>
           <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
-            {minMonthlyRevenue.value}
+            {finalizedMinMonthlyRevenue.value}
           </div>
           <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
             <GeneralLabel label="Min" />
