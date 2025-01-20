@@ -1,27 +1,20 @@
-import React from "react";
-import InputField from "./inpu-fieldt";
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
+import InputField from "./inpu-fieldt";
+import {
+  clientNameSchema,
+  streetSchema,
+  buildingNumberSchema,
+  floorSchema,
+  citySchema,
+  postalCodeSchema,
+  countrySchema,
+  vatNumberSchema,
+} from "./input-validaiton/input-validaiton";
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
 
-  const handleChange =
-    (setter: (value: string) => void) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      setter(event.target.value);
-    };
-
-  // State setters
-  const setClientName = (value: string) => {
-    setInvoiceFormContext({
-      ...invoiceFormContext,
-      client: {
-        ...invoiceFormContext.client,
-        name: value,
-      },
-    });
-  };
-
-  const setClientAddressField = (field: string) => (value: string) => {
+  const handleInputChange = (field: string, value: string) => {
     setInvoiceFormContext({
       ...invoiceFormContext,
       client: {
@@ -34,7 +27,17 @@ const Form = () => {
     });
   };
 
-  const setVatNumber = (value: string) => {
+  const handleClientNameChange = (value: string) => {
+    setInvoiceFormContext({
+      ...invoiceFormContext,
+      client: {
+        ...invoiceFormContext.client,
+        name: value,
+      },
+    });
+  };
+
+  const handleVatNumberChange = (value: string) => {
     setInvoiceFormContext({
       ...invoiceFormContext,
       client: {
@@ -45,54 +48,69 @@ const Form = () => {
   };
 
   return (
-    <form className="p-6 space-y-4 bg-green-100 rounded-lg">
+    <form className="w-full h-full p-6 space-y-4 bg-green-100 rounded-lg">
       <InputField
         label="Client Name"
         stateValue={invoiceFormContext.client.name}
-        setValue={handleChange(setClientName)}
+        setValue={(e) => handleClientNameChange(e.target.value)}
         placeholder="Enter client's name"
+        schema={clientNameSchema}
       />
+
       <InputField
         label="Street"
         stateValue={invoiceFormContext.client.address.street}
-        setValue={handleChange(setClientAddressField("street"))}
+        setValue={(e) => handleInputChange("street", e.target.value)}
         placeholder="Enter street"
+        schema={streetSchema}
       />
+
       <InputField
         label="Building Number"
         stateValue={invoiceFormContext.client.address.buildingNumber}
-        setValue={handleChange(setClientAddressField("buildingNumber"))}
+        setValue={(e) => handleInputChange("buildingNumber", e.target.value)}
         placeholder="Enter building number"
+        schema={buildingNumberSchema}
       />
+
       <InputField
         label="Floor"
         stateValue={invoiceFormContext.client.address.floor}
-        setValue={handleChange(setClientAddressField("floor"))}
+        setValue={(e) => handleInputChange("floor", e.target.value)}
         placeholder="Enter floor"
+        schema={floorSchema}
       />
+
       <InputField
         label="City"
         stateValue={invoiceFormContext.client.address.city}
-        setValue={handleChange(setClientAddressField("city"))}
+        setValue={(e) => handleInputChange("city", e.target.value)}
         placeholder="Enter city"
+        schema={citySchema}
       />
+
       <InputField
         label="Postal Code"
         stateValue={invoiceFormContext.client.address.postalCode}
-        setValue={handleChange(setClientAddressField("postalCode"))}
+        setValue={(e) => handleInputChange("postalCode", e.target.value)}
         placeholder="Enter postal code"
+        schema={postalCodeSchema}
       />
+
       <InputField
         label="Country"
         stateValue={invoiceFormContext.client.address.country}
-        setValue={handleChange(setClientAddressField("country"))}
+        setValue={(e) => handleInputChange("country", e.target.value)}
         placeholder="Enter country"
+        schema={countrySchema}
       />
+
       <InputField
         label="VAT Number"
         stateValue={invoiceFormContext.client.vatNumber}
-        setValue={handleChange(setVatNumber)}
+        setValue={(e) => handleVatNumberChange(e.target.value)}
         placeholder="Enter VAT number"
+        schema={vatNumberSchema}
       />
     </form>
   );
