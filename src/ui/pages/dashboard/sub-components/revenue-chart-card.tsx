@@ -33,10 +33,10 @@ const RevenueChartCard = () => {
             <CardHeaderSegment title="Revenue" closeFunction={handleOnCloseDerivedCard} />
 
             <div
-              className="flex flex-grow min-w-full w-full h-full justify-center items-center"
+              className="flex flex-grow h-full justify-center items-center"
               style={{ backgroundColor: "#ccccd0", padding: 0, margin: 0 }}>
-              <ResponsiveContainer width="100%" height="100%" className="n-0 pt-3">
-                <BarChart data={data} className="w-[200%] ">
+              <ResponsiveContainer width="100%" height="100%" className=" transform -translate-x-[20%]">
+                <BarChart data={data} className="">
                   <defs>
                     <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
                       <stop offset="0%" stopColor="#b0b0ee" />
@@ -45,7 +45,7 @@ const RevenueChartCard = () => {
                   </defs>
                   <XAxis
                     dataKey="date"
-                    tick={{ fill: "#3f3f46", fontSize: 9, fontWeight: 600, textAnchor: "start" }} 
+                    tick={{ fill: "#3f3f46", fontSize: 9, fontWeight: 600, }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(value) => shortenDateString(value)}
