@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { minicardAnimation } from "../../../animations/minicard-animation";
 
 const MinicardShell = ({
   title,
@@ -10,14 +12,17 @@ const MinicardShell = ({
   children: ReactNode;
 }) => {
   return (
-    <div
+    <motion.div
       className="relative rounded h-full max-w-full max-h-full"
       style={{
         backgroundColor: color,
-      }}>
-      <div className="absolute top-1 left-2 tracking-wide text-[10px] font-[450] text-zinc-400">{title.toUpperCase()}</div>
+      }}
+      {...minicardAnimation}>
+      <div className="absolute top-1 left-2 tracking-wide text-[9px] font-[450] text-zinc-400">
+        {title.toUpperCase()}
+      </div>
       {children}
-    </div>
+    </motion.div>
   );
 };
 

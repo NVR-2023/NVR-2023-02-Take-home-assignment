@@ -2,6 +2,8 @@ import { ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cardAnimation } from "../../../animations/card-animation";
 import CardHeaderSegment from "./card-header-segment";
+import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
+import LoadingIndicator from "../../animated/loading-indicator";
 
 const CardShell = ({
   title,
@@ -16,6 +18,8 @@ const CardShell = ({
   closeFunction: () => void;
   children: ReactNode;
 }) => {
+  const { isLoading } = useCombinedTimelinesContext();
+
   return (
     <AnimatePresence>
       {isCardVisible && (
@@ -32,7 +36,13 @@ const CardShell = ({
             closeFunction={closeCardFunction}
             textColor={textColor}
           />
-          {children}
+          {isLoading ? (
+            <div className="flex justify-center items-center h-full">
+              <LoadingIndicator />
+            </div>
+          ) : (
+            children
+          )}
         </motion.div>
       )}
     </AnimatePresence>
@@ -40,25 +50,3 @@ const CardShell = ({
 };
 
 export default CardShell;
-
-/*    <div className="flex flex-grow min-w-full w-full h-full rounded justify-center items-center">
-     <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(2, 1fr)] gap-2">
-       <div className="col-span-1 row-span-2">
-         <RevenueMinicard
-           totalRevenue={overviewStats.totalRevenue}
-           averageMonthlyRevenue={overviewStats.averageMonthlyRevenue}
-           maxMonthlyRevenue={overviewStats.maxMonthlyRevenue}
-           minMonthlyRevenue={overviewStats.minMonthlyRevenue}
-         />
-       </div>
-       <div className="col-span-1 row-span-1">
-         <StatsMiniCard />
-       </div>
-       <div className="col-span-1 row-span-1">
-         <StatsMiniCard />
-       </div>
-       <div className="col-span-2 row-span-2 ">
-         <InvoicesMinicard />
-       </div>
-     </div>
-   </div>; */

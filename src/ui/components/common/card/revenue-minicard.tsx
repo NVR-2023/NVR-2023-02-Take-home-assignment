@@ -19,10 +19,10 @@ const RevenueMinicard = ({
   const formattedAverageMonthlyRevenue = addEuroCharacter(
     Math.floor(averageMonthlyRevenue).toString()
   );
-
+  
   return (
     <MinicardShell title="revenue" color={color}>
-      <div className="absolute tabular-nums text-zinc-600 top-7">
+      <div className="absolute tabular-nums text-zinc-600 top-6">
         <div className="grid grid-cols-2 gap-x-10 gap-y-1">
           <div className="font-[650] text-xl text-right" style={{ width: "100px" }}>
             {formattedTotalRevenue}
