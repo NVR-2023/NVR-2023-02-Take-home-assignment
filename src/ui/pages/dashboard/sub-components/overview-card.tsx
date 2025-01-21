@@ -7,9 +7,9 @@ import LoadingIndicator from "../../../components/animated/loading-indicator";
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
 import { getOverviewStatsFromData } from "../../../../utils/get-overview-stats-from-data";
 import RevenueMinicard from "./revenue-minicard";
-import StatsMiniCard from "../../../components/common/card/stats-minicard";
 import UsersMinicard from "./users-minicard";
 import InvoicesMinicard from "./invoices-minicard";
+import YearlyCardMiniGraph from "./yearly-graph-miniicard";
 
 const OverviewCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
@@ -48,7 +48,7 @@ const OverviewCard = () => {
               <div className="flex flex-grow min-w-full w-full h-full rounded justify-center items-center">
                 <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(2, 1fr)] gap-2">
                   <div className="col-span-1 row-span-2">
-                    <StatsMiniCard />
+                    <YearlyCardMiniGraph color="#a1a1aa" />
                   </div>
                   <div className="col-span-1 row-span-1">
                     <InvoicesMinicard
