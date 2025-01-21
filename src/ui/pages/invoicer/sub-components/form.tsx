@@ -202,10 +202,10 @@ const Form = () => {
             QUANTITY
           </span>
         </div>
-        <div className="flexr">
-          <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200">
+        <div className="flex items-center">
+          <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200 w-full">
             <Slider
-              className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
+              className="relative flex items-center select-none bg-zinc-200 w-full h-5 md:h-4.5 mr-2"
               value={[invoiceFormContext.product.quantity || 1]}
               onValueChange={(value) => {
                 const newQuantity = Number(value[0]);
@@ -224,12 +224,12 @@ const Form = () => {
                 <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
               </SliderTrack>
               <SliderThumb
-                className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
+                className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500 rounded focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
                 aria-label="Quantity"
               />
             </Slider>
+            <span className="text-[12px] font-[550]">{invoiceFormContext.product.quantity}</span>
           </div>
-          <span className="text-[10px font-[450">{invoiceFormContext.product.quantity}</span>
         </div>
       </div>
 
