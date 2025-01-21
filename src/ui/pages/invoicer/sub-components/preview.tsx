@@ -48,8 +48,9 @@ const Preview = () => {
   const { invoiceFormContext } = useInvoiceFormContext();
 
   return (
+    <>
     <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
-      <div className="py-2 ">
+      <div className="py-2 sticky top-0 ">
         <GeneralLabel label="preview" />
       </div>
       <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
@@ -62,6 +63,7 @@ const Preview = () => {
         <div className="space-y-10 mt-6">{renderInvoice(invoiceFormContext)}</div>
       </div>
     </div>
+    </>
   );
 };
 

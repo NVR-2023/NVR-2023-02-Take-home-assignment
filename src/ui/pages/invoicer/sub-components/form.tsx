@@ -246,14 +246,18 @@ const Form = () => {
                 aria-label="Quantity"
               />
             </Slider>
-            <span className="text-[12px] font-[550]">{invoiceFormContext.product.quantity}</span>
+            <span className="text-[12px] rounded-[1px] font-[550]">
+              {invoiceFormContext.product.quantity}
+            </span>
           </div>
         </div>
       </div>
 
-      <div className="text-zinc-700 space-x-2 mt-2 w-36 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
-        <span>TOTAL: {invoiceFormContext.product.total}</span>
-        <span className="tex-sm">€</span>
+      <div className="w-full col-span-2 flex justify-end">
+        <div className="text-zinc-700 space-x-2 mt-2 w-36 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
+          <span>TOTAL: {invoiceFormContext.product.total}</span>
+          <span className="tex-sm">€</span>
+        </div>
       </div>
     </form>
   );
