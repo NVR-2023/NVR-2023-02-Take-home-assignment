@@ -23,28 +23,40 @@ const DashboardTogglesSegment = () => {
   const toggleRevenueGraphFunction = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
-      isRevenueGraphVisible: !isRevenueGraphVisible,
+      isRevenueGraphVisible: !previousContext.isRevenueGraphVisible,
+      areGraphsCombined: previousContext.isRevenueGraphVisible
+        ? previousContext.areGraphsCombined
+        : false,
     }));
   };
 
   const toggleInvoicesGraphFunction = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
-      isInvoicesGraphVisible: !isInvoicesGraphVisible,
+      isInvoicesGraphVisible: !previousContext.isInvoicesGraphVisible,
+      areGraphsCombined: previousContext.isInvoicesGraphVisible
+        ? previousContext.areGraphsCombined
+        : false,
     }));
   };
 
   const toggleUsersGraphFunction = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
-      isUsersGraphVisible: !isUsersGraphVisible,
+      isUsersGraphVisible: !previousContext.isUsersGraphVisible,
+      areGraphsCombined: previousContext.isUsersGraphVisible
+        ? previousContext.areGraphsCombined
+        : false,
     }));
   };
 
   const toggleDerivedCardGraphFunction = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
-      isDerivedCardVisible: !isDerivedCardVisible,
+      isDerivedCardVisible: !previousContext.isDerivedCardVisible,
+      areGraphsCombined: previousContext.isDerivedCardVisible
+        ? previousContext.areGraphsCombined
+        : false,
     }));
   };
 
@@ -55,6 +67,7 @@ const DashboardTogglesSegment = () => {
         isRevenueGraphVisible: true,
         isInvoicesGraphVisible: true,
         isUsersGraphVisible: true,
+        isDerivedCardVisible: true,
         areGraphsCombined: false,
       }));
     } else if (!areGraphsCombined) {
@@ -63,6 +76,7 @@ const DashboardTogglesSegment = () => {
         isRevenueGraphVisible: false,
         isInvoicesGraphVisible: false,
         isUsersGraphVisible: false,
+        isDerivedCardVisible: false,
         areGraphsCombined: true,
       }));
     }
