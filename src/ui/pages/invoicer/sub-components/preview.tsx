@@ -12,7 +12,7 @@ const classMap = {
   majorKey: "text-xl w-30 border-b-[1px] border-zinc-700 font-[700] text-zinc-700",
   minorKey: "text-xs w-16 border-b-[1px] border-zinc-700 font-[500] text-zinc-700",
   entryKey: "text-xs font-[400] text-zinc-500",
-  value: "text-sm text-zinc-700",
+  value: "text-xs text-zinc-700",
 };
 
 const renderInvoice = (object: object, level = 0, parentKey: string | null = null) => {

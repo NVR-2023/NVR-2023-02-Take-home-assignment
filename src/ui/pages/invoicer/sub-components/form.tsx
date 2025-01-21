@@ -250,7 +250,7 @@ const Form = () => {
       </div>
 
       <div className="w-full col-span-2 flex justify-end">
-        <div className="text-zinc-700 space-x-2 w-36 h-12 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
+        <div className="text-zinc-700 space-x-2 w-36 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-base">
           <span>TOTAL: {invoiceFormContext.product.total}</span>
           <span className="tex-sm">€</span>
         </div>
