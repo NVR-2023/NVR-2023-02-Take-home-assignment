@@ -96,8 +96,11 @@ export type InvoiceFormContextType = {
     date: string;
     reference: string;
   };
-};
 
+  setInvoiceFormContext: React.Dispatch<
+    React.SetStateAction<Omit<InvoiceFormContextType, "setInvoiceFormContext">>
+  >;
+};
 export type IconProps = {
   scale?: number;
   color?: string;

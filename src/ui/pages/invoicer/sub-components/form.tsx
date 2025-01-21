@@ -62,58 +62,23 @@ const Form = () => {
   };
 
   useEffect(() => {
-    const quantity =
-      invoiceFormContext.product.quantity !== null &&
-      invoiceFormContext.product.quantity !== undefined
-        ? parseFloat(invoiceFormContext.product.quantity.toString())
-        : 1;
-
-    const unitaryPrice = invoiceFormContext.product.unitaryPrice;
-    if (unitaryPrice !== null && unitaryPrice !== undefined) {
-      const parsedUnitaryPrice = parseFloat(unitaryPrice.toString());
-      const total =
-        !isNaN(quantity) && !isNaN(parsedUnitaryPrice) ? quantity * parsedUnitaryPrice : 0;
-      setInvoiceFormContext({
-        ...invoiceFormContext,
-        product: {
-          ...invoiceFormContext.product,
-          total: total,
-        },
-      });
-    }
+    const quantity = Math.max(1, Number(invoiceFormContext.product.quantity) || 1); // Ensure quantity is at least 1
+    const unitaryPrice = parseFloat(invoiceFormContext.product.unitaryPrice?.toString() || "0");
+    const total = !isNaN(unitaryPrice) ? quantity * unitaryPrice : 0;
+    setInvoiceFormContext({
+      ...invoiceFormContext,
+      product: {
+        ...invoiceFormContext.product,
+        quantity,
+        total,
+      },
+    });
   }, [invoiceFormContext.product.quantity, invoiceFormContext.product.unitaryPrice]);
 
   return (
-    <form className="w-full h-full roundedg grid grid-cols-1 gap-x-5 gap-y-0 sm:grid-cols-2">
+    <form className="w-full h-full roundedg grid grid-cols-1 gap-x-5 -gap-y-2 sm:grid-cols-2">
       <div className="col-span-2">
         <GeneralLabel label="client" />
-      </div>
-
-      <div className="flex px-1 rounded-[2px] bg-zinc-200">
-        <Slider
-          className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
-          value={[invoiceFormContext.product.quantity || 1]}
-          onValueChange={(value) => {
-            const newQuantity = Number(value[0]);
-            setInvoiceFormContext({
-              ...invoiceFormContext,
-              product: {
-                ...invoiceFormContext.product,
-                quantity: newQuantity,
-              },
-            });
-          }}
-          min={1}
-          max={10}
-          step={1}>
-          <SliderTrack className="bg-zinc-50 relative grow h-[2px] md:h-[1px]">
-            <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
-          </SliderTrack>
-          <SliderThumb
-            className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
-            aria-label="Quantity"
-          />
-        </Slider>
       </div>
 
       <InputField
@@ -209,7 +174,73 @@ const Form = () => {
         schema={productReferenceSchema}
       />
 
-      <span>{invoiceFormContext.product.total}</span>
+      <div>
+        <span>
+          <GeneralLabel label="Quantity" />
+        </span>
+
+        <div className="flex mt-1 px-1 rounded-[2px] bg-zinc-200">
+          <Slider
+            className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
+            value={[invoiceFormContext.product.quantity || 1]}
+            onValueChange={(value) => {
+              const newQuantity = Number(value[0]);
+              setInvoiceFormContext({
+                ...invoiceFormContext,
+                product: {
+                  ...invoiceFormContext.product,
+                  quantity: newQuantity,
+                },
+              });
+            }}
+            min={1}
+            max={10}
+            step={1}>
+            <SliderTrack className="bg-zinc-50 relative grow h-[2px] md:h-[1px]">
+              <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
+            </SliderTrack>
+            <SliderThumb
+              className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
+              aria-label="Quantity"
+            />
+          </Slider>
+        </div>
+      </div>
+
+      <div className="">
+        <span>
+          <GeneralLabel label="price" />
+        </span>
+        <div className="mt-1 relative flex px-1 rounded-[2px] bg-zinc-200">
+          <Slider
+            className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
+            value={[invoiceFormContext.product.unitaryPrice || 1]}
+            onValueChange={(value) => {
+              const newPrice = Number(value[0]);
+              setInvoiceFormContext({
+                ...invoiceFormContext,
+                product: {
+                  ...invoiceFormContext.product,
+                  unitaryPrice: newPrice,
+                },
+              });
+            }}
+            min={1}
+            max={2000}
+            step={0.5}>
+            <SliderTrack className="bg-zinc-50 relative grow h-[2px] md:h-[1px]">
+              <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
+            </SliderTrack>
+            <SliderThumb
+              className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
+              aria-label="Quantity"
+            />
+          </Slider>
+          <span className="absolute right-0 top-0">1</span>
+        </div>
+      </div>
+
+      <span className="text-zinc-500 text-xl">Total: {invoiceFormContext.product.total}</span>
     </form>
   );
 };
