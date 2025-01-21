@@ -11,14 +11,22 @@ import {
   postalCodeSchema,
   countrySchema,
   vatNumberSchema,
-  productNameSchema,
 } from "./input-validation/input-validation";
 import GeneralLabel from "../../../components/common/general-label";
 import { Slider, SliderTrack, SliderRange, SliderThumb } from "@radix-ui/react-slider";
+import { ProductType } from "../../../../types/global-types";
+
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@radix-ui/react-select";
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
-  const { data, isLoading } = useInvoiceProductsContext();
+  const { data } = useInvoiceProductsContext() as { data: ProductType[] };
 
   const handleInputChange = (field: string, value: string) => {
     setInvoiceFormContext({
@@ -53,14 +61,20 @@ const Form = () => {
     });
   };
 
-  const handleProductChange = (field: string, value: string) => {
-    setInvoiceFormContext({
-      ...invoiceFormContext,
-      product: {
-        ...invoiceFormContext.product,
-        [field]: value,
-      },
-    });
+  const handleProductSelect = (productReference: string) => {
+    const selectedProduct = data.find(
+      (product: ProductType) => product.reference === productReference
+    );
+    if (selectedProduct) {
+      setInvoiceFormContext({
+        ...invoiceFormContext,
+        product: {
+          ...selectedProduct,
+          quantity: 1, // Default quantity for the selected product
+          total: selectedProduct.unitaryPrice, // Initial total, assuming quantity is 1
+        },
+      });
+    }
   };
 
   useEffect(() => {
@@ -151,14 +165,31 @@ const Form = () => {
       <div className="mt-9 col-span-2">
         <GeneralLabel label="product" />
       </div>
-      <InputField
-        label="Name"
-        stateValue={invoiceFormContext.product.name}
-        setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
-          handleProductChange("name", event.target.value)
-        }
-        schema={productNameSchema}
-      />
+
+      <div className="grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0 mb-0.5">
+        <div className="flex">
+          <span className="transform translate-y-2 text-[10px] font-[700] tracking-wide text-zinc-600">
+            PRODUCT
+          </span>
+        </div>
+        <div className="flex items-center">
+          <Select onValueChange={handleProductSelect}>
+            <SelectTrigger className="w-full border p-2">
+              <SelectValue placeholder="Select a Product" />
+            </SelectTrigger>
+            <SelectContent className="bg-white border mt-2 max-h-60 overflow-y-scroll">
+              {data.map((product: ProductType) => (
+                <SelectItem
+                  key={product.reference}
+                  value={product.reference}
+                  className="hover:bg-gray-200 text-xs p-2">
+                  {product.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
 
       <div className="grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0 mb-0.5">
         <div className="flex">
@@ -167,7 +198,7 @@ const Form = () => {
           </span>
         </div>
         <div className="flex items-center">
-                 <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200">
+          <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200">
             <Slider
               className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
               value={[invoiceFormContext.product.quantity || 1]}

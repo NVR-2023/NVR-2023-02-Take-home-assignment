@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { FetchedDataContextType } from "../../types/global-types";
 
 export const InvoicerProductsContext = createContext<FetchedDataContextType>({
-  data: [],
+  data: [], 
   isLoading: true,
   hasErrors: false,
 });

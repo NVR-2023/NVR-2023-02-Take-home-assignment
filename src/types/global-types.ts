@@ -96,10 +96,6 @@ export type InvoiceFormContextType = {
     date: string;
     reference: string;
   };
-
-  setInvoiceFormContext: React.Dispatch<
-    React.SetStateAction<Omit<InvoiceFormContextType, "setInvoiceFormContext">>
-  >;
 };
 export type IconProps = {
   scale?: number;
@@ -166,3 +162,11 @@ export type CombinedDataType = {
 };
 
 export type CombinedDataTypeArray = CombinedDataType[];
+
+export type ProductType= {
+  name: string;
+  reference: string;
+  unitaryPrice: number;
+}
+
+
