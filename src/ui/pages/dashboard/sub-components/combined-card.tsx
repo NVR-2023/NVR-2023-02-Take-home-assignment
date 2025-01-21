@@ -7,7 +7,6 @@ import { shortenDateString } from "../../../../utils/shoten-date-string";
 import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
-
 const CombinedChartCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { areGraphsCombined } = DashboardUIContext;
