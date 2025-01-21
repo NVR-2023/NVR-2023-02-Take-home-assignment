@@ -163,10 +163,21 @@ export type CombinedDataType = {
 
 export type CombinedDataTypeArray = CombinedDataType[];
 
-export type ProductType= {
+export type ProductType = {
   name: string;
   reference: string;
   unitaryPrice: number;
-}
+};
 
-
+export type IssuerType = {
+  name: string;
+  address: {
+    street: string;
+    buildingNumber: string;
+    floor: string;
+    city: string;
+    postalCode: string;
+    country: string;
+  };
+  vatNumber: string;
+};

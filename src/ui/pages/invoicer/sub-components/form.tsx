@@ -14,8 +14,8 @@ import {
 } from "./input-validation/input-validation";
 import GeneralLabel from "../../../components/common/general-label";
 import { Slider, SliderTrack, SliderRange, SliderThumb } from "@radix-ui/react-slider";
-import { ProductType } from "../../../../types/global-types";
-
+import { ProductType, IssuerType } from "../../../../types/global-types";
+import { useInvoiceIssuerContext } from "../../../../custom-hooks/use-invoice-issuer-context";
 import {
   Select,
   SelectTrigger,
@@ -23,10 +23,12 @@ import {
   SelectContent,
   SelectItem,
 } from "@radix-ui/react-select";
+import { useInvoiceClientsContext } from "../../../../custom-hooks/use-invoice-clients-context";
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
   const { data } = useInvoiceProductsContext() as { data: ProductType[] };
+  const { data: issuerData, isLoading: isIssuerLoading } = useInvoiceClientsContext();
 
   const handleInputChange = (field: string, value: string) => {
     setInvoiceFormContext({
@@ -78,7 +80,14 @@ const Form = () => {
   };
 
   useEffect(() => {
-    const quantity = Math.max(1, Number(invoiceFormContext.product.quantity) || 1); // Ensure quantity is at least 1
+    if (!isIssuerLoading && issuerData) {
+      console.log("data:", issuerData);
+      setInvoiceFormContext({...invoiceFormContext, issuer: issuerData});
+    }
+  }, [isIssuerLoading, issuerData, setInvoiceFormContext]);
+
+  useEffect(() => {
+    const quantity = Math.max(1, Number(invoiceFormContext.product.quantity) || 1);
     const unitaryPrice = parseFloat(invoiceFormContext.product.unitaryPrice?.toString() || "0");
     const total = !isNaN(unitaryPrice) ? quantity * unitaryPrice : 0;
     setInvoiceFormContext({
