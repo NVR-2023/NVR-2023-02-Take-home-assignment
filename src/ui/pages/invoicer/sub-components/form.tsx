@@ -172,18 +172,17 @@ const Form = () => {
             PRODUCT
           </span>
         </div>
-        <div className="flex relative">
+        <div className="flex ">
           <Select onValueChange={handleProductSelect}>
-            <SelectTrigger className=" w-full border p-2 rounded-md bg-gray-50 hover:bg-zinc-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            <SelectTrigger className="flex items center justify-center  w-full h-5 max-h-5 bg-zinc-300 rounded-[2px] border-[1px]">
               <SelectValue
                 placeholder={
                   invoiceFormContext.product.name ? invoiceFormContext.product.name : "select"
                 }
-                className="flex h-5 max-h-5 text-sm text-gray-400 justify-start placeholder:text-blue-400"
+                className="flex h-2.5 max-h-2.5 text-[10px] text-gray-400 justify-center"
               />
             </SelectTrigger>
-            <SelectContent
-              className="transform -translate-y-50 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
+            <SelectContent className="transform -translate-y-50 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
               {data.map((product: ProductType) => (
                 <SelectItem
                   key={product.reference}
@@ -203,7 +202,7 @@ const Form = () => {
             QUANTITY
           </span>
         </div>
-        <div className="flex items-center">
+        <div className="flexr">
           <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200">
             <Slider
               className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
@@ -230,8 +229,8 @@ const Form = () => {
               />
             </Slider>
           </div>
+          <span className="text-[10px font-[450">{invoiceFormContext.product.quantity}</span>
         </div>
-        <div></div>
       </div>
 
       <div className="text-zinc-700 space-x-2 mt-2 w-36 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
