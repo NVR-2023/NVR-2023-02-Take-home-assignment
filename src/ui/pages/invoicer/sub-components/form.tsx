@@ -27,8 +27,8 @@ import {
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
   const { data } = useInvoiceProductsContext() as { data: ProductType[] };
-const { data: issuerData, isLoading: isIssuerLoading } = useInvoiceIssuerContext();
-const typedIssuerData = issuerData as IssuerType;
+  const { data: issuerData, isLoading: isIssuerLoading } = useInvoiceIssuerContext();
+  const issuer = issuerData[0] as IssuerType;
 
   const handleInputChange = (field: string, value: string) => {
     setInvoiceFormContext({
@@ -79,13 +79,15 @@ const typedIssuerData = issuerData as IssuerType;
     }
   };
 
-
-useEffect(() => {
-  if (!isIssuerLoading && issuerData) {
-    console.log("data:", typedIssuerData);
-    setInvoiceFormContext({ ...invoiceFormContext, issuer: typedIssuerData });
-  }
-}, [isIssuerLoading, issuerData, setInvoiceFormContext]);
+  useEffect(() => {
+    if (!isIssuerLoading && issuerData) {
+      setInvoiceFormContext({
+        ...invoiceFormContext,
+        issuer: issuer,
+        invoice: { date: new Date().toISOString().split("T")[0], reference: "" },
+      });
+    }
+  }, [isIssuerLoading, issuerData, setInvoiceFormContext]);
 
   useEffect(() => {
     const quantity = Math.max(1, Number(invoiceFormContext.product.quantity) || 1);
