@@ -9,6 +9,7 @@ import { getOverviewStatsFromData } from "../../../../utils/get-overview-stats-f
 import RevenueMinicard from "./revenue-minicard";
 import StatsMiniCard from "../../../components/common/card/stats-minicard";
 import UsersMinicard from "./users-minicard";
+import InvoicesMinicard from "./invoices-minicard";
 
 const OverviewCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
@@ -50,7 +51,10 @@ const OverviewCard = () => {
                     <StatsMiniCard />
                   </div>
                   <div className="col-span-1 row-span-1">
-                    <StatsMiniCard />
+                    <InvoicesMinicard
+                      color={"#6ee7b7"}
+                      averageNumberOfInvoices={overviewStats.averageNumberOfUsers}
+                    />
                   </div>
                   <div className="col-span-1 row-span-1">
                     <UsersMinicard
