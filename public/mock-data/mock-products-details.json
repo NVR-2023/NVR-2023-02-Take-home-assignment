@@ -5,77 +5,77 @@
     {
       "name": "Connector Accessory",
       "reference": "REF-3387",
-      "unitaryPrice": 76.86
+      "unitaryPrice": 76.5
     },
     {
       "name": "Smart Device",
       "reference": "REF-1143",
-      "unitaryPrice": 324.43
+      "unitaryPrice": 32.5
     },
     {
       "name": "Electrical Accessory",
       "reference": "REF-2964",
-      "unitaryPrice": 113.23
+      "unitaryPrice": 113
     },
     {
       "name": "Smart Gadget",
       "reference": "REF-9891",
-      "unitaryPrice": 13.6
+      "unitaryPrice": 13.5
     },
     {
       "name": "Smart Accessory",
       "reference": "REF-8327",
-      "unitaryPrice": 21.64
+      "unitaryPrice": 21.5
     },
     {
       "name": "Portable Accessory",
       "reference": "REF-7947",
-      "unitaryPrice": 326.4
+      "unitaryPrice": 320.5
     },
     {
       "name": "Laptop",
       "reference": "REF-7759",
-      "unitaryPrice": 299.73
+      "unitaryPrice": 299
     },
     {
       "name": "Power supply",
       "reference": "REF-9714",
-      "unitaryPrice": 439.41
+      "unitaryPrice": 439
     },
     {
       "name": "USB hub",
       "reference": "REF-4895",
-      "unitaryPrice": 45.9
+      "unitaryPrice": 45.5
     },
     {
       "name": "Microscope",
       "reference": "REF-814",
-      "unitaryPrice": 728
+      "unitaryPrice": 70
     },
     {
       "name": "Motherboard",
       "reference": "REF-444",
-      "unitaryPrice": 200.78
+      "unitaryPrice": 200
     },
     {
       "name": "Vacuum packer",
       "reference": "REF-8954",
-      "unitaryPrice": 1000.2
+      "unitaryPrice": 1000
     },
     {
       "name": "LCD",
       "reference": "REF-7754",
-      "unitaryPrice": 320.28
+      "unitaryPrice": 320.5
     },
     {
       "name": "OLED",
       "reference": "REF-1954",
-      "unitaryPrice": 2000.6
+      "unitaryPrice": 200
     },
     {
       "name": "Driller",
       "reference": "REF-4454",
-      "unitaryPrice": 132.78
+      "unitaryPrice": 132.5
     }
   ]
 }

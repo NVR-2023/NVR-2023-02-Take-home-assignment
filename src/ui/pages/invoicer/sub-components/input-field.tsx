@@ -3,7 +3,7 @@ import { z } from "zod";
 
 type InputFieldProps = {
   label: string;
-  stateValue: string;
+  stateValue: string | number; // Allow number since we're dealing with quantity and price
   setValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
   schema?: z.ZodSchema;
 };
@@ -16,7 +16,6 @@ const InputField: React.FC<InputFieldProps> = ({ label, stateValue, setValue, sc
       const result = schema.safeParse(value);
       if (!result.success) {
         setError(result.error.errors[0]?.message || "Invalid input");
-        setTimeout(() => setError(null), 3000); // Remove error after 3 seconds
       } else {
         setError(null);
       }
@@ -30,16 +29,24 @@ const InputField: React.FC<InputFieldProps> = ({ label, stateValue, setValue, sc
   };
 
   return (
-    <div className="grid grid-cols-[2fr_4fr] gap-2 mb-1">
+    <div className="grid grid-cols-[2fr_4fr] gap-1 mb-0.5">
       <div className="flex">
-        <span className="text-[10px] font-[700] tracking-wide text-zinc-600 transform translate-y-4">
+        <span className="transform translate-y-3 text-[10px] font-[700] tracking-wide text-zinc-600">
           {label.toUpperCase()}
         </span>
       </div>
       <div className="flex items-center">
         <input
-          className="w-full pt-0.5 pb-1 px-1 border-b border-zinc-600 focus:outline-none"
-          value={stateValue}
+          className="w-full pt-0.5 pb-0.5 px-1 border-b border-zinc-600 focus:outline-none"
+          value={
+            stateValue === null || stateValue === undefined || stateValue === ""
+              ? label === "Quantity"
+                ? "1"
+                : ""
+              : stateValue === 0
+              ? "0"
+              : stateValue.toString()
+          }
           onChange={handleChange}
         />
       </div>

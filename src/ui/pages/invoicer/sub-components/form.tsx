@@ -12,13 +12,12 @@ import {
   vatNumberSchema,
   productNameSchema,
   productReferenceSchema,
-  productQuantitySchema,
-  productUnitaryPriceSchema,
 } from "./input-validation/input-validation";
+import GeneralLabel from "../../../components/common/general-label";
+import { Slider, SliderTrack, SliderRange, SliderThumb } from "@radix-ui/react-slider";
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
-
   const handleInputChange = (field: string, value: string) => {
     setInvoiceFormContext({
       ...invoiceFormContext,
@@ -62,22 +61,61 @@ const Form = () => {
     });
   };
 
-   useEffect(() => {
-     const quantity = parseFloat(invoiceFormContext.product.quantity.toString());
-     const unitaryPrice = parseFloat(invoiceFormContext.product.unitaryPrice.toString());
-     const total = quantity * unitaryPrice;
+  useEffect(() => {
+    const quantity =
+      invoiceFormContext.product.quantity !== null &&
+      invoiceFormContext.product.quantity !== undefined
+        ? parseFloat(invoiceFormContext.product.quantity.toString())
+        : 1;
 
-     setInvoiceFormContext({
-       ...invoiceFormContext,
-       product: {
-         ...invoiceFormContext.product,
-         total: total, // Ensure it's a number
-       },
-     });
-   }, [invoiceFormContext.product.quantity, invoiceFormContext.product.unitaryPrice]);
+    const unitaryPrice = invoiceFormContext.product.unitaryPrice;
+    if (unitaryPrice !== null && unitaryPrice !== undefined) {
+      const parsedUnitaryPrice = parseFloat(unitaryPrice.toString());
+      const total =
+        !isNaN(quantity) && !isNaN(parsedUnitaryPrice) ? quantity * parsedUnitaryPrice : 0;
+      setInvoiceFormContext({
+        ...invoiceFormContext,
+        product: {
+          ...invoiceFormContext.product,
+          total: total,
+        },
+      });
+    }
+  }, [invoiceFormContext.product.quantity, invoiceFormContext.product.unitaryPrice]);
 
   return (
-    <form className="w-full h-full p-6 bg-green-100 roundedg grid grid-cols-1 gap-x-3 gap-y-1 sm:grid-cols-2">
+    <form className="w-full h-full roundedg grid grid-cols-1 gap-x-5 gap-y-0 sm:grid-cols-2">
+      <div className="col-span-2">
+        <GeneralLabel label="client" />
+      </div>
+
+      <div className="flex px-1 rounded-[2px] bg-zinc-200">
+        <Slider
+          className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
+          value={[invoiceFormContext.product.quantity || 1]}
+          onValueChange={(value) => {
+            const newQuantity = Number(value[0]);
+            setInvoiceFormContext({
+              ...invoiceFormContext,
+              product: {
+                ...invoiceFormContext.product,
+                quantity: newQuantity,
+              },
+            });
+          }}
+          min={1}
+          max={10}
+          step={1}>
+          <SliderTrack className="bg-zinc-50 relative grow h-[2px] md:h-[1px]">
+            <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
+          </SliderTrack>
+          <SliderThumb
+            className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
+            aria-label="Quantity"
+          />
+        </Slider>
+      </div>
+
       <InputField
         label="Name"
         stateValue={invoiceFormContext.client.name}
@@ -124,7 +162,7 @@ const Form = () => {
       />
 
       <InputField
-        label="Postal Code"
+        label="Zip"
         stateValue={invoiceFormContext.client.address.postalCode}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("postalCode", event.target.value)
@@ -149,9 +187,12 @@ const Form = () => {
         }
         schema={vatNumberSchema}
       />
+      <div className="col-span-2">
+        <GeneralLabel label="product" />
+      </div>
 
       <InputField
-        label="Product"
+        label="Name"
         stateValue={invoiceFormContext.product.name}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleProductChange("name", event.target.value)
@@ -168,33 +209,7 @@ const Form = () => {
         schema={productReferenceSchema}
       />
 
-      <InputField
-        label="Quantity"
-        stateValue={invoiceFormContext.product.quantity.toString()}
-        setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
-          handleProductChange("quantity", event.target.value)
-        }
-        schema={productQuantitySchema}
-      />
-
-      <InputField
-        label="Unitary Price"
-        stateValue={invoiceFormContext.product.unitaryPrice.toString()}
-        setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
-          handleProductChange("unitaryPrice", event.target.value)
-        }
-        schema={productUnitaryPriceSchema}
-      />
-
-      <div className="mt-4">
-        <label className="block font-medium">Total</label>
-        <input
-          type="text"
-          value={invoiceFormContext.product.total}
-          readOnly
-          className="w-full p-2 border border-gray-300 rounded"
-        />
-      </div>
+      <span>{invoiceFormContext.product.total}</span>
     </form>
   );
 };

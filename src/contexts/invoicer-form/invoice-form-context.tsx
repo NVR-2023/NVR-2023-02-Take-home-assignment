@@ -33,9 +33,9 @@ export const InvoiceFormContext = createContext<{
     product: {
       name: "",
       reference: "",
-      quantity: 0,
-      unitaryPrice: 0,
-      total: 0,
+      quantity: 1,
+      unitaryPrice:1,
+      total: 1,
     },
     invoice: {
       date: "",
