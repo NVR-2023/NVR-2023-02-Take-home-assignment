@@ -1,6 +1,8 @@
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
+import { useInvoiceIssuerContext } from "../../../../custom-hooks/use-invoice-issuer-context";
 import TransparentLogoIcon from "../../../components/icons/transparent-logo-icon";
 import GeneralLabel from "../../../components/common/general-label";
+import LoadingIndicator from "../../../components/animated/loading-indicator";
 
 const processKey = (key: string) => {
   return key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase());
@@ -35,7 +37,6 @@ const renderInvoice = (object: object, level = 0, parentKey: string | null = nul
         </div>
       );
     } else {
-      // Add "€" if the key ends with "price" or "total"
       const displayValue =
         (key.endsWith("price") || key.endsWith("total")) && value ? `${value} €` : value;
 
@@ -51,23 +52,30 @@ const renderInvoice = (object: object, level = 0, parentKey: string | null = nul
 
 const Preview = () => {
   const { invoiceFormContext } = useInvoiceFormContext();
-
+  const { isLoading } = useInvoiceIssuerContext();
   return (
     <>
-      <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
-        <div className="py-2 sticky top-0">
-          <GeneralLabel label="preview" />
+      {isLoading && (
+        <div className="w-full h-full flex-grow  flex items-center justify-center">
+          <LoadingIndicator />
         </div>
-        <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
-          <div className="flex items-baseline space-x-4">
-            <span>
-              <TransparentLogoIcon scale={3} color="#d4d4d8" />
-            </span>
-            <span className="text-zinc-300 font-semibold text-5xl">TechBilling</span>
+      )}
+      {!isLoading && (
+        <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
+          <div className="py-2 sticky top-0">
+            <GeneralLabel label="preview" />
           </div>
-          <div className="space-y-10 mt-6">{renderInvoice(invoiceFormContext)}</div>
+          <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
+            <div className="flex items-baseline space-x-4">
+              <span>
+                <TransparentLogoIcon scale={3} color="#d4d4d8" />
+              </span>
+              <span className="text-zinc-300 font-semibold text-5xl">TechBilling</span>
+            </div>
+            <div className="space-y-10 mt-6">{renderInvoice(invoiceFormContext)}</div>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

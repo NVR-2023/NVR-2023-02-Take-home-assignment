@@ -154,7 +154,7 @@ const Form = () => {
         schema={citySchema}
       />
       <InputField
-        label="Zip"
+        label="Postal"
         stateValue={invoiceFormContext.client.address.postalCode}
         setValue={(event: React.ChangeEvent<HTMLInputElement>) =>
           handleInputChange("postalCode", event.target.value)
@@ -186,10 +186,10 @@ const Form = () => {
         <div className="flex"></div>
         <div className="flex col-span-2 w-full">
           <Select onValueChange={handleProductSelect}>
-            <SelectTrigger className="flex items-center justify-center w-full h-7 max-h-7 bg-zinc-300 rounded-[2px] border-[1px]">
+            <SelectTrigger className="flex items-center justify-center w-full font-[450] h-7 max-h-7 bg-zinc-400 text-zinc-200 rounded-[2px]">
               <SelectValue
                 placeholder={
-                  invoiceFormContext.product.name ? invoiceFormContext.product.name : "select"
+                  invoiceFormContext.product.name ? invoiceFormContext.product.name : "SELECT"
                 }
                 className="focus:none focus:ring-none focus:outline-none flex h-7 max-h-7 font-[450] justify-center"
                 style={{
@@ -197,7 +197,7 @@ const Form = () => {
                 }}
               />
             </SelectTrigger>
-            <SelectContent className="transform -translate-y-50 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
+            <SelectContent className="transform -translate-y-80 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
               {data.map((product: ProductType) => (
                 <SelectItem
                   key={product.reference}

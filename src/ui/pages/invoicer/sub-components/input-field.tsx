@@ -31,7 +31,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, setValue, schema }) => {
   return (
     <div className="grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0 mb-0.5">
       <div className="flex">
-        <span className="transform translate-y-2 text-[10px] font-[700] tracking-wide text-zinc-600">
+        <span className="transform translate-y-2.5 text-[10px] font-[700] tracking-wide text-zinc-600">
           {label.toUpperCase()}
         </span>
       </div>
