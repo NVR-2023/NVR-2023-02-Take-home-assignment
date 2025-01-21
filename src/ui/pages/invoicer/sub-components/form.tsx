@@ -70,8 +70,8 @@ const Form = () => {
         ...invoiceFormContext,
         product: {
           ...selectedProduct,
-          quantity: 1, // Default quantity for the selected product
-          total: selectedProduct.unitaryPrice, // Initial total, assuming quantity is 1
+          quantity: 1,
+          total: selectedProduct.unitaryPrice,
         },
       });
     }
@@ -175,9 +175,12 @@ const Form = () => {
         <div className="flex items-center">
           <Select onValueChange={handleProductSelect}>
             <SelectTrigger className="w-full border p-2">
-              <SelectValue placeholder="Select a Product" />
+              <SelectValue
+                placeholder={invoiceFormContext.product.name}
+                className="flex justify-start"
+              />
             </SelectTrigger>
-            <SelectContent className="bg-white border mt-2 max-h-60 overflow-y-scroll">
+            <SelectContent className="bg-white border mt-2 max-h-60 overflow-y-auto">
               {data.map((product: ProductType) => (
                 <SelectItem
                   key={product.reference}
@@ -219,7 +222,7 @@ const Form = () => {
                 <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
               </SliderTrack>
               <SliderThumb
-                className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded-full focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
+                className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500  rounded focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
                 aria-label="Quantity"
               />
             </Slider>
