@@ -183,12 +183,8 @@ const Form = () => {
       </div>
 
       <div className="grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0 mb-0.5">
-        <div className="flex">
-          <span className="transform translate-y-2 text-[10px] font-[700] tracking-wide text-zinc-600">
-            PRODUCT
-          </span>
-        </div>
-        <div className="flex ">
+        <div className="flex"></div>
+        <div className="flex col-span-2 w-full">
           <Select onValueChange={handleProductSelect}>
             <SelectTrigger className="flex items-center justify-center w-full h-7 max-h-7 bg-zinc-300 rounded-[2px] border-[1px]">
               <SelectValue
@@ -221,6 +217,9 @@ const Form = () => {
           </span>
         </div>
         <div className="flex items-center">
+          <span className="w-5 min-w-5 rounded-[1pt] flex justify-center bg-zinc-200 text-[12px] font-[550]">
+            {invoiceFormContext.product.quantity}
+          </span>
           <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200 w-full">
             <Slider
               className="relative flex items-center select-none bg-zinc-200 w-full h-5 md:h-4.5 mr-2"
@@ -246,15 +245,12 @@ const Form = () => {
                 aria-label="Quantity"
               />
             </Slider>
-            <span className="text-[12px] rounded-[1px] font-[550]">
-              {invoiceFormContext.product.quantity}
-            </span>
           </div>
         </div>
       </div>
 
       <div className="w-full col-span-2 flex justify-end">
-        <div className="text-zinc-700 space-x-2 mt-2 w-36 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
+        <div className="text-zinc-700 space-x-2 w-36 h-12 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
           <span>TOTAL: {invoiceFormContext.product.total}</span>
           <span className="tex-sm">€</span>
         </div>
