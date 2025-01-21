@@ -38,7 +38,7 @@ const renderInvoice = (object: object, level = 0, parentKey: string | null = nul
       );
     } else {
       const displayValue =
-        (key.endsWith("price") || key.endsWith("total")) && value ? `${value} €` : value;
+        (key.toLowerCase().includes("price") || key.endsWith("total")) && value ? `${value} €` : value;
 
       return (
         <div key={`${key}-entry`} className="flex items-baseline gap-x-4">
