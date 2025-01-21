@@ -174,12 +174,12 @@ const Form = () => {
         </div>
         <div className="flex ">
           <Select onValueChange={handleProductSelect}>
-            <SelectTrigger className="flex items center justify-center  w-full h-5 max-h-5 bg-zinc-300 rounded-[2px] border-[1px]">
+            <SelectTrigger className="flex items center justify-center  w-full h-7 max-h-7 bg-zinc-300 rounded-[2px] border-[1px]">
               <SelectValue
                 placeholder={
                   invoiceFormContext.product.name ? invoiceFormContext.product.name : "select"
                 }
-                className="flex h-2.5 max-h-2.5 text-[10px] text-gray-400 justify-center"
+                className="focus:none focus:ring-none focus:outline-none flex h-7 max-h-7 text-[9px] font-[450] justify-center"
               />
             </SelectTrigger>
             <SelectContent className="transform -translate-y-50 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
@@ -187,7 +187,7 @@ const Form = () => {
                 <SelectItem
                   key={product.reference}
                   value={product.reference}
-                  className="hover:font-[700] hover:ring-none hover:border-none px-2 py-0.5 text-[10px] font-[450]   tracking-wide text-zinc-600">
+                  className="hover:font-[700] hover:ring-none hover:border-none hover:outline-none px-2 py-0.5 text-[10px] font-[450]   tracking-wide text-zinc-600">
                   {product.name}
                 </SelectItem>
               ))}
