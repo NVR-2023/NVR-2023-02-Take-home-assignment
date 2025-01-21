@@ -1,33 +1,43 @@
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
+import TransparentLogoIcon from "../../../components/icons/transparent-logo-icon";
 
 const processKey = (key: string) => {
   return key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase());
 };
 
-const renderObject = (object: object, level = 0) => {
+const classMap = {
+  majorKey: "text-xl w-30 border-b-[1px] border-zinc-700 font-[700] text-zinc-700",
+  minorKey: "text-xs w-16 border-b-[1px] border-zinc-700 font-[500] text-zinc-700",
+  entryKey: "text-xs font-[400] text-zinc-500",
+  value: "text-sm text-zinc-700",
+};
+
+const renderInvoice = (object: object, level = 0, parentKey: string | null = null) => {
   return Object.entries(object).map(([key, value]) => {
     const processedKey = processKey(key);
-    const fontSize = level === 0 ? "1.2em" : "1em";
-    const marginLeft = level * 20;
 
     if (typeof value === "object" && value !== null) {
+      const isMajorKey = level === 0;
+      const isMinorKey = !isMajorKey && parentKey && parentKey !== "address";
+
       return (
-        <div key={key} style={{ marginLeft }}>
+        <div
+          key={key}
+          className={`space-y-4 ${isMajorKey ? "mb-10" : isMinorKey ? "mb-4" : "mb-2"}`}>
           <div
-            style={{
-              fontSize,
-              marginBottom: "5px",
-              textDecoration: level === 0 ? "underline" : "none",
-            }}>
+            className={
+              isMajorKey ? classMap.majorKey : isMinorKey ? classMap.minorKey : classMap.entryKey
+            }>
             {processedKey}
           </div>
-          {renderObject(value, level + 1)}
+          <div className="space-y-2">{renderInvoice(value, level + 1, key)}</div>
         </div>
       );
     } else {
       return (
-        <div key={key} style={{ marginLeft, fontSize }}>
-          {processedKey}: {value}
+        <div key={`${key}-entry`} className="flex items-baseline gap-x-4">
+          <div className={`${classMap.entryKey} w-1/3`}>{processedKey}</div>
+          <div className={classMap.value}>{value}</div>
         </div>
       );
     }
@@ -38,8 +48,16 @@ const Preview = () => {
   const { invoiceFormContext } = useInvoiceFormContext();
 
   return (
-    <div className="overflow-y-auto p-4 bg-green-400 h-full w-full rounded">
-      <div className="bg-white p-4 rounded shadow">{renderObject(invoiceFormContext)}</div>
+    <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
+      <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
+        <div className="flex items-baseline space-x-4">
+          <span>
+            <TransparentLogoIcon scale={3} color="#d4d4d8" />
+          </span>
+          <span className="text-zinc-300 font-semibold text-5xl">TechBilling</span>
+        </div>
+        <div className="space-y-10 mt-6">{renderInvoice(invoiceFormContext)}</div>
+      </div>
     </div>
   );
 };
