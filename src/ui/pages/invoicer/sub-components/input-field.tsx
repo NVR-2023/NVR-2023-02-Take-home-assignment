@@ -16,6 +16,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, stateValue, setValue, sc
       const result = schema.safeParse(value);
       if (!result.success) {
         setError(result.error.errors[0]?.message || "Invalid input");
+        setTimeout(() => setError(null), 3000); // Remove error after 3 seconds
       } else {
         setError(null);
       }
@@ -30,25 +31,23 @@ const InputField: React.FC<InputFieldProps> = ({ label, stateValue, setValue, sc
 
   return (
     <div className="grid grid-cols-[2fr_4fr] gap-2 mb-1">
-      {/* First row: Label and Input Field */}
-      <div className="flex justify-start items-baseline">
-        <span className="text-xs font-[550] tracking-wide text-zinc-600">{label}</span>
+      <div className="flex">
+        <span className="text-[10px] font-[700] tracking-wide text-zinc-600 transform translate-y-4">
+          {label.toUpperCase()}
+        </span>
       </div>
-      <div>
+      <div className="flex items-center">
         <input
-          className={`w-full py-1 px-2 border-b border-zinc-600 focus:border-b-2 focus:ring-blue-500 ${
-            error ? "border-red-500" : ""
-          }`}
+          className="w-full pt-0.5 pb-1 px-1 border-b border-zinc-600 focus:outline-none"
           value={stateValue}
           onChange={handleChange}
         />
       </div>
-
-      
-
-      {/* Second row: Empty cell beneath label, Error message beneath input */}
+      {/* Second row: Empty cell beneath label, Reserved space for error */}
       <div></div>
-      <div>{error && <p className="text-xs text-red-500">{error}</p>}</div>
+      <div className="h-3 font-[550]">
+        {error && <p className="text-[10px] text-red-300">{error}</p>}
+      </div>
     </div>
   );
 };
