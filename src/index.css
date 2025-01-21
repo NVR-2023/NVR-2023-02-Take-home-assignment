@@ -29,7 +29,40 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: #575757;
   }
+
+
+::placeholder {
+  font-size: 9pt;
 }
+
+input::placeholder {
+  font-size: 9pt;
+}
+
+textarea::placeholder {
+  font-size: 9pt;
+}
+
+select option[disabled][value=""] {
+  font-size: 9pt;
+}
+
+/* For any custom elements or components that might use placeholder-like functionality */
+*[placeholder] {
+  font-size: 9pt;
+}
+
+/* For elements with a data attribute indicating a placeholder state */
+*[data-placeholder] {
+  font-size: 9pt;
+}
+
+}
+
+
+
+
+
 
 body {
   font-family: "Outfit", sans-serif;
