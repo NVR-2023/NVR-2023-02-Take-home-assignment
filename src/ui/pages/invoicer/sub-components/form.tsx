@@ -172,20 +172,23 @@ const Form = () => {
             PRODUCT
           </span>
         </div>
-        <div className="flex items-center">
+        <div className="flex relative">
           <Select onValueChange={handleProductSelect}>
-            <SelectTrigger className="w-full border p-2">
+            <SelectTrigger className=" w-full border p-2 rounded-md bg-gray-50 hover:bg-zinc-400 focus:ring-2 focus:ring-blue-500 focus:outline-none">
               <SelectValue
-                placeholder={invoiceFormContext.product.name}
-                className="flex justify-start"
+                placeholder={
+                  invoiceFormContext.product.name ? invoiceFormContext.product.name : "select"
+                }
+                className="flex h-5 max-h-5 text-sm text-gray-400 justify-start placeholder:text-blue-400"
               />
             </SelectTrigger>
-            <SelectContent className="bg-white border mt-2 max-h-60 overflow-y-auto">
+            <SelectContent
+              className="transform -translate-y-50 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
               {data.map((product: ProductType) => (
                 <SelectItem
                   key={product.reference}
                   value={product.reference}
-                  className="hover:bg-gray-200 text-xs p-2">
+                  className="hover:font-[700] hover:ring-none hover:border-none px-2 py-0.5 text-[10px] font-[450]   tracking-wide text-zinc-600">
                   {product.name}
                 </SelectItem>
               ))}
