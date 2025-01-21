@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
 import InputField from "./input-field";
 import { useInvoiceProductsContext } from "../../../../custom-hooks/use-invoice-products-context";
+import createMocInvoiceUUID from "../../../../utils/create-mock-invoice-uuid";
 import {
   clientNameSchema,
   streetSchema,
@@ -84,7 +85,10 @@ const Form = () => {
       setInvoiceFormContext({
         ...invoiceFormContext,
         issuer: issuer,
-        invoice: { date: new Date().toISOString().split("T")[0], reference: "" },
+        invoice: {
+          date: new Date().toISOString().split("T")[0],
+          reference: createMocInvoiceUUID(),
+        },
       });
     }
   }, [isIssuerLoading, issuerData, setInvoiceFormContext]);
