@@ -1,6 +1,6 @@
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
 import TransparentLogoIcon from "../../../components/icons/transparent-logo-icon";
-
+import GeneralLabel from "../../../components/common/general-label";
 const processKey = (key: string) => {
   return key.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase());
 };
@@ -49,6 +49,9 @@ const Preview = () => {
 
   return (
     <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
+      <div className="py-2 ">
+        <GeneralLabel label="preview" />
+      </div>
       <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
         <div className="flex items-baseline space-x-4">
           <span>
