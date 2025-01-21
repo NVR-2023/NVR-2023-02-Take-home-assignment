@@ -23,12 +23,12 @@ import {
   SelectContent,
   SelectItem,
 } from "@radix-ui/react-select";
-import { useInvoiceClientsContext } from "../../../../custom-hooks/use-invoice-clients-context";
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
   const { data } = useInvoiceProductsContext() as { data: ProductType[] };
-  const { data: issuerData, isLoading: isIssuerLoading } = useInvoiceClientsContext();
+const { data: issuerData, isLoading: isIssuerLoading } = useInvoiceIssuerContext();
+const typedIssuerData = issuerData as IssuerType;
 
   const handleInputChange = (field: string, value: string) => {
     setInvoiceFormContext({
@@ -79,12 +79,13 @@ const Form = () => {
     }
   };
 
-  useEffect(() => {
-    if (!isIssuerLoading && issuerData) {
-      console.log("data:", issuerData);
-      setInvoiceFormContext({...invoiceFormContext, issuer: issuerData});
-    }
-  }, [isIssuerLoading, issuerData, setInvoiceFormContext]);
+
+useEffect(() => {
+  if (!isIssuerLoading && issuerData) {
+    console.log("data:", typedIssuerData);
+    setInvoiceFormContext({ ...invoiceFormContext, issuer: typedIssuerData });
+  }
+}, [isIssuerLoading, issuerData, setInvoiceFormContext]);
 
   useEffect(() => {
     const quantity = Math.max(1, Number(invoiceFormContext.product.quantity) || 1);
