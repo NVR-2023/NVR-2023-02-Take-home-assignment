@@ -167,8 +167,7 @@ const Form = () => {
           </span>
         </div>
         <div className="flex items-center">
-          {" "}
-          <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200">
+                 <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200">
             <Slider
               className="relative flex items-center select-none bg-zinc-200 w-25 md:w-36 h-5 md:h-4.5"
               value={[invoiceFormContext.product.quantity || 1]}
@@ -198,7 +197,7 @@ const Form = () => {
         <div></div>
       </div>
 
-      <div className="text-zinc-s700 space-x-2 700 mt-2 w-36 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
+      <div className="text-zinc-700 space-x-2 mt-2 w-36 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-ssm">
         <span>TOTAL: {invoiceFormContext.product.total}</span>
         <span className="tex-sm">€</span>
       </div>
