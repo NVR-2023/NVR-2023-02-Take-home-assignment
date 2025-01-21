@@ -1,5 +1,4 @@
 import { formatRevenueString } from "../../../../utils/format-revenue-string";
-import GeneralLabel from "../../../components/common/general-label";
 import { addEuroCharacter } from "../../../../utils/add-euro-character";
 import MinicardShell from "../../../components/common/card/minicard-shell";
 
@@ -35,33 +34,11 @@ const RevenueMinicard = ({
 
   return (
     <MinicardShell title="revenue" color={color}>
-      <div className="absolute tabular-nums text-zinc-500 top-6">
-        <div className="grid grid-cols-2 gap-x-10 gap-y-1">
-          <div className="font-[650] text-xl text-right" style={{ width: "100px" }}>
-            {formattedTotalRevenue}
-          </div>
-          <div className="transform translate-y-1 text-left" style={{ width: "70px" }}>
-            <GeneralLabel label="Total" />
-          </div>
-          <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
-            {formattedAverageMonthlyRevenue}
-          </div>
-          <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
-            <GeneralLabel label="Average" />
-          </div>
-          <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
-            {finalizedMaxMonthlyRevenue.value}
-          </div>
-          <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
-            <GeneralLabel label="Max" />
-          </div>
-          <div className="font-[550] text-sm text-right" style={{ width: "100px" }}>
-            {finalizedMinMonthlyRevenue.value}
-          </div>
-          <div className="transform translate-y-0.5 text-left" style={{ width: "70px" }}>
-            <GeneralLabel label="Min" />
-          </div>
-        </div>
+      <div className="bg-indigo-4 absolute tabular-nums text-zinc-500 p-3 mt-3 space-y-1">
+        <div className="text-lg font-[650]">{formattedTotalRevenue} - Total</div>
+        <div className="text-sm font-[550]">{formattedAverageMonthlyRevenue} - Average</div>
+        <div className="text-sm font-[550]">{finalizedMaxMonthlyRevenue.value} - Max</div>
+        <div className="text-sm font-[550]">{finalizedMinMonthlyRevenue.value} - Min</div>
       </div>
     </MinicardShell>
   );

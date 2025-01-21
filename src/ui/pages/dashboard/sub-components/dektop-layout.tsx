@@ -4,8 +4,8 @@ import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui
 import RevenueChartCard from "./revenue-chart-card";
 import InvoicesChartCard from "./invoices-chart-card";
 import UsersChartCard from "./users-chart-card";
-import DerivedCard from "./derived-card";
-import CombinedCard from "./comnined-card";
+import OverviewCard from "./overview-card";
+import CombinedCard from "./combined-card";
 
 const DesktopLayout = () => {
   const { DashboardUIContext } = useDashboardUIContext();
@@ -21,7 +21,7 @@ const DesktopLayout = () => {
     { isVisible: isRevenueGraphVisible, card: <RevenueChartCard /> },
     { isVisible: isInvoicesGraphVisible, card: <InvoicesChartCard /> },
     { isVisible: isUsersGraphVisible, card: <UsersChartCard /> },
-    { isVisible: isDerivedCardVisible, card: <DerivedCard /> },
+    { isVisible: isDerivedCardVisible, card: <OverviewCard /> },
   ];
   const visibleColumns = columns.filter((col) => col.isVisible);
   const columnWidth = visibleColumns.length > 0 ? `${100 / visibleColumns.length}%` : "0%";

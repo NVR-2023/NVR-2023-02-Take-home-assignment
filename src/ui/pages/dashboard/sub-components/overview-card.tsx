@@ -6,11 +6,11 @@ import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data
 import LoadingIndicator from "../../../components/animated/loading-indicator";
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
 import { getOverviewStatsFromData } from "../../../../utils/get-overview-stats-from-data";
-
 import RevenueMinicard from "./revenue-minicard";
 import StatsMiniCard from "../../../components/common/card/stats-minicard";
+import UsersMinicard from "./users-minicard";
 
-const DerivedCard = () => {
+const OverviewCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { isDerivedCardVisible } = DashboardUIContext;
   const data = useFilteredDashboardData();
@@ -24,7 +24,6 @@ const DerivedCard = () => {
       isDerivedCardVisible: false,
     }));
   };
-  const baseColor = "#d4d4d8";
 
   return (
     <AnimatePresence>
@@ -54,11 +53,14 @@ const DerivedCard = () => {
                     <StatsMiniCard />
                   </div>
                   <div className="col-span-1 row-span-1">
-                    <StatsMiniCard />
+                    <UsersMinicard
+                      color={"#fdba74"}
+                      averageNumberOfUsers={overviewStats.averageNumberOfUsers}
+                    />
                   </div>
                   <div className="col-span-2 row-span-2 ">
                     <RevenueMinicard
-                      color={baseColor}
+                      color={"#a5b4fc"}
                       totalRevenue={overviewStats.totalRevenue}
                       averageMonthlyRevenue={overviewStats.averageMonthlyRevenue}
                       maxMonthlyRevenue={overviewStats.maxMonthlyRevenue}
@@ -75,4 +77,4 @@ const DerivedCard = () => {
   );
 };
 
-export default DerivedCard;
+export default OverviewCard;

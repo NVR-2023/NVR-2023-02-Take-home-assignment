@@ -18,7 +18,7 @@ const MinicardShell = ({
         backgroundColor: color,
       }}
       {...minicardAnimation}>
-      <div className="absolute top-1 left-2 tracking-wide text-[9px] font-[500] text-zinc-500">
+      <div className="absolute top-1 left-2 tracking-wide text-[9px] font-[550] text-zinc-600">
         {title.toUpperCase()}
       </div>
       {children}
