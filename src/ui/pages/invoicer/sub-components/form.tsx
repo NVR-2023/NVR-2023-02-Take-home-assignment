@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
 import InputField from "./input-field";
 import {
@@ -13,7 +14,7 @@ import {
   productReferenceSchema,
   productQuantitySchema,
   productUnitaryPriceSchema,
-} from "./input-validation/input-validation"; 
+} from "./input-validation/input-validation";
 
 const Form = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
@@ -60,6 +61,20 @@ const Form = () => {
       },
     });
   };
+
+   useEffect(() => {
+     const quantity = parseFloat(invoiceFormContext.product.quantity.toString());
+     const unitaryPrice = parseFloat(invoiceFormContext.product.unitaryPrice.toString());
+     const total = quantity * unitaryPrice;
+
+     setInvoiceFormContext({
+       ...invoiceFormContext,
+       product: {
+         ...invoiceFormContext.product,
+         total: total, // Ensure it's a number
+       },
+     });
+   }, [invoiceFormContext.product.quantity, invoiceFormContext.product.unitaryPrice]);
 
   return (
     <form className="w-full h-full p-6 bg-green-100 roundedg grid grid-cols-1 gap-x-3 gap-y-1 sm:grid-cols-2">
@@ -135,7 +150,6 @@ const Form = () => {
         schema={vatNumberSchema}
       />
 
-      {/* Product Information */}
       <InputField
         label="Product"
         stateValue={invoiceFormContext.product.name}
@@ -172,7 +186,15 @@ const Form = () => {
         schema={productUnitaryPriceSchema}
       />
 
-  
+      <div className="mt-4">
+        <label className="block font-medium">Total</label>
+        <input
+          type="text"
+          value={invoiceFormContext.product.total}
+          readOnly
+          className="w-full p-2 border border-gray-300 rounded"
+        />
+      </div>
     </form>
   );
 };
