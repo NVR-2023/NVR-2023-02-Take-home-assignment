@@ -108,7 +108,7 @@ const InvoiceForm = () => {
   }, [invoiceFormContext.product.quantity, invoiceFormContext.product.unitaryPrice]);
 
   return (
-    <form className="w-full h-full  grid grid-cols-1 gap-x-5 -gap-y-2 sm:grid-cols-2">
+    <div className="w-full h-full  grid grid-cols-1 gap-x-5 -gap-y-2 sm:grid-cols-2">
       <div className="col-span-2">
         <GeneralLabel label="client" />
       </div>
@@ -182,40 +182,36 @@ const InvoiceForm = () => {
         <GeneralLabel label="product" />
       </div>
 
-      <div className="grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0 mb-0.5">
-        <div className="flex"></div>
-        <div className="flex col-span-2 w-full">
-          <Select onValueChange={handleProductSelect}>
-            <SelectTrigger className="flex items-center justify-center w-full font-[450] h-7 max-h-7 bg-zinc-400 text-zinc-200 rounded-[2px]">
-              <SelectValue
-                placeholder={
-                  invoiceFormContext.product.name ? invoiceFormContext.product.name : "SELECT"
-                }
-                className="focus:none focus:ring-none focus:outline-none flex h-7 max-h-7 font-[450] justify-center"
-                style={{
-                  fontSize: "9px",
-                }}
-              />
-            </SelectTrigger>
-            <SelectContent className="transform -translate-y-80 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
-              {data.map((product: ProductType) => (
-                <SelectItem
-                  key={product.reference}
-                  value={product.reference}
-                  className="hover:font-[700] hover:ring-none hover:border-none hover:outline-none px-2 py-0.5 text-[10px] font-[450] tracking-wide text-zinc-600">
-                  {product.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+      <div className="flex col-span-1 w-full">
+        <Select onValueChange={handleProductSelect}>
+          <SelectTrigger className="flex items-center justify-center w-full font-[450] h-7 max-h-7 bg-zinc-400 text-zinc-200 rounded-[2px]">
+            <SelectValue
+              placeholder={
+                invoiceFormContext.product.name ? invoiceFormContext.product.name : "SELECT"
+              }
+              className="focus:none focus:ring-none focus:outline-none flex h-7 max-h-7 font-[450] justify-center"
+              style={{
+                fontSize: "9px",
+              }}
+            />
+          </SelectTrigger>
+          <SelectContent className="transform -translate-y-80 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
+            {data.map((product: ProductType) => (
+              <SelectItem
+                key={product.reference}
+                value={product.reference}
+                className="hover:font-[700] hover:ring-none hover:border-none hover:outline-none px-2 py-0.5 text-[10px] font-[450] tracking-wide text-zinc-600">
+                {product.name}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
-      <div className="mt-1 grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0">
-        <div className="flex">
-          <span className="transform translate-y-1 text-[10px] font-[700] tracking-wide text-zinc-600">
-            QUANTITY
-          </span>
-        </div>
+
+      <div className="flex col-span-1">
+        <span className="transform translate-y-1 text-[10px] font-[700] tracking-wide text-zinc-600">
+          QUANTITY
+        </span>
         <div className="flex ms-4">
           <NumberInput />
         </div>
@@ -232,7 +228,7 @@ const InvoiceForm = () => {
           <span className="tex-sm">€</span>
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

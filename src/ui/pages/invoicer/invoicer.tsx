@@ -7,7 +7,7 @@ import { InvoiceFormContextProvider } from "../../../contexts/invoicer-form/invo
 import ClientsSearchbar from "./sub-components/clients-sratchbar";
 import Toolbar from "../../sections/toolbar/toolbar";
 import ContentArea from "../../sections/content-area/content-area";
-import InvoicerDesktopLayout from "../../layouts/invoicer-desktop-layout";
+import InvoicerLayout from "../../layouts/invoicer-layout";
 
 const Invoicer = () => {
   const ToolsArray = [ClientsSearchbar];
@@ -17,7 +17,7 @@ const Invoicer = () => {
       className="bg-zinc-200 rounded h-auto md:min-h-screen md:h-screen p-4 space-y-2 overflow-x-clip">
       <Toolbar title="Invoicer" toolsArray={ToolsArray} />
       <ContentArea>
-        <InvoicerDesktopLayout />
+        <InvoicerLayout />
       </ContentArea>
     </motion.div>
   );

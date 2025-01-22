@@ -55,7 +55,7 @@ const NumberInput = () => {
   };
 
   return (
-    <div className="flex  bg-zinc-200 px-2 h-4.5 py-0.5 rounded-[2px] items-center justify-start space-x-2">
+    <div className=" w-full max-w-full bg-zinc-200 px-2 h-4.5 py-0.5 rounded-[2px] items-center justify-start space-x-2">
       <span className="flex space-x-1">
         <motion.button
           {...buttonTapVariants}

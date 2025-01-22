@@ -15,7 +15,7 @@ const classMap = {
   value: "text-xs text-zinc-700",
 };
 
-const renderInvoice = (object: object, level = 0, parentKey: string | null = null) => {
+const renderInvoiceContent = (object: object, level = 0, parentKey: string | null = null) => {
   return Object.entries(object).map(([key, value]) => {
     const processedKey = processKey(key);
 
@@ -33,12 +33,14 @@ const renderInvoice = (object: object, level = 0, parentKey: string | null = nul
             }>
             {processedKey}
           </div>
-          <div className="space-y-2">{renderInvoice(value, level + 1, key)}</div>
+          <div className="space-y-2">{renderInvoiceContent(value, level + 1, key)}</div>
         </div>
       );
     } else {
       const displayValue =
-        (key.toLowerCase().includes("price") || key.endsWith("total")) && value ? `${value} €` : value;
+        (key.toLowerCase().includes("price") || key.endsWith("total")) && value
+          ? `${value} €`
+          : value;
 
       return (
         <div key={`${key}-entry`} className="flex items-baseline gap-x-4">
@@ -53,30 +55,30 @@ const renderInvoice = (object: object, level = 0, parentKey: string | null = nul
 const Preview = () => {
   const { invoiceFormContext } = useInvoiceFormContext();
   const { isLoading } = useInvoiceIssuerContext();
+
   return (
-    <>
-      {isLoading && (
-        <div className="w-full h-full flex-grow  flex items-center justify-center">
-          <LoadingIndicator />
+    <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
+      <div className="py-2 sticky top-0">
+        <GeneralLabel label="preview" />
+      </div>
+      <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
+        <div className="flex items-baseline space-x-4">
+          <span>
+            <TransparentLogoIcon scale={3} color="#d4d4d8" />
+          </span>
+          <span className="text-zinc-300 font-semibold text-5xl">TechBilling</span>
         </div>
-      )}
-      {!isLoading && (
-        <div className="overflow-y-auto p-4 bg-zinc-200 h-full w-full rounded">
-          <div className="py-2 sticky top-0">
-            <GeneralLabel label="preview" />
-          </div>
-          <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
-            <div className="flex items-baseline space-x-4">
-              <span>
-                <TransparentLogoIcon scale={3} color="#d4d4d8" />
-              </span>
-              <span className="text-zinc-300 font-semibold text-5xl">TechBilling</span>
+        <div className="space-y-10 mt-6">
+          {isLoading ? (
+            <div className="h-20 flex items-center justify-center">
+              <LoadingIndicator />
             </div>
-            <div className="space-y-10 mt-6">{renderInvoice(invoiceFormContext)}</div>
-          </div>
+          ) : (
+            <div>{renderInvoiceContent(invoiceFormContext)}</div>
+          )}
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 
