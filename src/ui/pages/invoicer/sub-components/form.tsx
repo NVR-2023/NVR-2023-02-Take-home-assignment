@@ -12,7 +12,7 @@ import {
   postalCodeSchema,
   countrySchema,
   vatNumberSchema,
-} from "./input-validation/input-validation";
+} from "../../../../zod-validation/zod-validation";
 import GeneralLabel from "../../../components/common/general-label";
 import { Slider, SliderTrack, SliderRange, SliderThumb } from "@radix-ui/react-slider";
 import { ProductType, IssuerType } from "../../../../types/global-types";

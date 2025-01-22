@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
-import Form from "./form";
-import Preview from "./preview";
+import Form from "../pages/invoicer/sub-components/form";
+import Preview from "../pages/invoicer/sub-components/preview";
 
-const DesktopLayout = () => {
+const InvoicerDesktopLayout = () => {
   const columns = [
     { isVisible: true, card: <Form /> },
     { isVisible: true, card: <Preview /> },
@@ -30,4 +30,4 @@ const DesktopLayout = () => {
   );
 };
 
-export default DesktopLayout;
+export default InvoicerDesktopLayout;
