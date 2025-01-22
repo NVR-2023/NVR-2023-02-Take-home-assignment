@@ -10,9 +10,9 @@ const CloseCardButton = ({ closeCardFunction }: { closeCardFunction: () => void 
   return (
     <motion.button
       {...buttonTapVariants}
-      className="cursor-pointer flex items-center justify-center w-3 h-3 transform translate-y-0.5 rounded-[2px] bg-[#b4b9c1] transition-all duration-300 hover:bg-[#a2a8b1] text-zinc-500 cursorpointer">
+      className="cursor-pointer flex items-start justify-center p-[1pt] rounded-[2px] bg-[#b4b9c1] transition-all duration-300 hover:bg-[#a2a8b1] text-zinc-500">
       <span onClick={handleOnClick}>
-        <CloseIcon scale={0.5} />
+        <CloseIcon scale={.5} />
       </span>
     </motion.button>
   );

@@ -8,7 +8,7 @@ const CardHeaderSegment = ({
   closeFunction: () => void;
 }) => {
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-full justify-between items-start mb-5 ">
       <CardTitle title={title} />
       <CloseCardButton closeCardFunction={closeFunction} />
     </div>
