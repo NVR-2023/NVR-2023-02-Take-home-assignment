@@ -1,4 +1,4 @@
-const RequirementCard = ({
+const RequisiteCard = ({
   name,
   toggleFunction,
   deleteFunction,
@@ -8,12 +8,14 @@ const RequirementCard = ({
   deleteFunction: () => void;
 }) => {
   return (
-    <div>
-      <span>{name}</span>
-      <button onClick={toggleFunction}>toggle</button>
-      <button onClick={deleteFunction}>delete</button>
+    <div className="flex w-full h-7 rounded-[2px] bg-zinc-400 px-4 items center justify-between">
+      <div>{name}</div>
+      <div className="space-x-4">
+        <button onClick={toggleFunction}>toggle</button>
+        <button onClick={deleteFunction}>delete</button>
+      </div>
     </div>
   );
 };
 
-export default RequirementCard;
+export default RequisiteCard;

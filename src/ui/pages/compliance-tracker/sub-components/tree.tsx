@@ -2,7 +2,7 @@ import { useComplianceStatusContext } from "../../../../custom-hooks/use-complia
 import AddRequisiteToolbar from "./add-requisite-toolbar";
 import { createCategoryMatrix } from "../../../../utils/create-category-matrix";
 import CategoryCard from "./category-card";
-import RequirementCard from "./requirement-card";
+import RequisiteCard from "./requirement-card";
 
 const Tree = () => {
   const { complianceStatus, setComplianceStatus } = useComplianceStatusContext();
@@ -47,7 +47,7 @@ const Tree = () => {
 
             <div>
               {sortedData[category as keyof typeof sortedData].map((item, index) => (
-                <RequirementCard
+                <RequisiteCard
                   key={index}
                   name={item.key}
                   toggleFunction={() => toggleItemValue(category, index)}
