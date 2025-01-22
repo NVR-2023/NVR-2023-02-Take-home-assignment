@@ -235,7 +235,7 @@ const Form = () => {
                 });
               }}
               min={1}
-              max={10}
+              max={100}
               step={1}>
               <SliderTrack className="bg-zinc-50 relative grow h-[2px] md:h-[1px]">
                 <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
@@ -250,7 +250,7 @@ const Form = () => {
       </div>
 
       <div className="w-full col-span-2 flex justify-end">
-        <div className="text-zinc-700 space-x-2 w-36 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-base">
+        <div className="text-zinc-700 space-x-2 w-36 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-sm">
           <span>TOTAL: {invoiceFormContext.product.total}</span>
           <span className="tex-sm">€</span>
         </div>
