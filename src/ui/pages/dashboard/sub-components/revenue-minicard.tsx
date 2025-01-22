@@ -34,11 +34,11 @@ const RevenueMinicard = ({
 
   return (
     <MinicardShell title="revenue" color={color}>
-      <div className="bg-indigo-4 absolute tabular-nums text-zinc-500 p-2 mt-2 space-y-0.5">
-        <div className="text-lg font-[650]">{formattedTotalRevenue} - Total</div>
-        <div className="text-sm font-[550]">{formattedAverageMonthlyRevenue} - Average</div>
-        <div className="text-sm font-[550]">{finalizedMaxMonthlyRevenue.value} - Max</div>
-        <div className="text-sm font-[550]">{finalizedMinMonthlyRevenue.value} - Min</div>
+      <div className="bg-indigo-4 tabular-nums text-zinc-500 space-y-0.5">
+        <div className="text-lg font-[650]">Total: {formattedTotalRevenue}</div>
+        <div className="text-sm font-[550]">Average: {formattedAverageMonthlyRevenue}</div>
+        <div className="text-sm font-[550]">Max: {finalizedMaxMonthlyRevenue.value}</div>
+        <div className="text-sm font-[550]">Min: {finalizedMinMonthlyRevenue.value}</div>
       </div>
     </MinicardShell>
   );

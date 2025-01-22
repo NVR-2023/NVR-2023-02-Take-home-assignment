@@ -13,16 +13,16 @@ const MinicardShell = ({
 }) => {
   return (
     <motion.div
-      className="relative rounded h-full w-full max-w-full max-h-full overflow-hidden"
+      className="rounded h-full w-full overflow-hidden p-2"
       style={{
         backgroundColor: color,
         contain: "content",
       }}
       {...minicardAnimation}>
-      <div className="absolute top-1 left-2 tracking-wide text-[9px] font-[550] text-zinc-600">
+      <div className="tracking-wide text-[9px] font-[550] text-zinc-600 flex justify-start items-start">
         {title.toUpperCase()}
       </div>
-      <div className="w-full h-full">{children}</div>
+      <div className="flex justify-start items-start w-full h-full">{children}</div>
     </motion.div>
   );
 };

@@ -10,9 +10,9 @@ const UsersMinicard = ({
   const formattedAverageMonthlyUsers = Math.floor(averageNumberOfUsers);
 
   return (
-    <MinicardShell title="users p/m" color={color}>
-      <div className="absolute tabular-nums text-zinc-600 p-3 mt-3 space-y-1">
-        <div className="text-sm font-[550]">{formattedAverageMonthlyUsers}</div>
+    <MinicardShell title="users" color={color}>
+      <div className="flex tabular-nums text-zinc-600 space-y-1">
+        <div className="flex text-sm font-[550]">{formattedAverageMonthlyUsers}</div>
       </div>
     </MinicardShell>
   );
