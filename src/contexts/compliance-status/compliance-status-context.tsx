@@ -26,5 +26,4 @@ export const ComplianceStatusContext = createContext<ComplianceStatusContextType
   setComplianceStatus: () => {},
 });
 
-// Exporting all types
 export type { ComplianceItem, ComplianceStatus, ComplianceStatusContextType };

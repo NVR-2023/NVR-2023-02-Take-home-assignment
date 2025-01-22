@@ -56,15 +56,17 @@ export const productQuantitySchema = z
   .string()
   .regex(/^\d+$/, "Must be a valid number.")
   .min(1, "Must be at least 1.")
-  .transform((val) => parseInt(val, 10)); 
+  .transform((val) => parseInt(val, 10));
 
 export const productUnitaryPriceSchema = z
   .string()
   .regex(/^\d+(\.\d{1,2})?$/, "Must be a valid number")
   .min(1, "Unitary price must be greater than or equal to 1.")
-  .transform((val) => parseFloat(val)); 
+  .transform((val) => parseFloat(val));
 
 export const productDescriptionSchema = z
   .string()
   .min(5, "At least 5 characters.")
   .max(500, "Should not exceed 500 characters.");
+
+export const newRequisiteSchema = z.string().min(3, "At least 3 characters long").trim();
