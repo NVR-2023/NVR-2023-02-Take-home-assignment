@@ -1,10 +1,14 @@
-import { ComplianceStatusContext } from "./compliance-status-context";
-import { FetchedDataContextProviderProps } from "../../types/global-types";
+import { ComplianceStatusContext, ComplianceStatusContextType } from "./compliance-status-context";
+
+type ComplianceStatusProviderProps = {
+  value: ComplianceStatusContextType;
+  children: React.ReactNode;
+};
 
 export const ComplianceStatusContextProvider = ({
   value,
   children,
-}: FetchedDataContextProviderProps) => {
+}: ComplianceStatusProviderProps) => {
   return (
     <ComplianceStatusContext.Provider value={value}>{children}</ComplianceStatusContext.Provider>
   );

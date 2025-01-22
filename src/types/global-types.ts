@@ -189,3 +189,6 @@ export type IssuerType = {
   };
   vatNumber: string;
 };
+
+
+

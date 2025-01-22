@@ -1,24 +1,27 @@
 import { useEffect, useState } from "react";
 import { ComplianceStatusContextProvider } from "./compliance-status-context-provider";
-import { FetchedDataContextType } from "../../types/global-types";
-import { ParentComponentMinimalProps } from "../../types/global-types";
+import { ComplianceStatus, ComplianceStatusContextType } from "./compliance-status-context";
 import { fetchComplianceStatus } from "../../services/api/api-services";
 
+type ParentComponentMinimalProps = {
+  children: React.ReactNode;
+};
+
 const ComplianceStatusDataProvider = ({ children }: ParentComponentMinimalProps) => {
-  const [contextValue, setContextValue] = useState<FetchedDataContextType>({
+  const [complianceStatus, setComplianceStatus] = useState<ComplianceStatus>({
     data: [],
-    hasErrors: false,
     isLoading: false,
+    hasErrors: false,
   });
 
   useEffect(() => {
     const getComplianceStatus = async () => {
-      setContextValue({ ...contextValue, isLoading: true, hasErrors: false });
+      setComplianceStatus((prev) => ({ ...prev, isLoading: true, hasErrors: false }));
       try {
         const fetchedData = await fetchComplianceStatus();
-        setContextValue({ data: fetchedData, isLoading: false, hasErrors: false });
+        setComplianceStatus({ data: fetchedData, isLoading: false, hasErrors: false });
       } catch (error: unknown) {
-        setContextValue({ data: [], isLoading: false, hasErrors: true });
+        setComplianceStatus({ data: [], isLoading: false, hasErrors: true });
         if (error instanceof Error) {
           console.error(`Error fetching data: ${error.message}`);
           throw new Error(`Error fetching data: ${error.message}`);
@@ -33,7 +36,8 @@ const ComplianceStatusDataProvider = ({ children }: ParentComponentMinimalProps)
   }, []);
 
   return (
-    <ComplianceStatusContextProvider value={contextValue}>
+    <ComplianceStatusContextProvider
+      value={{ complianceStatus, setComplianceStatus } as ComplianceStatusContextType}>
       {children}
     </ComplianceStatusContextProvider>
   );

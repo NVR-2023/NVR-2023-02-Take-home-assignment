@@ -1,8 +1,30 @@
 import { createContext } from "react";
-import { FetchedDataContextType } from "../../types/global-types";
 
-export const ComplianceStatusContext = createContext<FetchedDataContextType>({
-  data: [],
-  isLoading: true,
-  hasErrors: false,
+type ComplianceItem = {
+  category: string;
+  key: string;
+  value: boolean;
+};
+
+type ComplianceStatus = {
+  data: ComplianceItem[];
+  isLoading: boolean;
+  hasErrors: boolean;
+};
+
+type ComplianceStatusContextType = {
+  complianceStatus: ComplianceStatus;
+  setComplianceStatus: React.Dispatch<React.SetStateAction<ComplianceStatus>>;
+};
+
+export const ComplianceStatusContext = createContext<ComplianceStatusContextType>({
+  complianceStatus: {
+    data: [],
+    isLoading: true,
+    hasErrors: false,
+  },
+  setComplianceStatus: () => {},
 });
+
+// Exporting all types
+export type { ComplianceItem, ComplianceStatus, ComplianceStatusContextType };
