@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useInvoiceFormContext } from "../../../../custom-hooks/use-invoice-form-context";
-import InputField from "./input-field";
+import InputField from "../../../components/common/input-field";
 import { useInvoiceProductsContext } from "../../../../custom-hooks/use-invoice-products-context";
 import createMocInvoiceUUID from "../../../../utils/create-mock-invoice-uuid";
 import {
