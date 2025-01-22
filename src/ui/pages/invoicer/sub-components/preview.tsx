@@ -70,7 +70,7 @@ const Preview = () => {
         </div>
         <div className="space-y-10 mt-6">
           {isLoading ? (
-            <div className="h-20 flex items-center justify-center">
+            <div className="h-30 w-full flex items-center justify-center">
               <LoadingIndicator />
             </div>
           ) : (
