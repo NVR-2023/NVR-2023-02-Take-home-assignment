@@ -57,6 +57,14 @@ export type ComplianceStatusUIContextType = {
   >;
 };
 
+export type ComplianceObjectType = {
+  category: string;
+  key: string;
+  value: boolean;
+};
+
+export type ComplianceObjectArrayType = ComplianceObjectType[];
+
 export type InvoiceFormContextType = {
   issuer: {
     name: string;

@@ -1,5 +1,5 @@
 const ComplianceToggleSegment = () => {
-  return <div>Compliance Toggle Segment</div>;
+  return <div>Toggle Segment</div>;
 };
 
 export default ComplianceToggleSegment;
