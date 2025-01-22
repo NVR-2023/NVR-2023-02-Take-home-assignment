@@ -1,15 +1,25 @@
 import React from "react";
 import { z } from "zod";
 
-type InputFieldProps = {
+type ModifiedInputFieldProps = {
   label: string;
-  stateValue: string | number;
-  setValue: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string | number | boolean; // Changed to use 'value' for clarity
+  onChange: (newValue: string | number | boolean) => void;
   schema?: z.ZodSchema;
 };
 
-const InputField: React.FC<InputFieldProps> = ({ label, setValue, schema }) => {
+const ModifiedInputField: React.FC<ModifiedInputFieldProps> = ({
+  label,
+  value,
+  onChange,
+  schema,
+}) => {
   const [error, setError] = React.useState<string | null>(null);
+  const [localValue, setLocalValue] = React.useState<string>(value.toString()); // Local state for string manipulation
+
+  React.useEffect(() => {
+    setLocalValue(value.toString()); // Sync local state with prop value
+  }, [value]);
 
   const validate = (value: string) => {
     if (schema) {
@@ -23,9 +33,11 @@ const InputField: React.FC<InputFieldProps> = ({ label, setValue, schema }) => {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setValue(event);
-    validate(value);
+    const newValue = event.target.value;
+    setLocalValue(newValue); // Update local state immediately
+    validate(newValue);
+    // Pass the new value back to the parent, cast to the correct type if needed
+    onChange(newValue);
   };
 
   return (
@@ -38,6 +50,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, setValue, schema }) => {
       <div className="flex items-center">
         <input
           className="leading-0 w-full pt-0.25 pb-0.25 px-1 border-b border-zinc-600 focus:outline-none text-sm"
+          value={localValue}
           onChange={handleChange}
         />
       </div>
@@ -49,4 +62,4 @@ const InputField: React.FC<InputFieldProps> = ({ label, setValue, schema }) => {
   );
 };
 
-export default InputField;
+export default ModifiedInputField;

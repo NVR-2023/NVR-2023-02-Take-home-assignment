@@ -1,6 +1,9 @@
+import { motion } from "framer-motion";
+import { buttonTapVariants } from "../../../animations/button-animations";
+import ToolStripLabel from "../../../components/common/tool-strip-label";
 import { useState } from "react";
 import { useComplianceStatusContext } from "../../../../custom-hooks/use-compliance-status";
-import InputField from "../../../components/common/input-field";
+import ModifiedInputField from "../../../components/common/modifies-input-field";
 import { newRequisiteSchema } from "../../../../zod-validation/zod-validation";
 
 const AddRequisiteToolbar = () => {
@@ -12,42 +15,51 @@ const AddRequisiteToolbar = () => {
     value: false,
   });
 
-  const handleChange =
-    (field: keyof typeof newRequisite) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = field === "value" ? event.target.value === "true" : event.target.value;
-      setNewRequisite((prev) => ({ ...prev, [field]: value }));
-    };
+  const handleChange = (field: keyof typeof newRequisite) => (value: string | number | boolean) => {
+    setNewRequisite((prev) => ({
+      ...prev,
+      [field]: field === "value" ? value === "true" : value,
+    }));
+  };
 
   const handleOnSubmit = () => {
-    const newItem = {
-      ...newRequisite,
-    };
-    setComplianceStatus({
-      ...complianceStatus,
-      data: [...data, newItem],
-    });
+    if (newRequisite.key.trim()) {
+      setComplianceStatus({
+        ...complianceStatus,
+        data: [...data, { ...newRequisite }],
+      });
+      setNewRequisite({ category: "", key: "", value: false });
+    }
   };
 
   return (
-    <div className="flex px-4 items-center justify-between rounded bg-zinc-400 w-full h-full space-y-2">
-      <div className="flex">
-        <InputField
+    <div className="flex px-4 py-2 items-center justify-between rounded bg-[#c4c4c4] w-full h-full space-x-4">
+      <div>
+        <ToolStripLabel label="New requisite" />
+      </div>
+
+      <div className="transform translate-y-1 flex items-center justify-between space-x-12">
+        <ModifiedInputField
           label="requisite"
-          stateValue={newRequisite.key}
-          setValue={handleChange("key")}
+          value={newRequisite.key}
+          onChange={handleChange("key")}
           schema={newRequisiteSchema}
         />
-        <InputField
+
+        <ModifiedInputField
           label="Category"
-          stateValue={newRequisite.category}
-          setValue={handleChange("category")}
+          value={newRequisite.category}
+          onChange={handleChange("category")}
           schema={newRequisiteSchema}
         />
       </div>
       <div>
-        <button onClick={handleOnSubmit} className="px-4 py-2 rounded-full bg-blue-500 text-white">
-          Submit
-        </button>
+        <motion.button
+          {...buttonTapVariants}
+          onClick={handleOnSubmit}
+          className="h-4.5 w-9 flex items-center justify-center font-[700] text-sm text-[#c4c4c4] bg-zinc-500 rounded-[2px]">
+          +
+        </motion.button>
       </div>
     </div>
   );
