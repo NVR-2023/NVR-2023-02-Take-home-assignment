@@ -52,7 +52,15 @@ Start by cloning the repository to your local machine. Run the following command
 git clone https://github.com/NVR-2023/NVR-2023-02-Take-home-assignment
 ```
 
-### 2. Install Dependencies
+### 2. Go to the root directory of the project
+
+If you need, type the following command in your terminal:
+
+```bash
+cd .\NVR-2023-02-Take-home-assignment\
+```
+
+### 3. Install Dependencies
 
 After cloning the repository locally, navigate to the root directory of the cloned project and run the following command:
 
@@ -61,8 +69,7 @@ npm install
 ```
 
 This will install all the required dependencies.
-
-### 3. Start the Development Server
+### 4. Start the Development Server
 
 Start the Vite/React development server:
 
@@ -70,11 +77,11 @@ Start the Vite/React development server:
 npm run dev
 ```
 
-### 4. Open the Browser
+### 5. Open the Browser
 
 Once the server is running, press Ctrl + Click on the provided link to open a browser window at the port specified by Vite.
 
-## Frontend Pages and Routes
+## Pages
 
 The frontend app contains a landing page plus three functional pages:
 
