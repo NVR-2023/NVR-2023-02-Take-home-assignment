@@ -186,14 +186,10 @@ const InvoiceForm = () => {
         <Select onValueChange={handleProductSelect}>
           <SelectTrigger className="flex items-center justify-center w-full font-[450] h-7 max-h-7 bg-zinc-400 text-zinc-200 rounded-[2px]">
             <SelectValue
-              placeholder={
-                invoiceFormContext.product.name ? invoiceFormContext.product.name : "SELECT"
-              }
-              className="focus:none focus:ring-none focus:outline-none flex h-7 max-h-7 font-[450] justify-center"
-              style={{
-                fontSize: "9px",
-              }}
-            />
+              placeholder="SELECT"
+              className="focus:none focus:ring-none focus:outline-none flex h-7 max-h-7 justify-center">
+              {invoiceFormContext.product.name || "SELECT △"}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent className="transform -translate-y-80 bg-[#cdcdcd] space-y-0.5 overflow-y-auto rounded shadow-[0_2px_4px_rgba(0,0,0,0.05)] top-auto bottom-full">
             {data.map((product: ProductType) => (
@@ -208,17 +204,10 @@ const InvoiceForm = () => {
         </Select>
       </div>
 
-      <div className="flex col-span-1">
-        <span className="transform translate-y-1 text-[10px] font-[700] tracking-wide text-zinc-600">
-          QUANTITY
-        </span>
-        <div className="flex ms-4">
-          <NumberInput />
-        </div>
-      </div>
+        <NumberInput />
 
       <div className="w-full col-span-2 flex justify-end">
-        <div className="text-zinc-700 space-x-2 w-36 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-sm">
+        <div className="text-zinc-700 space-x-2 w-34.5 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-sm">
           <span>
             TOTAL:{" "}
             {invoiceFormContext.product.total.toString().length > 5
