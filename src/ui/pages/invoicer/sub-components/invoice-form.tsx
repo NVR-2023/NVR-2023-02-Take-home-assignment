@@ -14,7 +14,6 @@ import {
   vatNumberSchema,
 } from "../../../../zod-validation/zod-validation";
 import GeneralLabel from "../../../components/common/general-label";
-import { Slider, SliderTrack, SliderRange, SliderThumb } from "@radix-ui/react-slider";
 import { ProductType, IssuerType } from "../../../../types/global-types";
 import { useInvoiceIssuerContext } from "../../../../custom-hooks/use-invoice-issuer-context";
 import {
@@ -24,8 +23,9 @@ import {
   SelectContent,
   SelectItem,
 } from "@radix-ui/react-select";
+import NumberInput from "./number-input";
 
-const Form = () => {
+const InvoiceForm = () => {
   const { invoiceFormContext, setInvoiceFormContext } = useInvoiceFormContext();
   const { data } = useInvoiceProductsContext() as { data: ProductType[] };
   const { data: issuerData, isLoading: isIssuerLoading } = useInvoiceIssuerContext();
@@ -178,7 +178,7 @@ const Form = () => {
         schema={vatNumberSchema}
       />
 
-      <div className="mt-9 col-span-2">
+      <div className="mt-7 col-span-2">
         <GeneralLabel label="product" />
       </div>
 
@@ -210,48 +210,25 @@ const Form = () => {
           </Select>
         </div>
       </div>
-      <div className="grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0 mb-0.5">
+      <div className="mt-1 grid grid-cols-[2fr_4fr] gap-x-1 gap-y-0">
         <div className="flex">
-          <span className="transform translate-y-2 text-[10px] font-[700] tracking-wide text-zinc-600">
+          <span className="transform translate-y-1 text-[10px] font-[700] tracking-wide text-zinc-600">
             QUANTITY
           </span>
         </div>
-        <div className="flex items-center">
-          <span className="w-5 min-w-5 rounded-[1pt] flex justify-center bg-zinc-200 text-[12px] font-[550]">
-            {invoiceFormContext.product.quantity}
-          </span>
-          <div className="flex ms-3 px-1 rounded-[2px] bg-zinc-200 w-full">
-            <Slider
-              className="relative flex items-center select-none bg-zinc-200 w-full h-5 md:h-4.5 mr-2"
-              value={[invoiceFormContext.product.quantity || 1]}
-              onValueChange={(value) => {
-                const newQuantity = Number(value[0]);
-                setInvoiceFormContext({
-                  ...invoiceFormContext,
-                  product: {
-                    ...invoiceFormContext.product,
-                    quantity: newQuantity,
-                  },
-                });
-              }}
-              min={1}
-              max={100}
-              step={1}>
-              <SliderTrack className="bg-zinc-50 relative grow h-[2px] md:h-[1px]">
-                <SliderRange className="absolute bg-zinc-400 rounded-full h-full" />
-              </SliderTrack>
-              <SliderThumb
-                className="block w-1.5 h-1.5 md:w-1 md:h-1 bg-zinc-500 border-2 border-zinc-500 rounded focus:outline-none focus:ring-0.5 focus:ring-zinc-700 focus:ring-opacity-50"
-                aria-label="Quantity"
-              />
-            </Slider>
-          </div>
+        <div className="flex ms-4">
+          <NumberInput />
         </div>
       </div>
 
       <div className="w-full col-span-2 flex justify-end">
         <div className="text-zinc-700 space-x-2 w-36 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-sm">
-          <span>TOTAL: {invoiceFormContext.product.total}</span>
+          <span>
+            TOTAL:{" "}
+            {invoiceFormContext.product.total.toString().length > 5
+              ? invoiceFormContext.product.total.toString().slice(0, 5) + "..."
+              : invoiceFormContext.product.total}
+          </span>
           <span className="tex-sm">€</span>
         </div>
       </div>
@@ -259,4 +236,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default InvoiceForm;

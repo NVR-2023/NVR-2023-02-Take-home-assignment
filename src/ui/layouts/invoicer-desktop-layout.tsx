@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import Form from "../pages/invoicer/sub-components/form";
+import InvoiceForm from "../pages/invoicer/sub-components/invoice-form";
 import Preview from "../pages/invoicer/sub-components/preview";
 
 const InvoicerDesktopLayout = () => {
   const columns = [
-    { isVisible: true, card: <Form /> },
+    { isVisible: true, card: <InvoiceForm /> },
     { isVisible: true, card: <Preview /> },
   ];
   const visibleColumns = columns.filter((col) => col.isVisible);
