@@ -8,8 +8,8 @@ import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data
 import LoadingIndicator from "../../../components/animated/loading-indicator";
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
 
-import CombinedBarChart from "./combined-barchart";
-const CombinedChartCard = () => {
+
+const CombinedLinearChart = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { areGraphsCombined } = DashboardUIContext;
   const data = useFilteredDashboardData();
@@ -29,7 +29,7 @@ const CombinedChartCard = () => {
     <AnimatePresence>
       {areGraphsCombined && (
         <motion.div
-          className="w-[225px] flex flex-col space-y-3 bg-[#ccccd0] rounded p-2 min-w-full sm:w-[750px] lg:w-[950px] h-full"
+          className="bg-[#ccccd0] w-full h-full"
           {...cardAnimation}
           onAnimationComplete={() => {
             if (!areGraphsCombined) {
@@ -44,12 +44,6 @@ const CombinedChartCard = () => {
             <div className="rounded bg-[#ccccd0] w-full h-full p-2">
               <CardHeaderSegment title="Combined" closeFunction={handleOnCloseCombinedCard} />
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
-                <div className="w-full h-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <CombinedBarChart />
-                  </ResponsiveContainer>
-                </div>
-
                 <div className="w-full h-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data}>
@@ -126,4 +120,4 @@ const CombinedChartCard = () => {
   );
 };
 
-export default CombinedChartCard;
+export default CombinedLinearChart;

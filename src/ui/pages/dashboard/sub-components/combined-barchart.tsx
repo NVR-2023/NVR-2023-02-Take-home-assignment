@@ -12,7 +12,7 @@ import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combin
 import LoadingIndicator from "../../../components/animated/loading-indicator";
 import { CombinedDataTypeArray, CombinedDataType } from "../../../../types/global-types";
 
-const YearlyGraphs = () => {
+const CombinedBarChart = () => {
   const { data, isLoading } = useCombinedTimelinesContext();
 
   const computeCumulativeData = (data: CombinedDataTypeArray, key: keyof CombinedDataType) => {
@@ -113,4 +113,4 @@ const YearlyGraphs = () => {
   );
 };
 
-export default YearlyGraphs;
+export default CombinedBarChart;
