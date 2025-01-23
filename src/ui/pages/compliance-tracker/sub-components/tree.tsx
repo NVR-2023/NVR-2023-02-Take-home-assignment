@@ -41,6 +41,7 @@ const Tree = () => {
                 <RequisiteCard
                   key={index}
                   name={item.key}
+                  value={item.value}
                   toggleFunction={() => toggleItemValue(category, index)}
                   deleteFunction={() => deleteItem(category, index)}
                 />
