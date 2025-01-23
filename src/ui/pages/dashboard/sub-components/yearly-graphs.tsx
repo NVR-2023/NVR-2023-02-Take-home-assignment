@@ -10,27 +10,36 @@ import {
 } from "recharts";
 import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combined-timelines-context";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
+import { CombinedDataTypeArray, CombinedDataType } from "../../../../types/global-types";
 
 const YearlyGraphs = () => {
   const { data, isLoading } = useCombinedTimelinesContext();
 
-  const computeCumulativeData = (data: any[], key: string) => {
+  const computeCumulativeData = (data: CombinedDataTypeArray, key: keyof CombinedDataType) => {
     const yearlyData: Record<string, number> = {};
 
-    data.forEach((item) => {
+    data.forEach((item: CombinedDataType) => {
       const year = item.date.split("-")[0];
       if (!yearlyData[year]) {
         yearlyData[year] = 0;
       }
-      yearlyData[year] += item[key];
+      const value = item[key as keyof CombinedDataType];
+      if (typeof value === "number") {
+        yearlyData[year] += value;
+      } else {
+        console.error(`Expected number but got ${typeof value} for key ${key}`);
+      }
     });
 
     return yearlyData;
   };
 
-  const yearlyRevenue = computeCumulativeData(data, "revenue");
-  const yearlyIssuedInvoices = computeCumulativeData(data, "issuedInvoices");
-  const yearlyActiveUsers = computeCumulativeData(data, "activeUsers");
+  const yearlyRevenue = computeCumulativeData(data as CombinedDataTypeArray, "revenue");
+  const yearlyIssuedInvoices = computeCumulativeData(
+    data as CombinedDataTypeArray,
+    "issuedInvoices"
+  );
+  const yearlyActiveUsers = computeCumulativeData(data as CombinedDataTypeArray, "activeUsers");
 
   const chartData = Object.keys(yearlyRevenue).map((year) => ({
     year,
@@ -49,7 +58,12 @@ const YearlyGraphs = () => {
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="year" />
+            <XAxis
+              dataKey="year"
+              tick={{ fill: "#3f3f46", fontSize: 9, fontWeight: 600 }}
+              axisLine={false}
+              tickLine={false}
+            />
             <YAxis
               tick={{
                 fill: "#3f3f46",
@@ -89,9 +103,9 @@ const YearlyGraphs = () => {
                 <stop offset="100%" stopColor="#ca8a04" stopOpacity="0.8" />
               </linearGradient>
             </defs>
-            <Bar dataKey="Revenue" fill="url(#revenueGradient)" /> // Blue for Revenue
-            <Bar dataKey="Invoices Issued" fill="url(#greenGradient)" /> // Green for Invoices
-            <Bar dataKey="Active Users" fill="url(#areaGradient)" /> // Yellowish for Users
+            <Bar dataKey="Revenue" fill="url(#revenueGradient)" />
+            <Bar dataKey="Invoices Issued" fill="url(#greenGradient)" />
+            <Bar dataKey="Active Users" fill="url(#areaGradient)" />
           </BarChart>
         </ResponsiveContainer>
       )}

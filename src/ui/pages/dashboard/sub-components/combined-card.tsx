@@ -45,18 +45,12 @@ const CombinedChartCard = () => {
             <div className="rounded bg-[#ccccd0] w-full h-full p-2">
               <CardHeaderSegment title="Combined" closeFunction={handleOnCloseCombinedCard} />
               <div className="grid grid-cols-2 grid-rows-1 h-full">
-                {/* First column for YearlyGraphs */}
-                
-                
-                
-                
                 <div className="w-full h-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <YearlyGraphs />
                   </ResponsiveContainer>
                 </div>
 
-                {/* Second column for LineChart */}
                 <div className="w-full h-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data} className="">
@@ -106,6 +100,7 @@ const CombinedChartCard = () => {
                         dot={false}
                         name="Revenue"
                       />
+                      
                       <Line
                         type="monotone"
                         dataKey="issuedInvoices"
