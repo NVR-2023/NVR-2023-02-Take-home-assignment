@@ -5,7 +5,7 @@ import RevenueChartCard from "../pages/dashboard/sub-components/revenue-chart-ca
 import InvoicesChartCard from "../pages/dashboard/sub-components/invoices-chart-card";
 import UsersChartCard from "../pages/dashboard/sub-components/users-chart-card";
 import OverviewCard from "../pages/dashboard/sub-components/overview-card";
-import CombinedChartCard from "../pages/dashboard/sub-components/combined-card";
+import CombinedChartCard from "../pages/dashboard/sub-components/combined-chart-card";
 
 const DashboardLaptopLayout = () => {
   const { DashboardUIContext } = useDashboardUIContext();

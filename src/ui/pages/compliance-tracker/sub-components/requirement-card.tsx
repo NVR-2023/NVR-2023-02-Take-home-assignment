@@ -24,7 +24,7 @@ const RequisiteCard = ({
   }
 
   return (
-    <div className="flex items-center w-full h-7 rounded bg-zinc-200 px-4 items center justify-between">
+    <div className="flex items-center w-full h-15 sm:h-7 rounded bg-zinc-200 px-4 items center justify-between">
       <div className="flex items-center">
         <div
           className="h-4 w-4 rounded-[1px] transform -skew-x-12"
