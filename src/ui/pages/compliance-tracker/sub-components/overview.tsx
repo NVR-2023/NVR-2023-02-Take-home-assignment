@@ -79,21 +79,17 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className="flex text-zinc-700 flex-col items-center w-full max-w-lg space-y-2">
+          <div className="flex text-zinc-700 flex-col w-full max-w-lg space-y-2">
             <div className="flex w-full justify-center">
               <div className="grid grid-cols-2 gap-2  w-full">
-                <div className="text-sm text-right font-[550]">AVERAGE:</div>
+                <div className="text-sm text-right font-[550]">Average:</div>
                 <div className="text-sm font-[750]">{averagePercentage}%</div>
 
-                <div className="text-sm text-right font-[550]">HIGHEST:</div>
-                <div className="text-sm font-[750]">
-                  {highestCategory.category} ({highestCategory.percentage}%)
-                </div>
+                <div className="text-sm text-right font-[550]">Highest:</div>
+                <div className="text-sm font-[750]">{highestCategory.category}</div>
 
-                <div className="text-sm text-right font-[550]">LOWEST:</div>
-                <div className="text-sm font-[750]">
-                  {lowestCategory.category} ({lowestCategory.percentage}%)
-                </div>
+                <div className="text-sm text-right font-[550]">Lowest:</div>
+                <div className="text-sm font-[750]">{lowestCategory.category}</div>
               </div>
             </div>
           </div>

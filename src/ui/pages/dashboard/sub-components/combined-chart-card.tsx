@@ -7,6 +7,7 @@ import { useCombinedTimelinesContext } from "../../../../custom-hooks/use-combin
 import { ResponsiveContainer } from "recharts";
 import CombinedBarChart from "./combined-barchart";
 import CombinedLineChart from "./combined-linear-chart";
+
 const CombinedChartCard = () => {
   const { DashboardUIContext, setDashboardUIContext } = useDashboardUIContext();
   const { areGraphsCombined } = DashboardUIContext;
@@ -40,13 +41,13 @@ const CombinedChartCard = () => {
           ) : (
             <div className="rounded bg-[#ccccd0] w-full h-full p-2">
               <CardHeaderSegment title="Combined" closeFunction={handleOnCloseCombinedCard} />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
-                <div className="w-full h-full">
+              <div className="flex flex-col sm:flex-row gap-4 h-full">
+                <div className="w-full sm:w-1/2">
                   <ResponsiveContainer width="100%" height="100%">
                     <CombinedBarChart />
                   </ResponsiveContainer>
                 </div>
-                <div className="w-full h-full">
+                <div className="w-full sm:w-1/2">
                   <ResponsiveContainer width="100%" height="100%">
                     <CombinedLineChart />
                   </ResponsiveContainer>
