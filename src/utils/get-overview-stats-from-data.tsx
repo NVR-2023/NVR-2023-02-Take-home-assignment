@@ -1,5 +1,5 @@
 import { CombinedDataTypeArray } from "../types/global-types";
-import { getDateStringFromShortenedForm } from "./get-date-fstring-from-shortened-form";
+import { getDateStringFromShortenedForm } from "./get-date-string-from-shortened-form";
 
 export const getOverviewStatsFromData = ({ data }: { data: CombinedDataTypeArray }) => {
   const totalRevenue = data

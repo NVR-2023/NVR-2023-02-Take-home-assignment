@@ -2,11 +2,9 @@ import MinicardShell from "../../../components/common/card/minicard-shell";
 
 const YearlyCardMiniGraph = ({ color }: { color: string }) => {
   return <MinicardShell title="Yearly" color={color}>
+<div className="w-full h-full rounded">
 
-  <p>124</p>
-  <p>124</p>
-  <p>124</p>
-  <p>124</p>
+</div>
   
   </MinicardShell>;
 };
