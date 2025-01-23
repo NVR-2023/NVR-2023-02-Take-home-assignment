@@ -1,4 +1,6 @@
 import getTextAndBackgroundColorFromString from "../../../../utils/get-text-and-background-color-from-string";
+import CheckedTasksIcon from "../../../components/icons/checked-tasks-icon";
+import UncheckedTasksIcon from "../../../components/icons/uncchecked-tasks-icon";
 
 const RequisiteCard = ({
   name,
@@ -21,10 +23,13 @@ const RequisiteCard = ({
             backgroundColor: backgroundColor,
           }}></div>
         <span className="ps-4 text-[12px] font-[450]">{name}</span>
-        <span>{value ? "y" : "n"}</span>
       </div>
       <div className="space-x-4">
-        <button onClick={toggleFunction}>toggle</button>
+        <button
+          onClick={toggleFunction}
+          className={`${value ? "text-green-700" : "text-red-500"} transform translate-y-1 `}>
+          {value ? <CheckedTasksIcon scale={0.75} /> : <UncheckedTasksIcon scale={0.75} />}
+        </button>
         <button onClick={deleteFunction}>delete</button>
       </div>
     </div>
