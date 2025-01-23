@@ -2,6 +2,7 @@ import getTextAndBackgroundColorFromString from "../../../../utils/get-text-and-
 import CheckedTasksIcon from "../../../components/icons/checked-tasks-icon";
 import UncheckedTasksIcon from "../../../components/icons/uncchecked-tasks-icon";
 import CloseIcon from "../../../components/icons/close-icon";
+import { useComplianceTrackerUIContext } from "../../../../custom-hooks/use-complaince-tracker-ui-context";
 
 const RequisiteCard = ({
   name,
@@ -15,6 +16,13 @@ const RequisiteCard = ({
   deleteFunction: () => void;
 }) => {
   const { backgroundColor } = getTextAndBackgroundColorFromString(name);
+  const { ComplianceStatusUIContext } = useComplianceTrackerUIContext();
+  const { areCheckedVisible, areUncheckedVisible } = ComplianceStatusUIContext;
+
+  if ((value && !areCheckedVisible) || (!value && !areUncheckedVisible)) {
+    return null; 
+  }
+
   return (
     <div className="flex items-center w-full h-7 rounded bg-zinc-200 px-4 items center justify-between">
       <div className="flex items-center">
@@ -28,7 +36,7 @@ const RequisiteCard = ({
       <div className="space-x-4">
         <button
           onClick={toggleFunction}
-          className={`${value ? "text-green-700" : "text-red-500"} transform translate-y-1 `}>
+          className={`${value ? "text-green-700" : "text-red-500"} transform translate-y-1`}>
           {value ? <CheckedTasksIcon scale={0.75} /> : <UncheckedTasksIcon scale={0.75} />}
         </button>
         <button onClick={deleteFunction} className="text-zinc-700 transform translate-y-1">
