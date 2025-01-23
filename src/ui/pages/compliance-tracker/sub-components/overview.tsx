@@ -60,7 +60,7 @@ const Overview = () => {
 
   const { label, textClass, borderClass } = SCORE_MAP.find(
     (score) => overallScore >= score.range[0] && overallScore <= score.range[1]
-  ) || { label: "Unknown", textClass: "text-gray-500", borderClass: "border-gray-500" };
+  ) || { label: "Unknown", textClass: "text-zinc-500", borderClass: "border-zinc-500" };
 
   return (
     <div className="flex flex-col flex-grow w-full h-full items-center justify-center bg-[#c4c4c4] text-zinc-500 rounded p-4 space-y-4">
@@ -79,7 +79,7 @@ const Overview = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-center w-full max-w-lg space-y-2">
+          <div className="flex text-zinc-700 flex-col items-center w-full max-w-lg space-y-2">
             <div className="flex w-full justify-center">
               <div className="grid grid-cols-2 gap-2  w-full">
                 <div className="text-sm text-right font-[550]">AVERAGE:</div>
