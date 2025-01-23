@@ -1,6 +1,6 @@
-import { useComplianceStatusContext } from "../../../../custom-hooks/use-compliance-status";
-import { createCategoryMatrix } from "../../../../utils/create-category-matrix";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
+import { createCategoryMatrix } from "../../../../utils/create-category-matrix";
+import { useComplianceStatusContext } from "../../../../custom-hooks/use-compliance-status";
 
 const Overview = () => {
   const { complianceStatus } = useComplianceStatusContext();
@@ -67,26 +67,37 @@ const Overview = () => {
       {isLoading ? (
         <LoadingIndicator />
       ) : (
-        <div className="grid font-[550] text-zinc-500 grid-cols-2 gap-y-2 w-full max-w-lg">
-          <div
-            className={`w-36 max-w-36 min-w-36 flex tabular-nums items-center justify-center rounded-md p-1 text-5xl ${textClass} border-[4px] ${borderClass}`}>
-            {overallScore}%
-          </div>
-          <div className="col-span-2 text- ">{label}</div>
-
-          <div className="text-sm">AVERAGE:</div>
-          <div className="text-sm">{averagePercentage}%</div>
-
-          <div className="text-sm">HIGHEST:</div>
-          <div className="text-sm">
-            {highestCategory.category} ({highestCategory.percentage}%)
+        <>
+          <div className="flex flex-col items-center w-full space-y-2 max-w-sm">
+            <div
+              className={`w-36 max-w-36 min-w-36 flex tabular-nums items-center justify-center rounded-md p-1 text-5xl ${textClass} border-[4px] ${borderClass}`}>
+              {overallScore}%
+            </div>
+            <div
+              className={`text-2xl ${textClass} border-[4px] ${borderClass} w-36 text-center p-1 rounded-md`}>
+              {label.toUpperCase()}
+            </div>
           </div>
 
-          <div className="text-sm">LOWEST:</div>
-          <div className="text-sm">
-            {lowestCategory.category} ({lowestCategory.percentage}%)
+          <div className="flex flex-col items-center w-full max-w-lg space-y-2">
+            <div className="flex w-full justify-center">
+              <div className="grid grid-cols-2 gap-2  w-full">
+                <div className="text-sm text-right font-[550]">AVERAGE:</div>
+                <div className="text-sm font-[750]">{averagePercentage}%</div>
+
+                <div className="text-sm text-right font-[550]">HIGHEST:</div>
+                <div className="text-sm font-[750]">
+                  {highestCategory.category} ({highestCategory.percentage}%)
+                </div>
+
+                <div className="text-sm text-right font-[550]">LOWEST:</div>
+                <div className="text-sm font-[750]">
+                  {lowestCategory.category} ({lowestCategory.percentage}%)
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
