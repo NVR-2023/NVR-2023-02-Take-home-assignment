@@ -9,10 +9,10 @@ const processKey = (key: string) => {
 };
 
 const classMap = {
-  majorKey: "text-xl w-30 border-b-[1px] border-zinc-700 font-[700] text-zinc-700",
-  minorKey: "text-xs w-16 border-b-[1px] border-zinc-700 font-[500] text-zinc-700",
-  entryKey: "text-xs font-[400] text-zinc-500",
-  value: "text-xs text-zinc-700",
+  majorKey: "text-[9px] sm:text-xl w-30 border-b-[1px] border-zinc-700 font-[700] text-zinc-700",
+  minorKey: "text-[9px] sm:text-xs w-16 border-b-[1px] border-zinc-700 font-[500] text-zinc-700",
+  entryKey: "text-[9px] sm:text-xs font-[400] text-zinc-500",
+  value: "text-[9px] sm:text-xs text-zinc-700",
 };
 
 const renderInvoiceContent = (object: object, level = 0, parentKey: string | null = null) => {
@@ -43,7 +43,7 @@ const renderInvoiceContent = (object: object, level = 0, parentKey: string | nul
           : value;
 
       return (
-        <div key={`${key}-entry`} className="flex items-baseline gap-x-4">
+        <div key={`${key}-entry`} className="flex w-full items-baseline gap-x-2 sm:gap-x-4">
           <div className={`${classMap.entryKey} w-1/3`}>{processedKey}</div>
           <div className={classMap.value}>{displayValue}</div>
         </div>
@@ -62,11 +62,11 @@ const Preview = () => {
         <GeneralLabel label="preview" />
       </div>
       <div className="bg-zinc-100 p-6 space-y-10 rounded shadow">
-        <div className="flex items-baseline space-x-4">
+        <div className="flex sm:flex-row flex-col items-baseline space-x-4">
           <span>
             <TransparentLogoIcon scale={3} color="#d4d4d8" />
           </span>
-          <span className="text-zinc-300 font-semibold text-5xl">TechBilling</span>
+          <span className="text-zinc-300 font-semibold text-3xl">TechBilling</span>
         </div>
         <div className="space-y-10 mt-6">
           {isLoading ? (
