@@ -36,7 +36,7 @@ const RequisiteCard = ({
       <div className="space-x-4">
         <button
           onClick={toggleFunction}
-          className={`${value ? "text-green-700" : "text-red-500"} transform translate-y-1`}>
+          className={`${value ? "text-green-700" : "text-red-500"} cursor-pointer transform translate-y-1`}>
           {value ? <CheckedTasksIcon scale={0.75} /> : <UncheckedTasksIcon scale={0.75} />}
         </button>
         <button onClick={deleteFunction} className="text-zinc-700 transform translate-y-1">
