@@ -23,7 +23,7 @@ const RequisiteCard = ({
           style={{
             backgroundColor: backgroundColor,
           }}></div>
-        <span className="ps-4 text-[12px] font-[450]">{name}</span>
+        <span className="text-zinc-700 ps-4 text-[12px] font-[450]">{name}</span>
       </div>
       <div className="space-x-4">
         <button
@@ -31,7 +31,7 @@ const RequisiteCard = ({
           className={`${value ? "text-green-700" : "text-red-500"} transform translate-y-1 `}>
           {value ? <CheckedTasksIcon scale={0.75} /> : <UncheckedTasksIcon scale={0.75} />}
         </button>
-        <button onClick={deleteFunction} className="transform translate-y-1">
+        <button onClick={deleteFunction} className="text-zinc-700 transform translate-y-1">
           <CloseIcon scale={0.75} />
         </button>
       </div>
