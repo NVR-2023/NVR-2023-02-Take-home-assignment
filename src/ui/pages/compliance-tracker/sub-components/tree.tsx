@@ -34,18 +34,11 @@ const Tree = () => {
       <div className="rounded bg-<inc-200">
         <AddRequisiteToolbar />
       </div>
-      <div className="flex-1 overflow-y-scroll rounded bg-zinc-200">
-        {/* Render the sortedData matrix */}
+      <div className="flex-1 overflow-y-scroll rounded bg-zinc-200 space-y-10">
         {Object.keys(sortedData).map((category) => (
-          <div key={category} className="p-4">
-            <h3 className="text-xl font-semibold">
-              {category === "categoryless" ? "No Category" : category}
-            </h3>
-
-            {/* Category Card */}
+          <div key={category} className="p-4 space-y-4">
             <CategoryCard name={category} percentage={50} />
-
-            <div>
+            <div className="space-y-4">
               {sortedData[category as keyof typeof sortedData].map((item, index) => (
                 <RequisiteCard
                   key={index}
