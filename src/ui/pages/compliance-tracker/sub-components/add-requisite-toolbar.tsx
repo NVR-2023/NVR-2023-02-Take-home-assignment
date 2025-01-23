@@ -57,7 +57,7 @@ const AddRequisiteToolbar = () => {
         <motion.button
           {...buttonTapVariants}
           onClick={handleOnSubmit}
-          className="h-4.5 w-9 flex items-center justify-center font-[700] text-sm text-[#c4c4c4] bg-zinc-500 rounded-[2px]">
+          className="h-4.5 w-9 flex items-center justify-center font-[700] text-sm text-zinc-50 bg-[#b4b4b4] rounded-[2px]">
           +
         </motion.button>
       </div>

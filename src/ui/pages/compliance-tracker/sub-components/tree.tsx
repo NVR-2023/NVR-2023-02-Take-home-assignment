@@ -9,7 +9,6 @@ const Tree = () => {
   const { data } = complianceStatus;
   const sortedData = createCategoryMatrix(data);
 
-  // Toggle function to update the value of an item (false to true, or vice versa)
   const toggleItemValue = (category: string, index: number) => {
     const updatedData = [...data];
     const item = updatedData.find(
@@ -21,7 +20,6 @@ const Tree = () => {
     setComplianceStatus({ ...complianceStatus, data: updatedData });
   };
 
-  // Delete function to remove an item from the data
   const deleteItem = (category: string, index: number) => {
     const updatedData = data.filter(
       (item) => !(item.category === category && item.key === sortedData[category][index].key)
@@ -34,7 +32,7 @@ const Tree = () => {
       <div className="rounded bg-<inc-200">
         <AddRequisiteToolbar />
       </div>
-      <div className="flex-1 overflow-y-scroll rounded bg-zinc-200 space-y-10">
+      <div className="flex-1 overflow-y-scroll rounded bg-zinc-300 space-y-9">
         {Object.keys(sortedData).map((category) => (
           <div key={category} className="p-4 space-y-4">
             <CategoryCard name={category} percentage={50} />
@@ -50,9 +48,6 @@ const Tree = () => {
             </div>
           </div>
         ))}
-
-        <p>{data.length}</p>
-        <pre className="rounded">{JSON.stringify(complianceStatus, null, 2)}</pre>
       </div>
     </div>
   );
