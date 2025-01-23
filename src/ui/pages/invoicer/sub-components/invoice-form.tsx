@@ -108,8 +108,8 @@ const InvoiceForm = () => {
   }, [invoiceFormContext.product.quantity, invoiceFormContext.product.unitaryPrice]);
 
   return (
-    <div className="w-full h-full  grid grid-cols-1 gap-x-5 -gap-y-2 sm:grid-cols-2">
-      <div className="col-span-2">
+    <div className="w-full h-full grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-x-5 sm:gap-y-2">
+      <div className="sm:col-span-2">
         <GeneralLabel label="client" />
       </div>
 
@@ -178,11 +178,11 @@ const InvoiceForm = () => {
         schema={vatNumberSchema}
       />
 
-      <div className="mt-7 col-span-2">
+      <div className="sm:col-span-2 mt-7">
         <GeneralLabel label="product" />
       </div>
 
-      <div className="flex col-span-1 w-full">
+      <div className="flex sm:col-span-1 w-full">
         <Select onValueChange={handleProductSelect}>
           <SelectTrigger className="flex items-center justify-center w-full font-[450] h-7 max-h-7 bg-zinc-400 text-zinc-200 rounded-[2px]">
             <SelectValue
@@ -204,9 +204,11 @@ const InvoiceForm = () => {
         </Select>
       </div>
 
+      <div className="sm:col-span-1">
         <NumberInput />
+      </div>
 
-      <div className="w-full col-span-2 flex justify-end">
+      <div className="w-full sm:col-span-2 flex justify-end">
         <div className="text-zinc-700 space-x-2 w-34.5 h-10 flex justify-center items-center font-[550] -py-1  rounded border-2 border-zinc-600 text-sm">
           <span>
             TOTAL:{" "}
