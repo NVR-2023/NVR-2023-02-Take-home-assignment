@@ -9,7 +9,7 @@ const ToolsStrip = ({ title, tools, labels }: ToolStripProps) => {
         <ToolStripLabel label={title} />
       </span>
 
-      <ul className="space-x-0.5 md:space-x-[2.5px] flex ">
+      <ul className="mt-0.5 sm:mt-0 space-x-0.5 md:space-x-[2.5px] flex ">
         {tools.map((Tool, index) => (
           <li key={index} className="">
             <IconWIthSlidingLabel label={labels[index]} Icon={Tool} />

@@ -88,7 +88,15 @@ const CombinedBarChart = () => {
               labelStyle={{ color: "#1f2937" }}
               formatter={(value) => [value, null]}
             />
-            <Legend />
+            <Legend
+              layout="horizontal"
+              align="center"
+              verticalAlign="bottom"
+              wrapperStyle={{
+                fontSize: "8px", 
+                paddingTop: "5px",
+              }}
+            />
             <defs>
               <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
                 <stop offset="0%" stopColor="#b0b0ee" />
