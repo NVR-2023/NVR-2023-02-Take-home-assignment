@@ -2,7 +2,7 @@ import CardHeaderSegment from "../../../components/common/card/card-header-segme
 import { useDashboardUIContext } from "../../../../custom-hooks/use-dashboard-ui-context";
 import { AnimatePresence, motion } from "framer-motion";
 import { cardAnimation } from "../../../animations/card-animation";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { shortenDateString } from "../../../../utils/shoten-date-string";
 import useFilteredDashboardData from "../../../../custom-hooks/use-filtered-data";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
@@ -46,6 +46,10 @@ const CombinedChartCard = () => {
               <CardHeaderSegment title="Combined" closeFunction={handleOnCloseCombinedCard} />
               <div className="grid grid-cols-2 grid-rows-1 h-full">
                 {/* First column for YearlyGraphs */}
+                
+                
+                
+                
                 <div className="w-full h-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <YearlyGraphs />
@@ -57,17 +61,17 @@ const CombinedChartCard = () => {
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data} className="">
                       <defs>
-                        <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
-                          <stop offset="0%" stopColor="#b0b0ee" />
-                          <stop offset="100%" stopColor="#4B4BD8" />
+                        <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#0088FE" stopOpacity={0.8} />
+                          <stop offset="95%" stopColor="#0088FE" stopOpacity={0} />
                         </linearGradient>
-                        <linearGradient id="invoicesGradient" x1="0" y1="1" x2="0" y2="0">
-                          <stop offset="0%" stopColor="#FF7F50" />
-                          <stop offset="100%" stopColor="#FF4500" />
+                        <linearGradient id="invoicesGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#00C49F" stopOpacity={0.8} />
+                          <stop offset="95%" stopColor="#00C49F" stopOpacity={0} />
                         </linearGradient>
-                        <linearGradient id="usersGradient" x1="0" y1="1" x2="0" y2="0">
-                          <stop offset="0%" stopColor="#90EE90" />
-                          <stop offset="100%" stopColor="#00FF00" />
+                        <linearGradient id="usersGradient" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#FFBB28" stopOpacity={0.8} />
+                          <stop offset="95%" stopColor="#FFBB28" stopOpacity={0} />
                         </linearGradient>
                       </defs>
                       <XAxis
@@ -76,20 +80,6 @@ const CombinedChartCard = () => {
                         axisLine={false}
                         tickLine={false}
                         tickFormatter={(value) => shortenDateString(value)}
-                      />
-                      <YAxis
-                        tick={{
-                          fill: "#3f3f46",
-                          fontSize: 9,
-                          fontWeight: 600,
-                        }}
-                        axisLine={false}
-                        tickLine={false}
-                        tickFormatter={(value) => {
-                          if (value >= 1000) return `${value / 1000}k`;
-                          return value.toString();
-                        }}
-                        className="m-0 p-0"
                       />
                       <Tooltip
                         contentStyle={{
@@ -103,8 +93,10 @@ const CombinedChartCard = () => {
                           alignItems: "center",
                           justifyContent: "space-between",
                         }}
+                        labelStyle={{ color: "#1f2937" }}
                         formatter={(value) => [value, null]}
                       />
+
                       <Legend />
                       <Line
                         type="monotone"

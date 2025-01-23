@@ -50,12 +50,48 @@ const YearlyGraphs = () => {
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
-            <YAxis />
-            <Tooltip />
+            <YAxis
+              tick={{
+                fill: "#3f3f46",
+                fontSize: 9,
+                fontWeight: 600,
+              }}
+              axisLine={false}
+              tickLine={false}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "rgba(204, 204, 208, 0.7)",
+                borderRadius: "2px",
+                fontSize: "9px",
+                fontWeight: 600,
+                width: "90px",
+                height: "30px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+              labelStyle={{ color: "#1f2937" }}
+              formatter={(value) => [value, null]}
+            />
             <Legend />
-            <Bar dataKey="Revenue" fill="#8884d8" />
-            <Bar dataKey="Invoices Issued" fill="#82ca9d" />
-            <Bar dataKey="Active Users" fill="#ffc658" />
+            <defs>
+              <linearGradient id="revenueGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stopColor="#b0b0ee" />
+                <stop offset="100%" stopColor="#4B4BD8" />
+              </linearGradient>
+              <linearGradient id="greenGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stopColor="#16e9a3" />
+                <stop offset="100%" stopColor="#10B981" />
+              </linearGradient>
+              <linearGradient id="areaGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stopColor="#faac05" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ca8a04" stopOpacity="0.8" />
+              </linearGradient>
+            </defs>
+            <Bar dataKey="Revenue" fill="url(#revenueGradient)" /> // Blue for Revenue
+            <Bar dataKey="Invoices Issued" fill="url(#greenGradient)" /> // Green for Invoices
+            <Bar dataKey="Active Users" fill="url(#areaGradient)" /> // Yellowish for Users
           </BarChart>
         </ResponsiveContainer>
       )}
