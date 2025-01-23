@@ -5,7 +5,7 @@ const CategoryCard = ({ name, percentage }: { name: string; percentage: number }
       <span className="flex items-center text-zinc-200 text-[10px] font-[550] tracking-wide">
         <ToolStripLabel label={name} />
       </span>
-      <span className="">{percentage}</span>
+      <span className="flex items-center text-xs font-[700]">{percentage}% complete</span>
     </div>
   );
 };
