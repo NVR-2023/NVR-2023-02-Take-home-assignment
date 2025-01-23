@@ -15,7 +15,7 @@ const AddRequisiteToolbar = () => {
     value: false,
   });
 
-  const handleChange = (field: keyof typeof newRequisite) => (value: string | number | boolean) => {
+  const handleOnChange = (field: keyof typeof newRequisite) => (value: string | number | boolean) => {
     setNewRequisite((prev) => ({
       ...prev,
       [field]: field === "value" ? value === "true" : value,
@@ -42,14 +42,14 @@ const AddRequisiteToolbar = () => {
         <ModifiedInputField
           label="requisite"
           value={newRequisite.key}
-          onChange={handleChange("key")}
+          onChange={handleOnChange("key")}
           schema={newRequisiteSchema}
         />
 
         <ModifiedInputField
           label="Category"
           value={newRequisite.category}
-          onChange={handleChange("category")}
+          onChange={handleOnChange("category")}
           schema={newRequisiteSchema}
         />
       </div>

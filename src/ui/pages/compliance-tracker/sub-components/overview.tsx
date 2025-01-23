@@ -6,19 +6,18 @@ const Overview = () => {
   const { complianceStatus } = useComplianceStatusContext();
   const { data, isLoading } = complianceStatus;
   const matrix = createCategoryMatrix(data);
-
   const totalRequisites = data.length;
   const fulfilledRequisites = data.filter((item) => item.value).length;
-  const overallScore = Math.round((fulfilledRequisites / totalRequisites) * 100) || 0; // Avoid NaN for empty data
+  const overallScore = Math.round((fulfilledRequisites / totalRequisites) * 100) || 0;
 
   const categoryPercentages = Object.keys(matrix)
-    .filter((category) => !(category === "categoryless" && matrix[category].length === 0)) // Exclude "categoryless" if empty
+    .filter((category) => !(category === "categoryless" && matrix[category].length === 0))
     .map((category) => {
       const requisites = matrix[category];
       const fulfilled = requisites.filter((requisite) => requisite.value).length;
       return {
         category,
-        percentage: Math.round((fulfilled / requisites.length) * 100) || 0, // Avoid NaN for empty categories
+        percentage: Math.round((fulfilled / requisites.length) * 100) || 0,
       };
     });
 
@@ -34,32 +33,59 @@ const Overview = () => {
 
   const averagePercentage = Math.round(
     categoryPercentages.reduce((sum, curr) => sum + curr.percentage, 0) /
-      (categoryPercentages.length || 1) 
+      (categoryPercentages.length || 1)
   );
 
+  const SCORE_MAP = [
+    { range: [0, 40], label: "Poor", textClass: "text-red-400", borderClass: "border-red-400" },
+    {
+      range: [40, 60],
+      label: "Average",
+      textClass: "text-blue-400",
+      borderClass: "border-blue-500",
+    },
+    {
+      range: [60, 90],
+      label: "Good",
+      textClass: "text-green-500",
+      borderClass: "border-green-400",
+    },
+    {
+      range: [90, 100],
+      label: "Excellent",
+      textClass: "text-green-700",
+      borderClass: "border-green-700",
+    },
+  ] as const;
+
+  const { label, textClass, borderClass } = SCORE_MAP.find(
+    (score) => overallScore >= score.range[0] && overallScore <= score.range[1]
+  ) || { label: "Unknown", textClass: "text-gray-500", borderClass: "border-gray-500" };
+
   return (
-    <div className="flex flex-col flex-grow w-full h-full bg-green-400 rounded p-4 space-y-4">
+    <div className="flex flex-col flex-grow w-full h-full items-center justify-center bg-[#c4c4c4] text-zinc-500 rounded p-4 space-y-4">
       {isLoading ? (
         <LoadingIndicator />
       ) : (
-        <div className="text-white">
-          <h2 className="text-lg font-bold">Overview</h2>
-          <p>Total Categories: {categoryPercentages.length}</p>
-          <p>Overall Score: {overallScore}%</p>
-          <p>Average Category Percentage: {averagePercentage}%</p>
-          <p>
-            Highest Category: {highestCategory.category} ({highestCategory.percentage}%)
-          </p>
-          <p>
-            Lowest Category: {lowestCategory.category} ({lowestCategory.percentage}%)
-          </p>
-          <ul className="mt-4">
-            {categoryPercentages.map(({ category, percentage }) => (
-              <li key={category}>
-                {category}: {percentage}%
-              </li>
-            ))}
-          </ul>
+        <div className="grid font-[550] text-zinc-500 grid-cols-2 gap-y-2 w-full max-w-lg">
+          <div
+            className={`w-36 max-w-36 min-w-36 flex tabular-nums items-center justify-center rounded-md p-1 text-5xl ${textClass} border-[4px] ${borderClass}`}>
+            {overallScore}%
+          </div>
+          <div className="col-span-2 text- ">{label}</div>
+
+          <div className="text-sm">AVERAGE:</div>
+          <div className="text-sm">{averagePercentage}%</div>
+
+          <div className="text-sm">HIGHEST:</div>
+          <div className="text-sm">
+            {highestCategory.category} ({highestCategory.percentage}%)
+          </div>
+
+          <div className="text-sm">LOWEST:</div>
+          <div className="text-sm">
+            {lowestCategory.category} ({lowestCategory.percentage}%)
+          </div>
         </div>
       )}
     </div>
