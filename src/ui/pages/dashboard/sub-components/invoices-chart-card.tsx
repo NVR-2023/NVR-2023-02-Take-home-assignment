@@ -94,7 +94,7 @@ const InvoicesChartCard = () => {
                     <Line
                       type="monotone"
                       dataKey="issuedInvoices"
-                      stroke="url(#greenGradient)" // Use gradient for the line color
+                      stroke="url(#greenGradient)" 
                       strokeWidth={2}
                       dot={false}
                       activeDot={{ r: 4 }}

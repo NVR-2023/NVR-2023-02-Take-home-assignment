@@ -7,10 +7,8 @@ import { getOverviewStatsFromData } from "../../../utils/get-overview-stats-from
 import StatsMiniCard from "./card/stats-minicard";
 import InvoicesMinicard from "./card/invoices-minicard";
 import RevenueMinicard from "../../pages/dashboard/sub-components/revenue-minicard";
-import { useCombinedTimelinesContext } from "../../../custom-hooks/use-combined-timelines-context";
 
 const OverviewCard = () => {
-  const { isLoading }= useCombinedTimelinesContext();
   const data = useFilteredDashboardData();
   const overviewStats = getOverviewStatsFromData({ data });
 
@@ -35,13 +33,7 @@ const OverviewCard = () => {
               handleOnCloseCard();
             }
           }}>
-
-            
-          <CardHeaderSegment
-            title="overview"
-            closeFunction={handleOnCloseCard}
-            textColor="#765cf7"
-          />
+          <CardHeaderSegment title="overview" closeFunction={handleOnCloseCard} />
 
           <div className="flex flex-grow min-w-full w-full h-full rounded justify-center items-center">
             <div className="w-full h-full grid grid-rows-[repeat(4, 1fr)] grid-cols-[repeat(2, 1fr)] gap-2">
@@ -51,6 +43,7 @@ const OverviewCard = () => {
                   averageMonthlyRevenue={overviewStats.averageMonthlyRevenue}
                   maxMonthlyRevenue={overviewStats.maxMonthlyRevenue}
                   minMonthlyRevenue={overviewStats.minMonthlyRevenue}
+                  color="#765cf7"
                 />
               </div>
               <div className="col-span-1 row-span-1">

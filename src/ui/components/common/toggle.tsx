@@ -10,7 +10,7 @@ const Toggle = () => {
   const toggleFunction = () => {
     setDashboardUIContext((previousContext) => ({
       ...previousContext,
-      isRevenueGraphVisible: !isRevenueGraphVisible, // Corrected to match the variable name
+      isRevenueGraphVisible: !isRevenueGraphVisible, 
     }));
   };
 

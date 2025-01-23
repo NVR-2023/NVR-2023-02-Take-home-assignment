@@ -4,13 +4,13 @@ import InvoiceIssuerDataProvider from "../../../contexts/invoicer-issuer/invoice
 import InvoiceClientsDataProvider from "../../../contexts/invoicer-clients/invocie-clients-data-provider";
 import InvoicerProductsDataProvider from "../../../contexts/invoicer-products/invocier-products-data-provider";
 import { InvoiceFormContextProvider } from "../../../contexts/invoicer-form/invoice-form-context-provider";
-import ClientsSearchbar from "./sub-components/clients-sratchbar";
 import Toolbar from "../../sections/toolbar/toolbar";
 import ContentArea from "../../sections/content-area/content-area";
 import InvoicerLayout from "../../layouts/invoicer-layout";
 
 const Invoicer = () => {
-  const ToolsArray = [ClientsSearchbar];
+  const voidCOmponent = ()=>(<></>)
+  const ToolsArray = [voidCOmponent];
   return (
     <motion.div
       {...pageAnimation}
