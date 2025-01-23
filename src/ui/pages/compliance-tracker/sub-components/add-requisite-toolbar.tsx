@@ -40,7 +40,7 @@ const AddRequisiteToolbar = () => {
       </div>
 
       <div className="flex flex-col md:flex-row items-center sm:justify-between space-y-4 md:space-y-0 md:space-x-4">
-        <div className="w-full">
+        <div className="mt-3 sm:mt-0 w-full">
           <ModifiedInputField
             label="requisite"
             value={newRequisite.key}
