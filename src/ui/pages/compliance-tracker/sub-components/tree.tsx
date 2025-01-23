@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { useComplianceStatusContext } from "../../../../custom-hooks/use-compliance-status";
 import AddRequisiteToolbar from "./add-requisite-toolbar";
 import { createCategoryMatrix } from "../../../../utils/create-category-matrix";
@@ -5,6 +6,7 @@ import CategoryCard from "./category-card";
 import RequisiteCard from "./requirement-card";
 import { useComplianceTrackerUIContext } from "../../../../custom-hooks/use-complaince-tracker-ui-context";
 import LoadingIndicator from "../../../components/animated/loading-indicator";
+import { requisiteAnimation, categoryAnimation } from "../../../animations/compliance-animations";
 
 const Tree = () => {
   const { complianceStatus, setComplianceStatus } = useComplianceStatusContext();
@@ -38,7 +40,7 @@ const Tree = () => {
       </div>
       <div className="flex-1 overflow-y-scroll rounded bg-zinc-300 space-y-9">
         {isLoading && <LoadingIndicator />}
-        {Object.keys(sortedData).map((category) => {
+        {Object.keys(sortedData).map((category, catIndex) => {
           const categoryItems = sortedData[category as keyof typeof sortedData];
           const totalItems = categoryItems.length;
           const trueCount = categoryItems.filter((item) => item.value).length;
@@ -47,20 +49,32 @@ const Tree = () => {
           return (
             totalItems > 0 && (
               <div key={category} className="p-4 space-y-4">
-                {areNodesVisible && <CategoryCard name={category} percentage={percentage} />}
-                <div className="space-y-4">
-                  {categoryItems.map(
-                    (item, index) =>
-                      areLeafsVisible && (
-                        <RequisiteCard
-                          key={index}
-                          name={item.key}
-                          value={item.value}
-                          toggleFunction={() => toggleItemValue(category, index)}
-                          deleteFunction={() => deleteItem(category, index)}
-                        />
-                      )
+                <AnimatePresence>
+                  {areNodesVisible && (
+                    <motion.div
+                      key={category + "category"}
+                      {...categoryAnimation}
+                      custom={catIndex}>
+                      <CategoryCard name={category} percentage={percentage} />
+                    </motion.div>
                   )}
+                </AnimatePresence>
+                <div className="space-y-4">
+                  <AnimatePresence>
+                    {categoryItems.map(
+                      (item, index) =>
+                        areLeafsVisible && (
+                          <motion.div key={item.key + index} {...requisiteAnimation} custom={index}>
+                            <RequisiteCard
+                              name={item.key}
+                              value={item.value}
+                              toggleFunction={() => toggleItemValue(category, index)}
+                              deleteFunction={() => deleteItem(category, index)}
+                            />
+                          </motion.div>
+                        )
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             )
