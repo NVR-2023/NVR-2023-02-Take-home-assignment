@@ -1,4 +1,3 @@
-
 # Comudel Take-home Assignment by Nuno Rodrigues
 
 This is a frontend-stack web application for TechBilling. It features a Vite React SPA.
@@ -16,13 +15,19 @@ This is a frontend-stack web application for TechBilling. It features a Vite Rea
 ### MOCK RESTful API
 
 - Performs mock API calls with simulated latency of 1000 milliseconds and retrieves mock JSON data compliant with REST best practices.
-- No hard coded data. All data os fetched from a mock API, including product and company details.
+- No hardcoded data. All data is fetched from the mock API, including product and company details.
 
 ### Frontend
 
 - Loading and error states for all data.
+  Loading indicators and transition animations for all pages.
 - Input validation.
-- Customizable, dynamic, and responsive UI.
+  All text inputs get Zod validation schemas.
+- Customizable, dynamic UI.
+  Cards can be toggled. Sibling elements adjust.
+- Responsive.
+  Different layouts for different screen sizes, with additional tweaks to icon and text sizes for a better experience.
+- Rich animations for most UI elements.
 
 ## Technologies
 
@@ -32,16 +37,16 @@ This is a frontend-stack web application for TechBilling. It features a Vite Rea
 
 **Frontend:**
 
-- Vite 5.6
+- Vite 5.6 (Builder)
 - React 18.3
 - React DOM 18.3
 - React Router DOM 7.1
-- Tailwind CSS 4.0 Beta
-- Recharts 2.15
-- Framer Motion 11.1
-- Radix (various components)
-- Zod 3.24
-- UUID 11.0
+- Tailwind CSS 4.0 Beta (CSS Framework)
+- Recharts 2.15 (Charts Library for React)
+- Framer Motion 11.1 (Animation library for React)
+- Radix (various components) (Component Library)
+- Zod 3.24 (Validation library)
+- UUID 11.0 (UUID generation library, used to generate invoice references)
 
 ## Installation
 
@@ -53,9 +58,9 @@ Start by cloning the repository to your local machine. Run the following command
 git clone https://github.com/NVR-2023/NVR-2023-02-Take-home-assignment
 ```
 
-### 2. Go to the root directory of the project
+### 2. Go to the Root Directory of the Project
 
-If you need, type the following command in your terminal:
+If needed, type the following command in your terminal:
 
 ```bash
 cd .\NVR-2023-02-Take-home-assignment\
@@ -70,6 +75,7 @@ npm install
 ```
 
 This will install all the required dependencies.
+
 ### 4. Start the Development Server
 
 Start the Vite/React development server:
@@ -82,14 +88,12 @@ npm run dev
 
 Once the server is running, press Ctrl + Click on the provided link to open a browser window at the port specified by Vite.
 
-
-> [!NOTE]
-> This project uses Tailwind 4 Beta, which no longer includes the traditional config file. The local version works correctly with Vite; however, when cloned, the CSS fails to load initially. A manual page refresh is required to render it properly. Once the CSS is cached, it functions as expected. Please note that for assessment purposes, you may need to refresh the page. This was a last-minute check, and while I’ve attempted several fixes, I am actively exploring additional solutions to resolve the issue and ensure smooth functionality moving forward.
-
+> [!NOTE]  
+> This project uses Tailwind 4 Beta, which no longer includes the traditional config file. The local version works correctly. However, when cloned, the CSS fails to load initially. A manual page refresh is required to render it properly, which might be a compatibility issue of the Tailwind 4 beta version with Vite. The reason might be that Tailwind 4 drops the traditional config file, for example.  However, once the CSS is cached, it functions as expected. Please note that for assessment purposes, you may need to refresh the page. This was a last-minute check, and I am actively exploring additional solutions to resolve the issue.
 
 ## Pages
 
-The frontend app contains a landing page plus three functional pages:
+The frontend app contains a landing page plus three additional pages:
 
 ### `/`
 
@@ -109,4 +113,4 @@ Simulates the issuing of invoices.
 
 ## Author
 
-This project was developed by Nuno Rodrigues in January 2025.
+This project was designed, coded and developed by Nuno Rodrigues in January 2025.
