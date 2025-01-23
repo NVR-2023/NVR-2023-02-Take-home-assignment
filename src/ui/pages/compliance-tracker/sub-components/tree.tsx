@@ -4,13 +4,14 @@ import { createCategoryMatrix } from "../../../../utils/create-category-matrix";
 import CategoryCard from "./category-card";
 import RequisiteCard from "./requirement-card";
 import { useComplianceTrackerUIContext } from "../../../../custom-hooks/use-complaince-tracker-ui-context";
+import LoadingIndicator from "../../../components/animated/loading-indicator";
+
 const Tree = () => {
   const { complianceStatus, setComplianceStatus } = useComplianceStatusContext();
-  const { data } = complianceStatus;
+  const { data, isLoading } = complianceStatus;
   const sortedData = createCategoryMatrix(data);
   const { ComplianceStatusUIContext } = useComplianceTrackerUIContext();
-  const { areCheckedVisible, areLeafsVisible, areNodesVisible, areUncheckedVisible } =
-    ComplianceStatusUIContext;
+  const { areLeafsVisible, areNodesVisible } = ComplianceStatusUIContext;
 
   const toggleItemValue = (category: string, index: number) => {
     const updatedData = [...data];
@@ -36,6 +37,7 @@ const Tree = () => {
         <AddRequisiteToolbar />
       </div>
       <div className="flex-1 overflow-y-scroll rounded bg-zinc-300 space-y-9">
+        {isLoading && <LoadingIndicator />}
         {Object.keys(sortedData).map((category) => {
           const categoryItems = sortedData[category as keyof typeof sortedData];
           const totalItems = categoryItems.length;
