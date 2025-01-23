@@ -3,11 +3,14 @@ import AddRequisiteToolbar from "./add-requisite-toolbar";
 import { createCategoryMatrix } from "../../../../utils/create-category-matrix";
 import CategoryCard from "./category-card";
 import RequisiteCard from "./requirement-card";
-
+import { useComplianceTrackerUIContext } from "../../../../custom-hooks/use-complaince-tracker-ui-context";
 const Tree = () => {
   const { complianceStatus, setComplianceStatus } = useComplianceStatusContext();
   const { data } = complianceStatus;
   const sortedData = createCategoryMatrix(data);
+  const { ComplianceStatusUIContext } = useComplianceTrackerUIContext();
+  const { areCheckedVisible, areLeafsVisible, areNodesVisible, areUncheckedVisible } =
+    ComplianceStatusUIContext;
 
   const toggleItemValue = (category: string, index: number) => {
     const updatedData = [...data];
@@ -42,17 +45,20 @@ const Tree = () => {
           return (
             totalItems > 0 && (
               <div key={category} className="p-4 space-y-4">
-                <CategoryCard name={category} percentage={percentage} />
+                {areNodesVisible && <CategoryCard name={category} percentage={percentage} />}
                 <div className="space-y-4">
-                  {categoryItems.map((item, index) => (
-                    true && <RequisiteCard
-                      key={index}
-                      name={item.key}
-                      value={item.value}
-                      toggleFunction={() => toggleItemValue(category, index)}
-                      deleteFunction={() => deleteItem(category, index)}
-                    />
-                  ))}
+                  {categoryItems.map(
+                    (item, index) =>
+                      areLeafsVisible && (
+                        <RequisiteCard
+                          key={index}
+                          name={item.key}
+                          value={item.value}
+                          toggleFunction={() => toggleItemValue(category, index)}
+                          deleteFunction={() => deleteItem(category, index)}
+                        />
+                      )
+                  )}
                 </div>
               </div>
             )
