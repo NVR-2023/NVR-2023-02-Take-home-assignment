@@ -7,7 +7,7 @@ import ContentArea from "../../sections/content-area/content-area";
 import DashboardSliderSegment from "./sub-components/dashboard-slider-segment";
 import DashboardTogglesSegment from "./sub-components/dashboard-toggles-segment";
 import DashboardDesktopLayout from "../../layouts/dashboard-dektop-layout";
-
+import DashboardMobileLayout from "../../layouts/dashboard-monile-layout";
 const Dashboard = () => {
   const ToolsArray = [DashboardSliderSegment, DashboardTogglesSegment];
 
@@ -17,7 +17,12 @@ const Dashboard = () => {
       className="bg-zinc-200 rounded h-auto md:min-h-screen md:h-screen p-4 space-y-2 overflow-x-clip">
       <Toolbar title="Dashboard" toolsArray={ToolsArray} />
       <ContentArea>
-        <DashboardDesktopLayout />
+        <div className="flex sm:hidden">
+          <DashboardMobileLayout />
+        </div>
+        <div className="hidden sm:flex">
+          <DashboardDesktopLayout />
+        </div>
       </ContentArea>
     </motion.div>
   );
