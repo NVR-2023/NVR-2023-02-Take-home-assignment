@@ -16,6 +16,7 @@ This is a frontend-stack web application for TechBilling. It features a Vite Rea
 ### MOCK RESTful API
 
 - Performs mock API calls with simulated latency of 1000 milliseconds and retrieves mock JSON data compliant with REST best practices.
+- No hard coded data. All data os fetched from a mock API, including product and company details.
 
 ### Frontend
 
@@ -80,6 +81,11 @@ npm run dev
 ### 5. Open the Browser
 
 Once the server is running, press Ctrl + Click on the provided link to open a browser window at the port specified by Vite.
+
+
+> [!NOTE]
+> This project uses Tailwind 4 Beta, which no longer includes the traditional config file. The local version works correctly with Vite; however, when cloned, the CSS fails to load initially. A manual page refresh is required to render it properly. Once the CSS is cached, it functions as expected. Please note that for assessment purposes, you may need to refresh the page. This was a last-minute check, and while I’ve attempted several fixes, I am actively exploring additional solutions to resolve the issue and ensure smooth functionality moving forward.
+
 
 ## Pages
 
