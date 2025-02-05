@@ -113,4 +113,4 @@ Simulates the issuing of invoices.
 
 ## Author
 
-This project was designed, coded and developed by Nuno Rodrigues in January 2025.
+This project was designed, coded and developed by Nuno Rodrigues in January 2025 as take-home assignment.
