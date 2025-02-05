@@ -11,6 +11,7 @@ import DashboardMobileLayout from "../../layouts/dashboard-monile-layout";
 const Dashboard = () => {
   const ToolsArray = [DashboardSliderSegment, DashboardTogglesSegment];
 
+  
   return (
     <motion.div
       {...pageAnimation}
